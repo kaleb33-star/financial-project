@@ -1385,9 +1385,16 @@
     </style>
   </head>
   <body>
+    cat /home/claude/snippet_out.txt Output
+
     <header>
       <div class="top">
-        <div>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <img
+            src="data:image/png;base64,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"
+            alt="Church logo"
+            style="height: 60px; width: auto"
+          />
           <h1>ካራ ቆሬ ጀሞ መንገድ ሙሉ ወንጌል አማኞች አጥቢያ ቤ/ክ</h1>
           <p>የተመደበውን በጀት ከተጠቀሙት ገንዘብ እና ገቢ ጋር በቀጥታ የሚያነፃፅር የአስተዳደር ዳሽቦርድ</p>
         </div>
@@ -1688,22 +1695,101 @@
 
       <details class="app-section admin-only" id="secPromisedMiddle">
         <summary>
-          <span class="sec-title">🤝 <span>ቃል የተገባ ገንዘብ እና የመካከለኛ ሰው ገንዘብ <span class="sec-sub">ሁለቱን ሂሳቦች በተለያየ መልኩ ይመልከቱ</span></span></span>
+          <span class="sec-title"
+            >🤝
+            <span
+              >ቃል የተገባ ገንዘብ እና የመካከለኛ ሰው ገንዘብ
+              <span class="sec-sub">ሁለቱን ሂሳቦች በተለያየ መልኩ ይመልከቱ</span></span
+            ></span
+          >
           <span class="chev">▾</span>
         </summary>
         <div class="sec-body">
           <div class="admin-records-grid">
             <div class="card">
-              <div class="section-title"><div><div class="label">💵 መደበኛ ቃል የተገባ ገንዘብ</div><div class="value" id="promiseNormalTotal">0 ብር</div></div></div>
-              <div class="table-wrap"><table><thead><tr><th>ቀን</th><th>ስም</th><th>ስልክ ቁጥር</th><th>ቃል የተገባ መጠን</th><th>የተከፈለ</th><th>ቀሪ</th><th>%</th><th>ቀነ-ገደብ</th><th>ሁኔታ</th><th>ማስታወሻ</th><th>የመዘገበው</th><th class="no-print">እርምጃ</th></tr></thead><tbody id="promiseNormalBody"></tbody></table></div>
+              <div class="section-title">
+                <div>
+                  <div class="label">💵 መደበኛ ቃል የተገባ ገንዘብ</div>
+                  <div class="value" id="promiseNormalTotal">0 ብር</div>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>ቀን</th>
+                      <th>ስም</th>
+                      <th>ስልክ ቁጥር</th>
+                      <th>ቃል የተገባ መጠን</th>
+                      <th>የተከፈለ</th>
+                      <th>ቀሪ</th>
+                      <th>%</th>
+                      <th>ቀነ-ገደብ</th>
+                      <th>ሁኔታ</th>
+                      <th>ማስታወሻ</th>
+                      <th>የመዘገበው</th>
+                      <th class="no-print">እርምጃ</th>
+                    </tr>
+                  </thead>
+                  <tbody id="promiseNormalBody"></tbody>
+                </table>
+              </div>
             </div>
             <div class="card">
-              <div class="section-title"><div><div class="label">🏗️ ግንባታ እና ሕንፃ ቃል የተገባ ገንዘብ</div><div class="value" id="promiseBuildingTotal">0 ብር</div></div></div>
-              <div class="table-wrap"><table><thead><tr><th>ቀን</th><th>ስም</th><th>ስልክ ቁጥር</th><th>ቃል የተገባ መጠን</th><th>የተከፈለ</th><th>ቀሪ</th><th>%</th><th>ቀነ-ገደብ</th><th>ሁኔታ</th><th>ማስታወሻ</th><th>የመዘገበው</th><th class="no-print">እርምጃ</th></tr></thead><tbody id="promiseBuildingBody"></tbody></table></div>
+              <div class="section-title">
+                <div>
+                  <div class="label">🏗️ ግንባታ እና ሕንፃ ቃል የተገባ ገንዘብ</div>
+                  <div class="value" id="promiseBuildingTotal">0 ብር</div>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>ቀን</th>
+                      <th>ስም</th>
+                      <th>ስልክ ቁጥር</th>
+                      <th>ቃል የተገባ መጠን</th>
+                      <th>የተከፈለ</th>
+                      <th>ቀሪ</th>
+                      <th>%</th>
+                      <th>ቀነ-ገደብ</th>
+                      <th>ሁኔታ</th>
+                      <th>ማስታወሻ</th>
+                      <th>የመዘገበው</th>
+                      <th class="no-print">እርምጃ</th>
+                    </tr>
+                  </thead>
+                  <tbody id="promiseBuildingBody"></tbody>
+                </table>
+              </div>
             </div>
             <div class="card">
-              <div class="section-title"><div><div class="label">👤 መካከለኛ ሰው — ያልተቀነሰ ገንዘብ</div><div class="value" id="middleGrandTotal">0 ብር</div></div></div>
-              <div class="table-wrap"><table><thead><tr><th>ቀን</th><th>ስም</th><th>የመጀመሪያ ንግድ</th><th>የመጀመሪያ ብርሃን</th><th>ያለቀ/የተከፈለ</th><th>ቀሪ ንግድ</th><th>ቀሪ ብርሃን</th><th>ቀሪ ጠቅላላ</th><th>ማስታወሻ</th><th class="no-print">እርምጃ</th></tr></thead><tbody id="middleBody"></tbody></table></div>
+              <div class="section-title">
+                <div>
+                  <div class="label">👤 መካከለኛ ሰው — ያልተቀነሰ ገንዘብ</div>
+                  <div class="value" id="middleGrandTotal">0 ብር</div>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>ቀን</th>
+                      <th>ስም</th>
+                      <th>የመጀመሪያ ንግድ</th>
+                      <th>የመጀመሪያ ብርሃን</th>
+                      <th>ያለቀ/የተከፈለ</th>
+                      <th>ቀሪ ንግድ</th>
+                      <th>ቀሪ ብርሃን</th>
+                      <th>ቀሪ ጠቅላላ</th>
+                      <th>ማስታወሻ</th>
+                      <th class="no-print">እርምጃ</th>
+                    </tr>
+                  </thead>
+                  <tbody id="middleBody"></tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -1725,9 +1811,20 @@
         </div>
       </section>
 
-      <details class="app-section user-only" id="secUserRecords" open style="display: none">
+      <details
+        class="app-section user-only"
+        id="secUserRecords"
+        open
+        style="display: none"
+      >
         <summary>
-          <span class="sec-title">👥 <span>የተጠቃሚ መመዝገቢያ <span class="sec-sub">ቃል የተገባ ገንዘብ እና የመካከለኛ ሰው ገንዘብ</span></span></span>
+          <span class="sec-title"
+            >👥
+            <span
+              >የተጠቃሚ መመዝገቢያ
+              <span class="sec-sub">ቃል የተገባ ገንዘብ እና የመካከለኛ ሰው ገንዘብ</span></span
+            ></span
+          >
           <span class="chev">▾</span>
         </summary>
         <div class="sec-body">
@@ -1735,52 +1832,147 @@
             <div class="record-card-accent">
               <h3>💰 ቃል የተገባ ገንዘብ</h3>
               <p class="hint">ሰውዬው ለቤተክርስቲያኑ ሊሰጥ ቃል የተገባውን ገንዘብ ይመዝግቡ።</p>
-              <div class="form-row"><label>የሰውዬው ስም</label><input id="promiseName" type="text" placeholder="ስም ያስገቡ" /></div>
-              <div class="two">
-                <div class="form-row"><label>ቃል የተገባ ገንዘብ (ብር)</label><input id="promiseAmount" type="number" min="0" step="0.01" placeholder="0" /></div>
-                <div class="form-row"><label>ቃል የተገባው አይነት</label><select id="promiseCategory"><option value="normal">💵 መደበኛ ገንዘብ</option><option value="building">🏗️ ግንባታ እና ሕንፃ ገንዘብ</option></select></div>
+              <div class="form-row">
+                <label>የሰውዬው ስም</label
+                ><input id="promiseName" type="text" placeholder="ስም ያስገቡ" />
               </div>
               <div class="two">
-                <div class="form-row"><label>ስልክ ቁጥር (አማራጭ)</label><input id="promisePhone" type="tel" placeholder="09xxxxxxxx" /></div>
-                <div class="form-row"><label>የመክፈያ ቀነ-ገደብ (አማራጭ)</label><input id="promiseDeadline" type="date" /></div>
+                <div class="form-row">
+                  <label>ቃል የተገባ ገንዘብ (ብር)</label
+                  ><input
+                    id="promiseAmount"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="0"
+                  />
+                </div>
+                <div class="form-row">
+                  <label>ቃል የተገባው አይነት</label
+                  ><select id="promiseCategory">
+                    <option value="normal">💵 መደበኛ ገንዘብ</option>
+                    <option value="building">🏗️ ግንባታ እና ሕንፃ ገንዘብ</option>
+                  </select>
+                </div>
               </div>
               <div class="two">
-                <div class="form-row"><label>ቀን</label><input id="promiseDate" type="datetime-local" /></div>
-                <div class="form-row"><label>ማስታወሻ (አማራጭ)</label><input id="promiseNote" type="text" placeholder="ማስታወሻ" /></div>
+                <div class="form-row">
+                  <label>ስልክ ቁጥር (አማራጭ)</label
+                  ><input
+                    id="promisePhone"
+                    type="tel"
+                    placeholder="09xxxxxxxx"
+                  />
+                </div>
+                <div class="form-row">
+                  <label>የመክፈያ ቀነ-ገደብ (አማራጭ)</label
+                  ><input id="promiseDeadline" type="date" />
+                </div>
+              </div>
+              <div class="two">
+                <div class="form-row">
+                  <label>ቀን</label
+                  ><input id="promiseDate" type="datetime-local" />
+                </div>
+                <div class="form-row">
+                  <label>ማስታወሻ (አማራጭ)</label
+                  ><input id="promiseNote" type="text" placeholder="ማስታወሻ" />
+                </div>
               </div>
               <div id="promiseAlert" class="alert"></div>
-              <button class="primary" onclick="addPromise()">ቃል የተገባውን ገንዘብ መዝግብ</button>
+              <button class="primary" onclick="addPromise()">
+                ቃል የተገባውን ገንዘብ መዝግብ
+              </button>
             </div>
 
             <div class="record-card-accent">
               <h3>👤 የመካከለኛ ሰው ገንዘብ</h3>
-              <p class="hint">ወደ መካከለኛ ሰው የተሰጠውን ገንዘብ ከእያንዳንዱ ባንክ በተለይ ይመዝግቡ። ይህ ገንዘብ ገና የወጪ ሂሳብ አይሆንም።</p>
-              <div class="form-row"><label>የመካከለኛ ሰው ስም</label><input id="middleName" type="text" placeholder="ስም ያስገቡ" /></div>
-              <div class="two">
-                <div class="form-row"><label>ከንግድ ባንክ (ብር)</label><input id="middleNigdAmount" type="number" min="0" step="0.01" placeholder="0" /></div>
-                <div class="form-row"><label>ከብርሃን ባንክ (ብር)</label><input id="middleBirhanAmount" type="number" min="0" step="0.01" placeholder="0" /></div>
+              <p class="hint">
+                ወደ መካከለኛ ሰው የተሰጠውን ገንዘብ ከእያንዳንዱ ባንክ በተለይ ይመዝግቡ። ይህ ገንዘብ ገና የወጪ
+                ሂሳብ አይሆንም።
+              </p>
+              <div class="form-row">
+                <label>የመካከለኛ ሰው ስም</label
+                ><input id="middleName" type="text" placeholder="ስም ያስገቡ" />
               </div>
               <div class="two">
-                <div class="form-row"><label>ቀን</label><input id="middleDate" type="datetime-local" /></div>
-                <div class="form-row"><label>ማስታወሻ (አማራጭ)</label><input id="middleNote" type="text" placeholder="ማስታወሻ" /></div>
+                <div class="form-row">
+                  <label>ከንግድ ባንክ (ብር)</label
+                  ><input
+                    id="middleNigdAmount"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="0"
+                  />
+                </div>
+                <div class="form-row">
+                  <label>ከብርሃን ባንክ (ብር)</label
+                  ><input
+                    id="middleBirhanAmount"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="0"
+                  />
+                </div>
               </div>
-              <div class="split-total"><span id="middlePreviewNigd">ንግድ: 0 ብር</span><span id="middlePreviewBirhan">ብርሃን: 0 ብር</span><span id="middlePreviewTotal">ጠቅላላ: 0 ብር</span></div>
+              <div class="two">
+                <div class="form-row">
+                  <label>ቀን</label
+                  ><input id="middleDate" type="datetime-local" />
+                </div>
+                <div class="form-row">
+                  <label>ማስታወሻ (አማራጭ)</label
+                  ><input id="middleNote" type="text" placeholder="ማስታወሻ" />
+                </div>
+              </div>
+              <div class="split-total">
+                <span id="middlePreviewNigd">ንግድ: 0 ብር</span
+                ><span id="middlePreviewBirhan">ብርሃን: 0 ብር</span
+                ><span id="middlePreviewTotal">ጠቅላላ: 0 ብር</span>
+              </div>
               <div id="middleAlert" class="alert"></div>
-              <button class="primary" onclick="addMiddlePerson()">የመካከለኛ ሰው ገንዘብ መዝግብ</button>
+              <button class="primary" onclick="addMiddlePerson()">
+                የመካከለኛ ሰው ገንዘብ መዝግብ
+              </button>
             </div>
           </section>
 
           <section class="card record-card-accent" style="margin-top: 16px">
             <h3>💳 ቃል የተገባ ገንዘብ ክፍያ መዝገብ</h3>
-            <p class="hint">ቃል የገባ ሰው ገንዘብ በከፊል ወይም ሙሉ በሙሉ ሲከፍል እዚህ ይመዝግቡ። ይህ ክፍያ ከባንክ ሂሳብ ወይም ከሚገኝ ሒሳብ ጋር አይደመርም፤ ራሱን ችሎ ብቻ ይመዘገባል።</p>
-            <div class="form-row"><label>ገንዘብ የገባው ሰው</label><select id="promisePaymentSelect"></select></div>
-            <div class="two">
-              <div class="form-row"><label>የተከፈለ መጠን (ብር)</label><input id="promisePaymentAmount" type="number" min="0" step="0.01" placeholder="0" /></div>
-              <div class="form-row"><label>ቀን</label><input id="promisePaymentDate" type="datetime-local" /></div>
+            <p class="hint">
+              ቃል የገባ ሰው ገንዘብ በከፊል ወይም ሙሉ በሙሉ ሲከፍል እዚህ ይመዝግቡ። ይህ ክፍያ ከባንክ ሂሳብ ወይም
+              ከሚገኝ ሒሳብ ጋር አይደመርም፤ ራሱን ችሎ ብቻ ይመዘገባል።
+            </p>
+            <div class="form-row">
+              <label>ገንዘብ የገባው ሰው</label
+              ><select id="promisePaymentSelect"></select>
             </div>
-            <div class="form-row"><label>ማስታወሻ (አማራጭ)</label><input id="promisePaymentNote" type="text" placeholder="ማስታወሻ" /></div>
+            <div class="two">
+              <div class="form-row">
+                <label>የተከፈለ መጠን (ብር)</label
+                ><input
+                  id="promisePaymentAmount"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  placeholder="0"
+                />
+              </div>
+              <div class="form-row">
+                <label>ቀን</label
+                ><input id="promisePaymentDate" type="datetime-local" />
+              </div>
+            </div>
+            <div class="form-row">
+              <label>ማስታወሻ (አማራጭ)</label
+              ><input id="promisePaymentNote" type="text" placeholder="ማስታወሻ" />
+            </div>
             <div id="promisePaymentAlert" class="alert"></div>
-            <button class="primary" onclick="addPromisePayment()">ክፍያውን መዝግብ</button>
+            <button class="primary" onclick="addPromisePayment()">
+              ክፍያውን መዝግብ
+            </button>
           </section>
         </div>
       </details>
@@ -1903,14 +2095,52 @@
                       <option value="ሌላ">ሌላ</option>
                     </select>
                   </div>
-                  <div class="form-row" id="middlePayoutBox" style="display:none; grid-column: 1 / -1;">
+                  <div
+                    class="form-row"
+                    id="middlePayoutBox"
+                    style="display: none; grid-column: 1 / -1"
+                  >
                     <label>👤 PT Cash የሚሰጠው ከየትኛው መካከለኛ ሰው ነው?</label>
-                    <select id="middlePayoutPerson" onchange="updateMiddlePayoutLimits()"><option value="">— መካከለኛ ሰው ይምረጡ —</option></select>
-                    <div class="two" style="margin-top:10px">
-                      <div class="form-row"><label>ከንግድ ባንክ የሚቀነሰው</label><input id="middlePayoutNigd" type="number" min="0" step="0.01" placeholder="0" oninput="updateMiddlePayoutLimits()" /><small id="middlePayoutNigdAvailable" class="hint"></small></div>
-                      <div class="form-row"><label>ከብርሃን ባንክ የሚቀነሰው</label><input id="middlePayoutBirhan" type="number" min="0" step="0.01" placeholder="0" oninput="updateMiddlePayoutLimits()" /><small id="middlePayoutBirhanAvailable" class="hint"></small></div>
+                    <select
+                      id="middlePayoutPerson"
+                      onchange="updateMiddlePayoutLimits()"
+                    >
+                      <option value="">— መካከለኛ ሰው ይምረጡ —</option>
+                    </select>
+                    <div class="two" style="margin-top: 10px">
+                      <div class="form-row">
+                        <label>ከንግድ ባንክ የሚቀነሰው</label
+                        ><input
+                          id="middlePayoutNigd"
+                          type="number"
+                          min="0"
+                          step="0.01"
+                          placeholder="0"
+                          oninput="updateMiddlePayoutLimits()"
+                        /><small
+                          id="middlePayoutNigdAvailable"
+                          class="hint"
+                        ></small>
+                      </div>
+                      <div class="form-row">
+                        <label>ከብርሃን ባንክ የሚቀነሰው</label
+                        ><input
+                          id="middlePayoutBirhan"
+                          type="number"
+                          min="0"
+                          step="0.01"
+                          placeholder="0"
+                          oninput="updateMiddlePayoutLimits()"
+                        /><small
+                          id="middlePayoutBirhanAvailable"
+                          class="hint"
+                        ></small>
+                      </div>
                     </div>
-                    <div class="hint">PT Cash ሲመዘገብ የተከፋፈለው መጠን ከመካከለኛ ሰው ቀሪ እና ከተወካዩ ባንክ ሂሳብ ይቀነሳል።</div>
+                    <div class="hint">
+                      PT Cash ሲመዘገብ የተከፋፈለው መጠን ከመካከለኛ ሰው ቀሪ እና ከተወካዩ ባንክ ሂሳብ
+                      ይቀነሳል።
+                    </div>
                   </div>
                   <div class="form-row">
                     <label>የደረሰኝ/ማጣቀሻ ቁጥር</label
@@ -2351,7 +2581,10 @@
                   <div class="two">
                     <div class="form-row">
                       <label>የክፍያ ዘዴ</label
-                      ><select id="conExpPayment" onchange="toggleMiddlePayoutCon()">
+                      ><select
+                        id="conExpPayment"
+                        onchange="toggleMiddlePayoutCon()"
+                      >
                         <option value="ባንክ ትራንስፈር">ባንክ ትራንስፈር</option>
                         <option value="PT Cash">PT Cash</option>
                         <option value="ቼክ">ቼክ</option>
@@ -2369,14 +2602,52 @@
                       />
                     </div>
                   </div>
-                  <div class="form-row" id="conMiddlePayoutBox" style="display:none">
+                  <div
+                    class="form-row"
+                    id="conMiddlePayoutBox"
+                    style="display: none"
+                  >
                     <label>👤 PT Cash የሚሰጠው ከየትኛው መካከለኛ ሰው ነው?</label>
-                    <select id="conMiddlePayoutPerson" onchange="updateMiddlePayoutLimitsCon()"><option value="">— መካከለኛ ሰው ይምረጡ —</option></select>
-                    <div class="two" style="margin-top:10px">
-                      <div class="form-row"><label>ከንግድ ባንክ የሚቀነሰው</label><input id="conMiddlePayoutNigd" type="number" min="0" step="0.01" placeholder="0" oninput="updateMiddlePayoutLimitsCon()" /><small id="conMiddlePayoutNigdAvailable" class="hint"></small></div>
-                      <div class="form-row"><label>ከብርሃን ባንክ የሚቀነሰው</label><input id="conMiddlePayoutBirhan" type="number" min="0" step="0.01" placeholder="0" oninput="updateMiddlePayoutLimitsCon()" /><small id="conMiddlePayoutBirhanAvailable" class="hint"></small></div>
+                    <select
+                      id="conMiddlePayoutPerson"
+                      onchange="updateMiddlePayoutLimitsCon()"
+                    >
+                      <option value="">— መካከለኛ ሰው ይምረጡ —</option>
+                    </select>
+                    <div class="two" style="margin-top: 10px">
+                      <div class="form-row">
+                        <label>ከንግድ ባንክ የሚቀነሰው</label
+                        ><input
+                          id="conMiddlePayoutNigd"
+                          type="number"
+                          min="0"
+                          step="0.01"
+                          placeholder="0"
+                          oninput="updateMiddlePayoutLimitsCon()"
+                        /><small
+                          id="conMiddlePayoutNigdAvailable"
+                          class="hint"
+                        ></small>
+                      </div>
+                      <div class="form-row">
+                        <label>ከብርሃን ባንክ የሚቀነሰው</label
+                        ><input
+                          id="conMiddlePayoutBirhan"
+                          type="number"
+                          min="0"
+                          step="0.01"
+                          placeholder="0"
+                          oninput="updateMiddlePayoutLimitsCon()"
+                        /><small
+                          id="conMiddlePayoutBirhanAvailable"
+                          class="hint"
+                        ></small>
+                      </div>
                     </div>
-                    <div class="hint">PT Cash ሲመዘገብ የተከፋፈለው መጠን ከመካከለኛ ሰው ቀሪ እና ከተወካዩ ባንክ ሂሳብ ይቀነሳል።</div>
+                    <div class="hint">
+                      PT Cash ሲመዘገብ የተከፋፈለው መጠን ከመካከለኛ ሰው ቀሪ እና ከተወካዩ ባንክ ሂሳብ
+                      ይቀነሳል።
+                    </div>
                   </div>
                   <div class="form-row">
                     <label>ዝርዝር</label
@@ -3187,7 +3458,9 @@
         el("promiseDate").value = nowLocal();
         el("middleDate").value = nowLocal();
         el("promisePaymentDate").value = nowLocal();
-        ["middleNigdAmount", "middleBirhanAmount"].forEach((id) => el(id)?.addEventListener("input", renderUserRecords));
+        ["middleNigdAmount", "middleBirhanAmount"].forEach((id) =>
+          el(id)?.addEventListener("input", renderUserRecords),
+        );
         el("rptMonth").value = new Date().toISOString().slice(0, 7);
         el("rptYear").value = new Date().getFullYear();
 
@@ -3351,19 +3624,45 @@
       function middleSpentForName(name, bank) {
         const fromRegular = expenses
           .filter((e) => e.payment === "PT Cash" && e.middlePersonName === name)
-          .reduce((a, e) => a + Number(bank === "nigd" ? (e.middleNigdAmount || 0) : (e.middleBirhanAmount || 0)), 0);
+          .reduce(
+            (a, e) =>
+              a +
+              Number(
+                bank === "nigd"
+                  ? e.middleNigdAmount || 0
+                  : e.middleBirhanAmount || 0,
+              ),
+            0,
+          );
         const fromConstruction = conExpenses
           .filter((e) => e.payment === "PT Cash" && e.middlePersonName === name)
-          .reduce((a, e) => a + Number(bank === "nigd" ? (e.middleNigdAmount || 0) : (e.middleBirhanAmount || 0)), 0);
+          .reduce(
+            (a, e) =>
+              a +
+              Number(
+                bank === "nigd"
+                  ? e.middleNigdAmount || 0
+                  : e.middleBirhanAmount || 0,
+              ),
+            0,
+          );
         return fromRegular + fromConstruction;
       }
       function middleHeldForName(name, bank) {
         return middlePersons
           .filter((m) => m.name === name)
-          .reduce((a, m) => a + Number(bank === "nigd" ? m.nigdAmount || 0 : m.birhanAmount || 0), 0);
+          .reduce(
+            (a, m) =>
+              a +
+              Number(bank === "nigd" ? m.nigdAmount || 0 : m.birhanAmount || 0),
+            0,
+          );
       }
       function middleRemainingForName(name, bank) {
-        return Math.max(0, middleHeldForName(name, bank) - middleSpentForName(name, bank));
+        return Math.max(
+          0,
+          middleHeldForName(name, bank) - middleSpentForName(name, bank),
+        );
       }
       function middlePeopleSummary() {
         const map = new Map();
@@ -3385,7 +3684,9 @@
         const box = el("middlePayoutBox");
         if (!box) return;
         box.style.display = isPT ? "block" : "none";
-        const bankBox = document.querySelector(".bank-selector-grid")?.closest(".form-row");
+        const bankBox = document
+          .querySelector(".bank-selector-grid")
+          ?.closest(".form-row");
         if (bankBox) bankBox.style.display = isPT ? "none" : "";
         if (isPT) populateMiddlePayoutPeople();
       }
@@ -3393,8 +3694,17 @@
         const select = el("middlePayoutPerson");
         if (!select) return;
         const current = select.value;
-        const people = middlePeopleSummary().filter((p) => p.nigdRemaining + p.birhanRemaining > 0);
-        select.innerHTML = `<option value="">— መካከለኛ ሰው ይምረጡ —</option>` + people.map((p) => `<option value="${escapeHtml(p.name)}">${escapeHtml(p.name)} — ቀሪ ${money(p.nigdRemaining+p.birhanRemaining)}</option>`).join("");
+        const people = middlePeopleSummary().filter(
+          (p) => p.nigdRemaining + p.birhanRemaining > 0,
+        );
+        select.innerHTML =
+          `<option value="">— መካከለኛ ሰው ይምረጡ —</option>` +
+          people
+            .map(
+              (p) =>
+                `<option value="${escapeHtml(p.name)}">${escapeHtml(p.name)} — ቀሪ ${money(p.nigdRemaining + p.birhanRemaining)}</option>`,
+            )
+            .join("");
         if (people.some((p) => p.name === current)) select.value = current;
         updateMiddlePayoutLimits();
       }
@@ -3402,15 +3712,20 @@
         const name = el("middlePayoutPerson")?.value || "";
         const n = name ? middleRemainingForName(name, "nigd") : 0;
         const b = name ? middleRemainingForName(name, "birhan") : 0;
-        if (el("middlePayoutNigdAvailable")) el("middlePayoutNigdAvailable").textContent = `ቀሪ ንግድ: ${money(n)}`;
-        if (el("middlePayoutBirhanAvailable")) el("middlePayoutBirhanAvailable").textContent = `ቀሪ ብርሃን: ${money(b)}`;
+        if (el("middlePayoutNigdAvailable"))
+          el("middlePayoutNigdAvailable").textContent = `ቀሪ ንግድ: ${money(n)}`;
+        if (el("middlePayoutBirhanAvailable"))
+          el("middlePayoutBirhanAvailable").textContent =
+            `ቀሪ ብርሃን: ${money(b)}`;
       }
       function toggleMiddlePayoutCon() {
         const isPT = el("conExpPayment")?.value === "PT Cash";
         const box = el("conMiddlePayoutBox");
         if (!box) return;
         box.style.display = isPT ? "block" : "none";
-        const bankBox = document.querySelector('input[name="conExpBankChoice"]')?.closest(".form-row");
+        const bankBox = document
+          .querySelector('input[name="conExpBankChoice"]')
+          ?.closest(".form-row");
         if (bankBox) bankBox.style.display = isPT ? "none" : "";
         if (isPT) populateMiddlePayoutPeopleCon();
       }
@@ -3418,8 +3733,17 @@
         const select = el("conMiddlePayoutPerson");
         if (!select) return;
         const current = select.value;
-        const people = middlePeopleSummary().filter((p) => p.nigdRemaining + p.birhanRemaining > 0);
-        select.innerHTML = `<option value="">— መካከለኛ ሰው ይምረጡ —</option>` + people.map((p) => `<option value="${escapeHtml(p.name)}">${escapeHtml(p.name)} — ቀሪ ${money(p.nigdRemaining+p.birhanRemaining)}</option>`).join("");
+        const people = middlePeopleSummary().filter(
+          (p) => p.nigdRemaining + p.birhanRemaining > 0,
+        );
+        select.innerHTML =
+          `<option value="">— መካከለኛ ሰው ይምረጡ —</option>` +
+          people
+            .map(
+              (p) =>
+                `<option value="${escapeHtml(p.name)}">${escapeHtml(p.name)} — ቀሪ ${money(p.nigdRemaining + p.birhanRemaining)}</option>`,
+            )
+            .join("");
         if (people.some((p) => p.name === current)) select.value = current;
         updateMiddlePayoutLimitsCon();
       }
@@ -3427,17 +3751,25 @@
         const name = el("conMiddlePayoutPerson")?.value || "";
         const n = name ? middleRemainingForName(name, "nigd") : 0;
         const b = name ? middleRemainingForName(name, "birhan") : 0;
-        if (el("conMiddlePayoutNigdAvailable")) el("conMiddlePayoutNigdAvailable").textContent = `ቀሪ ንግድ: ${money(n)}`;
-        if (el("conMiddlePayoutBirhanAvailable")) el("conMiddlePayoutBirhanAvailable").textContent = `ቀሪ ብርሃን: ${money(b)}`;
+        if (el("conMiddlePayoutNigdAvailable"))
+          el("conMiddlePayoutNigdAvailable").textContent =
+            `ቀሪ ንግድ: ${money(n)}`;
+        if (el("conMiddlePayoutBirhanAvailable"))
+          el("conMiddlePayoutBirhanAvailable").textContent =
+            `ቀሪ ብርሃን: ${money(b)}`;
       }
       function totalMiddleNigd() {
         return middlePersons.reduce((a, m) => a + Number(m.nigdAmount || 0), 0);
       }
       function totalMiddleBirhan() {
-        return middlePersons.reduce((a, m) => a + Number(m.birhanAmount || 0), 0);
+        return middlePersons.reduce(
+          (a, m) => a + Number(m.birhanAmount || 0),
+          0,
+        );
       }
       function addPromise() {
-        if (!session || (session.role !== "admin" && session.role !== "staff")) return;
+        if (!session || (session.role !== "admin" && session.role !== "staff"))
+          return;
         const name = el("promiseName").value.trim();
         const amount = Number(el("promiseAmount").value);
         const category = el("promiseCategory").value;
@@ -3446,29 +3778,74 @@
         const date = el("promiseDate").value || nowLocal();
         const note = el("promiseNote").value.trim();
         const alert = el("promiseAlert");
-        alert.className = "alert"; alert.textContent = "";
-        if (!name) { alert.className = "alert show bad"; alert.textContent = "የሰውዬውን ስም ያስገቡ።"; return; }
-        if (!amount || amount <= 0) { alert.className = "alert show bad"; alert.textContent = "ትክክለኛ ቃል የተገባ ገንዘብ መጠን ያስገቡ።"; return; }
-        promisedMoney.unshift({ id: uid(), name, amount, category, phone, deadline, date, note, recordedBy: recordedBy() });
+        alert.className = "alert";
+        alert.textContent = "";
+        if (!name) {
+          alert.className = "alert show bad";
+          alert.textContent = "የሰውዬውን ስም ያስገቡ።";
+          return;
+        }
+        if (!amount || amount <= 0) {
+          alert.className = "alert show bad";
+          alert.textContent = "ትክክለኛ ቃል የተገባ ገንዘብ መጠን ያስገቡ።";
+          return;
+        }
+        promisedMoney.unshift({
+          id: uid(),
+          name,
+          amount,
+          category,
+          phone,
+          deadline,
+          date,
+          note,
+          recordedBy: recordedBy(),
+        });
         save();
-        el("promiseName").value = ""; el("promiseAmount").value = ""; el("promisePhone").value = ""; el("promiseDeadline").value = ""; el("promiseNote").value = ""; el("promiseDate").value = nowLocal();
-        alert.className = "alert show"; alert.textContent = "✅ ቃል የተገባው ገንዘብ ተመዝግቧል።";
+        el("promiseName").value = "";
+        el("promiseAmount").value = "";
+        el("promisePhone").value = "";
+        el("promiseDeadline").value = "";
+        el("promiseNote").value = "";
+        el("promiseDate").value = nowLocal();
+        alert.className = "alert show";
+        alert.textContent = "✅ ቃል የተገባው ገንዘብ ተመዝግቧል።";
         render();
       }
       function addPromisePayment() {
-        if (!session || (session.role !== "admin" && session.role !== "staff")) return;
+        if (!session || (session.role !== "admin" && session.role !== "staff"))
+          return;
         const promiseId = el("promisePaymentSelect").value;
         const amount = Number(el("promisePaymentAmount").value);
         const date = el("promisePaymentDate").value || nowLocal();
         const note = el("promisePaymentNote").value.trim();
         const alert = el("promisePaymentAlert");
-        alert.className = "alert"; alert.textContent = "";
-        if (!promiseId) { alert.className = "alert show bad"; alert.textContent = "ገንዘብ የገባውን ሰው ይምረጡ።"; return; }
-        if (!amount || amount <= 0) { alert.className = "alert show bad"; alert.textContent = "ትክክለኛ የተከፈለ መጠን ያስገቡ።"; return; }
-        promisePayments.unshift({ id: uid(), promiseId, amount, date, note, recordedBy: recordedBy() });
+        alert.className = "alert";
+        alert.textContent = "";
+        if (!promiseId) {
+          alert.className = "alert show bad";
+          alert.textContent = "ገንዘብ የገባውን ሰው ይምረጡ።";
+          return;
+        }
+        if (!amount || amount <= 0) {
+          alert.className = "alert show bad";
+          alert.textContent = "ትክክለኛ የተከፈለ መጠን ያስገቡ።";
+          return;
+        }
+        promisePayments.unshift({
+          id: uid(),
+          promiseId,
+          amount,
+          date,
+          note,
+          recordedBy: recordedBy(),
+        });
         save();
-        el("promisePaymentAmount").value = ""; el("promisePaymentNote").value = ""; el("promisePaymentDate").value = nowLocal();
-        alert.className = "alert show"; alert.textContent = "✅ ክፍያው ተመዝግቧል።";
+        el("promisePaymentAmount").value = "";
+        el("promisePaymentNote").value = "";
+        el("promisePaymentDate").value = nowLocal();
+        alert.className = "alert show";
+        alert.textContent = "✅ ክፍያው ተመዝግቧል።";
         render();
       }
       function paidForPromise(promiseId) {
@@ -3491,47 +3868,85 @@
         if (prev) sel.value = prev;
       }
       function addMiddlePerson() {
-        if (!session || (session.role !== "admin" && session.role !== "staff")) return;
+        if (!session || (session.role !== "admin" && session.role !== "staff"))
+          return;
         const name = el("middleName").value.trim();
         const nigdAmount = Number(el("middleNigdAmount").value) || 0;
         const birhanAmount = Number(el("middleBirhanAmount").value) || 0;
         const date = el("middleDate").value || nowLocal();
         const note = el("middleNote").value.trim();
         const alert = el("middleAlert");
-        alert.className = "alert"; alert.textContent = "";
-        if (!name) { alert.className = "alert show bad"; alert.textContent = "የመካከለኛ ሰው ስም ያስገቡ።"; return; }
-        if (nigdAmount < 0 || birhanAmount < 0 || nigdAmount + birhanAmount <= 0) { alert.className = "alert show bad"; alert.textContent = "ከንግድ ባንክ ወይም ከብርሃን ባንክ አንዱን ቢያንስ መጠን ያስገቡ።"; return; }
-        middlePersons.unshift({ id: uid(), name, nigdAmount, birhanAmount, date, note, recordedBy: recordedBy() });
+        alert.className = "alert";
+        alert.textContent = "";
+        if (!name) {
+          alert.className = "alert show bad";
+          alert.textContent = "የመካከለኛ ሰው ስም ያስገቡ።";
+          return;
+        }
+        if (
+          nigdAmount < 0 ||
+          birhanAmount < 0 ||
+          nigdAmount + birhanAmount <= 0
+        ) {
+          alert.className = "alert show bad";
+          alert.textContent = "ከንግድ ባንክ ወይም ከብርሃን ባንክ አንዱን ቢያንስ መጠን ያስገቡ።";
+          return;
+        }
+        middlePersons.unshift({
+          id: uid(),
+          name,
+          nigdAmount,
+          birhanAmount,
+          date,
+          note,
+          recordedBy: recordedBy(),
+        });
         save();
-        el("middleName").value = ""; el("middleNigdAmount").value = ""; el("middleBirhanAmount").value = ""; el("middleNote").value = ""; el("middleDate").value = nowLocal();
-        alert.className = "alert show"; alert.textContent = "✅ የመካከለኛ ሰው ገንዘብ ተመዝግቧል።";
+        el("middleName").value = "";
+        el("middleNigdAmount").value = "";
+        el("middleBirhanAmount").value = "";
+        el("middleNote").value = "";
+        el("middleDate").value = nowLocal();
+        alert.className = "alert show";
+        alert.textContent = "✅ የመካከለኛ ሰው ገንዘብ ተመዝግቧል።";
         render();
       }
       function removePromise(id) {
         if (!session || session.role !== "admin") return;
         promisedMoney = promisedMoney.filter((p) => p.id !== id);
         promisePayments = promisePayments.filter((p) => p.promiseId !== id);
-        save(); render();
+        save();
+        render();
       }
       function removePromisePayment(id) {
         if (!session || session.role !== "admin") return;
-        promisePayments = promisePayments.filter((p) => p.id !== id); save(); render();
+        promisePayments = promisePayments.filter((p) => p.id !== id);
+        save();
+        render();
       }
       function removeMiddlePerson(id) {
         if (!session || session.role !== "admin") return;
-        middlePersons = middlePersons.filter((m) => m.id !== id); save(); render();
+        middlePersons = middlePersons.filter((m) => m.id !== id);
+        save();
+        render();
       }
       function renderUserRecords() {
-        const n = Number(el("middleNigdAmount")?.value || 0), b = Number(el("middleBirhanAmount")?.value || 0);
-        if (el("middlePreviewNigd")) el("middlePreviewNigd").textContent = `ንግድ: ${money(n)}`;
-        if (el("middlePreviewBirhan")) el("middlePreviewBirhan").textContent = `ብርሃን: ${money(b)}`;
-        if (el("middlePreviewTotal")) el("middlePreviewTotal").textContent = `ጠቅላላ: ${money(n+b)}`;
+        const n = Number(el("middleNigdAmount")?.value || 0),
+          b = Number(el("middleBirhanAmount")?.value || 0);
+        if (el("middlePreviewNigd"))
+          el("middlePreviewNigd").textContent = `ንግድ: ${money(n)}`;
+        if (el("middlePreviewBirhan"))
+          el("middlePreviewBirhan").textContent = `ብርሃን: ${money(b)}`;
+        if (el("middlePreviewTotal"))
+          el("middlePreviewTotal").textContent = `ጠቅላላ: ${money(n + b)}`;
       }
       function promiseStatus(p, paid) {
         const total = Number(p.amount) || 0;
         const pct = total ? (paid / total) * 100 : 0;
         const overdue =
-          p.deadline && pct < 100 && new Date(p.deadline) < new Date(new Date().toDateString());
+          p.deadline &&
+          pct < 100 &&
+          new Date(p.deadline) < new Date(new Date().toDateString());
         if (pct >= 100) return { label: "ተከፍሏል", cls: "ok", pct };
         if (overdue) return { label: "ዘግይቷል", cls: "over", pct };
         return { label: "በሂደት ላይ", cls: "warn", pct };
@@ -3545,25 +3960,59 @@
       function renderPromisedAndMiddleAdmin() {
         const normal = promisedMoney.filter((p) => p.category === "normal");
         const building = promisedMoney.filter((p) => p.category === "building");
-        const normalTotal = normal.reduce((a,p) => a + Number(p.amount || 0), 0);
-        const buildingTotal = building.reduce((a,p) => a + Number(p.amount || 0), 0);
-        if (el("promiseNormalTotal")) el("promiseNormalTotal").textContent = money(normalTotal);
-        if (el("promiseBuildingTotal")) el("promiseBuildingTotal").textContent = money(buildingTotal);
-        if (el("middleGrandTotal")) el("middleGrandTotal").textContent = money(totalMiddleNigd()+totalMiddleBirhan());
-        if (el("promiseNormalBody")) el("promiseNormalBody").innerHTML = normal.length ? normal.map(promiseRow).join("") : `<tr><td colspan="12" style="text-align:center;padding:16px;color:#7b8494">ምንም መዝገብ የለም።</td></tr>`;
-        if (el("promiseBuildingBody")) el("promiseBuildingBody").innerHTML = building.length ? building.map(promiseRow).join("") : `<tr><td colspan="12" style="text-align:center;padding:16px;color:#7b8494">ምንም መዝገብ የለም።</td></tr>`;
+        const normalTotal = normal.reduce(
+          (a, p) => a + Number(p.amount || 0),
+          0,
+        );
+        const buildingTotal = building.reduce(
+          (a, p) => a + Number(p.amount || 0),
+          0,
+        );
+        if (el("promiseNormalTotal"))
+          el("promiseNormalTotal").textContent = money(normalTotal);
+        if (el("promiseBuildingTotal"))
+          el("promiseBuildingTotal").textContent = money(buildingTotal);
+        if (el("middleGrandTotal"))
+          el("middleGrandTotal").textContent = money(
+            totalMiddleNigd() + totalMiddleBirhan(),
+          );
+        if (el("promiseNormalBody"))
+          el("promiseNormalBody").innerHTML = normal.length
+            ? normal.map(promiseRow).join("")
+            : `<tr><td colspan="12" style="text-align:center;padding:16px;color:#7b8494">ምንም መዝገብ የለም።</td></tr>`;
+        if (el("promiseBuildingBody"))
+          el("promiseBuildingBody").innerHTML = building.length
+            ? building.map(promiseRow).join("")
+            : `<tr><td colspan="12" style="text-align:center;padding:16px;color:#7b8494">ምንም መዝገብ የለም።</td></tr>`;
         fillPromisePaymentSelect();
         if (el("middleBody")) {
           const rows = middlePersons.map((m) => {
-            const n = Number(m.nigdAmount || 0), b = Number(m.birhanAmount || 0);
-            const sn = middleSpentForName(m.name, "nigd"), sb = middleSpentForName(m.name, "birhan");
-            const rn = middleRemainingForName(m.name, "nigd"), rb = middleRemainingForName(m.name, "birhan");
-            return `<tr><td>${fmtDate(m.date)}</td><td>${escapeHtml(m.name)}</td><td>${money(n)}</td><td>${money(b)}</td><td>${money(sn+sb)}</td><td>${money(rn)}</td><td>${money(rb)}</td><td><b>${money(rn+rb)}</b></td><td>${escapeHtml(m.note || "-")}</td><td class="no-print"><button class="danger" onclick="removeMiddlePerson(${m.id})">ሰርዝ</button></td></tr>`;
+            const n = Number(m.nigdAmount || 0),
+              b = Number(m.birhanAmount || 0);
+            const sn = middleSpentForName(m.name, "nigd"),
+              sb = middleSpentForName(m.name, "birhan");
+            const rn = middleRemainingForName(m.name, "nigd"),
+              rb = middleRemainingForName(m.name, "birhan");
+            return `<tr><td>${fmtDate(m.date)}</td><td>${escapeHtml(m.name)}</td><td>${money(n)}</td><td>${money(b)}</td><td>${money(sn + sb)}</td><td>${money(rn)}</td><td>${money(rb)}</td><td><b>${money(rn + rb)}</b></td><td>${escapeHtml(m.note || "-")}</td><td class="no-print"><button class="danger" onclick="removeMiddlePerson(${m.id})">ሰርዝ</button></td></tr>`;
           });
-          el("middleBody").innerHTML = rows.length ? rows.join("") : `<tr><td colspan="10" style="text-align:center;padding:16px;color:#7b8494">ምንም መዝገብ የለም።</td></tr>`;
+          el("middleBody").innerHTML = rows.length
+            ? rows.join("")
+            : `<tr><td colspan="10" style="text-align:center;padding:16px;color:#7b8494">ምንም መዝገብ የለም።</td></tr>`;
         }
       }
-      function escapeHtml(v) { return String(v).replace(/[&<>'"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c])); }
+      function escapeHtml(v) {
+        return String(v).replace(
+          /[&<>'"]/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              "'": "&#39;",
+              '"': "&quot;",
+            })[c],
+        );
+      }
 
       /* Expense and Income Actions */
       function addExpense() {
@@ -3577,9 +4026,15 @@
           receipt = el("receipt").value.trim(),
           date = el("date").value || nowLocal();
         const isPTCash = payment === "PT Cash";
-        const middlePersonName = isPTCash ? el("middlePayoutPerson").value.trim() : "";
-        const middleNigdAmount = isPTCash ? Number(el("middlePayoutNigd").value) || 0 : 0;
-        const middleBirhanAmount = isPTCash ? Number(el("middlePayoutBirhan").value) || 0 : 0;
+        const middlePersonName = isPTCash
+          ? el("middlePayoutPerson").value.trim()
+          : "";
+        const middleNigdAmount = isPTCash
+          ? Number(el("middlePayoutNigd").value) || 0
+          : 0;
+        const middleBirhanAmount = isPTCash
+          ? Number(el("middlePayoutBirhan").value) || 0
+          : 0;
         const bankName = isPTCash ? "መካከለኛ ሰው" : getRadioValue("expBankChoice");
         const alert = el("alert");
         alert.className = "alert";
@@ -3600,12 +4055,21 @@
             alert.textContent = "PT Cash ለማስመዝገብ መካከለኛ ሰው ይምረጡ።";
             return;
           }
-          if (middleNigdAmount < 0 || middleBirhanAmount < 0 || Math.abs((middleNigdAmount + middleBirhanAmount) - a) > 0.005) {
+          if (
+            middleNigdAmount < 0 ||
+            middleBirhanAmount < 0 ||
+            Math.abs(middleNigdAmount + middleBirhanAmount - a) > 0.005
+          ) {
             alert.className = "alert show bad";
             alert.textContent = `የPT Cash የባንክ ክፍፍል ከወጪው ${money(a)} ጋር መመጣጠን አለበት።`;
             return;
           }
-          if (middleNigdAmount > middleRemainingForName(middlePersonName, "nigd") + 0.005 || middleBirhanAmount > middleRemainingForName(middlePersonName, "birhan") + 0.005) {
+          if (
+            middleNigdAmount >
+              middleRemainingForName(middlePersonName, "nigd") + 0.005 ||
+            middleBirhanAmount >
+              middleRemainingForName(middlePersonName, "birhan") + 0.005
+          ) {
             alert.className = "alert show bad";
             alert.textContent = "PT Cash ከመካከለኛ ሰው ባለው ቀሪ ገንዘብ በላይ ነው።";
             return;
@@ -3754,10 +4218,18 @@
           receipt = el("conExpReceipt").value.trim(),
           date = el("conExpDate").value || nowLocal();
         const isPTCash = payment === "PT Cash";
-        const middlePersonName = isPTCash ? el("conMiddlePayoutPerson").value.trim() : "";
-        const middleNigdAmount = isPTCash ? Number(el("conMiddlePayoutNigd").value) || 0 : 0;
-        const middleBirhanAmount = isPTCash ? Number(el("conMiddlePayoutBirhan").value) || 0 : 0;
-        const bankName = isPTCash ? "መካከለኛ ሰው" : getRadioValue("conExpBankChoice");
+        const middlePersonName = isPTCash
+          ? el("conMiddlePayoutPerson").value.trim()
+          : "";
+        const middleNigdAmount = isPTCash
+          ? Number(el("conMiddlePayoutNigd").value) || 0
+          : 0;
+        const middleBirhanAmount = isPTCash
+          ? Number(el("conMiddlePayoutBirhan").value) || 0
+          : 0;
+        const bankName = isPTCash
+          ? "መካከለኛ ሰው"
+          : getRadioValue("conExpBankChoice");
         const alert = el("conExpAlert");
         alert.className = "alert";
         alert.textContent = "";
@@ -3772,12 +4244,21 @@
             alert.textContent = "PT Cash ለማስመዝገብ መካከለኛ ሰው ይምረጡ።";
             return;
           }
-          if (middleNigdAmount < 0 || middleBirhanAmount < 0 || Math.abs((middleNigdAmount + middleBirhanAmount) - a) > 0.005) {
+          if (
+            middleNigdAmount < 0 ||
+            middleBirhanAmount < 0 ||
+            Math.abs(middleNigdAmount + middleBirhanAmount - a) > 0.005
+          ) {
             alert.className = "alert show bad";
             alert.textContent = `የPT Cash የባንክ ክፍፍል ከወጪው ${money(a)} ጋር መመጣጠን አለበት።`;
             return;
           }
-          if (middleNigdAmount > middleRemainingForName(middlePersonName, "nigd") + 0.005 || middleBirhanAmount > middleRemainingForName(middlePersonName, "birhan") + 0.005) {
+          if (
+            middleNigdAmount >
+              middleRemainingForName(middlePersonName, "nigd") + 0.005 ||
+            middleBirhanAmount >
+              middleRemainingForName(middlePersonName, "birhan") + 0.005
+          ) {
             alert.className = "alert show bad";
             alert.textContent = "PT Cash ከመካከለኛ ሰው ባለው ቀሪ ገንዘብ በላይ ነው።";
             return;
@@ -3875,16 +4356,32 @@
         const regNigdInc = incomes
           .filter((i) => (i.bankName || "ንግድ ባንክ") === "ንግድ ባንክ")
           .reduce((a, i) => a + Number(i.amount), 0);
-        const regNigdExp = expenses
-          .reduce((a, e) => a + (e.payment === "PT Cash" ? Number(e.middleNigdAmount || 0) : ((e.bankName || "ንግድ ባንክ") === "ንግድ ባንክ" ? Number(e.amount) : 0)), 0);
+        const regNigdExp = expenses.reduce(
+          (a, e) =>
+            a +
+            (e.payment === "PT Cash"
+              ? Number(e.middleNigdAmount || 0)
+              : (e.bankName || "ንግድ ባንክ") === "ንግድ ባንክ"
+                ? Number(e.amount)
+                : 0),
+          0,
+        );
         const regNigdTot =
           Number(settings.regTrade || 0) + regNigdInc - regNigdExp;
 
         const regBirhanInc = incomes
           .filter((i) => i.bankName === "ብርሃን ባንክ")
           .reduce((a, i) => a + Number(i.amount), 0);
-        const regBirhanExp = expenses
-          .reduce((a, e) => a + (e.payment === "PT Cash" ? Number(e.middleBirhanAmount || 0) : (e.bankName === "ብርሃን ባንክ" ? Number(e.amount) : 0)), 0);
+        const regBirhanExp = expenses.reduce(
+          (a, e) =>
+            a +
+            (e.payment === "PT Cash"
+              ? Number(e.middleBirhanAmount || 0)
+              : e.bankName === "ብርሃን ባንክ"
+                ? Number(e.amount)
+                : 0),
+          0,
+        );
         const regBirhanTot =
           Number(settings.regBirhan || 0) + regBirhanInc - regBirhanExp;
 
@@ -3909,16 +4406,32 @@
         const conNigdInc = conIncomes
           .filter((i) => (i.bankName || "ንግድ ባንክ") === "ንግድ ባንክ")
           .reduce((a, i) => a + Number(i.amount), 0);
-        const conNigdExp = conExpenses
-          .reduce((a, e) => a + (e.payment === "PT Cash" ? Number(e.middleNigdAmount || 0) : ((e.bankName || "ንግድ ባንክ") === "ንግድ ባንክ" ? Number(e.amount) : 0)), 0);
+        const conNigdExp = conExpenses.reduce(
+          (a, e) =>
+            a +
+            (e.payment === "PT Cash"
+              ? Number(e.middleNigdAmount || 0)
+              : (e.bankName || "ንግድ ባንክ") === "ንግድ ባንክ"
+                ? Number(e.amount)
+                : 0),
+          0,
+        );
         const conNigdTot =
           Number(settings.conTrade || 0) + conNigdInc - conNigdExp;
 
         const conBirhanInc = conIncomes
           .filter((i) => i.bankName === "ብርሃን ባንክ")
           .reduce((a, i) => a + Number(i.amount), 0);
-        const conBirhanExp = conExpenses
-          .reduce((a, e) => a + (e.payment === "PT Cash" ? Number(e.middleBirhanAmount || 0) : (e.bankName === "ብርሃን ባንክ" ? Number(e.amount) : 0)), 0);
+        const conBirhanExp = conExpenses.reduce(
+          (a, e) =>
+            a +
+            (e.payment === "PT Cash"
+              ? Number(e.middleBirhanAmount || 0)
+              : e.bankName === "ብርሃን ባንክ"
+                ? Number(e.amount)
+                : 0),
+          0,
+        );
         const conBirhanTot =
           Number(settings.conBirhan || 0) + conBirhanInc - conBirhanExp;
 
