@@ -1,0 +1,4644 @@
+<!doctype html>
+<html lang="am" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ካራ ቆሬ ጀሞ መንገድ ሙሉ ወንጌል አማኞች አጥቢያ ቤ/ክ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f3f4fb;
+        --bg-soft: #eceffa;
+        --card: #fff;
+        --text: #1c2032;
+        --muted: #6b7280;
+        --line: #e6e8f2;
+        --primary: #33409e;
+        --primary-dark: #1c2566;
+        --primary-light: #eef0fc;
+        --accent: #b8862e;
+        --accent-light: #f8efdd;
+        --good: #12946a;
+        --good-light: #e7f7f1;
+        --warn: #c17f0e;
+        --warn-light: #fdf3e0;
+        --bad: #c93f4c;
+        --bad-light: #fdeced;
+        --shadow: 0 10px 28px rgba(25, 32, 68, 0.08);
+        --shadow-lg: 0 20px 48px rgba(20, 26, 56, 0.14);
+        --radius: 16px;
+        --radius-sm: 10px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family:
+          "Noto Sans Ethiopic",
+          "Manrope",
+          "Abyssinica SIL",
+          Arial,
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+      }
+      header {
+        background: linear-gradient(150deg, #14184a 0%, #262f8f 55%, #33409e 100%);
+        color: white;
+        padding: 22px 5vw 22px;
+        position: relative;
+      }
+      header::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--accent),
+          #e4c877 45%,
+          var(--accent)
+        );
+        opacity: 0.9;
+      }
+      header .top {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      header .tools {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      header .tools button {
+        background: rgba(255, 255, 255, 0.12);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+      }
+      header .tools button:hover {
+        background: rgba(255, 255, 255, 0.22);
+      }
+      h1 {
+        margin: 0 0 4px;
+        font-size: clamp(20px, 2.6vw, 30px);
+        letter-spacing: -0.01em;
+      }
+      header p {
+        margin: 0;
+        opacity: 0.78;
+        font-size: 13.5px;
+      }
+      #clock {
+        font-size: 13px;
+        opacity: 0.8;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 7px 14px;
+        border-radius: 99px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+      .container {
+        width: min(1400px, 92vw);
+        margin: 22px auto 60px;
+      }
+
+      /* QUICK NAV: one compact dropdown instead of a row of buttons */
+      .quicknav {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 14px;
+      }
+      .quicknav label {
+        font-size: 12.5px;
+        font-weight: 700;
+        color: #d9dcf7;
+        white-space: nowrap;
+      }
+      .quicknav select {
+        width: auto;
+        max-width: 240px;
+        background: rgba(255, 255, 255, 0.12);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 99px;
+        padding: 8px 14px;
+        font-size: 12.5px;
+        font-weight: 700;
+      }
+      .quicknav select:focus {
+        box-shadow: none;
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+      .quicknav select option {
+        color: var(--text);
+      }
+
+      /* TOOLS MENU: collapses print/backup/restore behind one button */
+      .tools-menu {
+        position: relative;
+      }
+      .tools-menu > summary {
+        list-style: none;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.12);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: var(--radius-sm);
+        padding: 11px 16px;
+        font-weight: 700;
+        font-size: 13.5px;
+        white-space: nowrap;
+      }
+      .tools-menu > summary::-webkit-details-marker {
+        display: none;
+      }
+      .tools-menu > summary:hover {
+        background: rgba(255, 255, 255, 0.22);
+      }
+      .tools-menu-panel {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        z-index: 20;
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        box-shadow: var(--shadow-lg);
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-width: 200px;
+      }
+      .tools-menu-panel button {
+        background: #f4f5fb;
+        color: var(--text);
+        text-align: right;
+        border-radius: 8px;
+      }
+      .tools-menu-panel button:hover {
+        background: var(--primary-light);
+      }
+      @media (max-width: 650px) {
+        .tools-menu-panel {
+          left: auto;
+          right: 0;
+        }
+      }
+
+      /* SYNC STATUS: shows whether the last change reached the database */
+      .sync-status {
+        font-size: 12px;
+        font-weight: 700;
+        padding: 7px 12px;
+        border-radius: 99px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        color: #d9f7ea;
+        white-space: nowrap;
+        transition: all 0.15s ease;
+      }
+      .sync-status.saving {
+        color: #ffe9b8;
+      }
+      .sync-status.error {
+        color: #ffd0d5;
+        background: rgba(255, 90, 100, 0.18);
+        border-color: rgba(255, 120, 130, 0.4);
+      }
+
+      /* COLLAPSIBLE APP SECTIONS: every dense block becomes an open/close button */
+      details.app-section {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        margin-top: 18px;
+        overflow: hidden;
+        scroll-margin-top: 90px;
+      }
+      details.app-section > summary {
+        list-style: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 18px 22px;
+        font-weight: 800;
+        font-size: 16px;
+        user-select: none;
+      }
+      details.app-section > summary::-webkit-details-marker {
+        display: none;
+      }
+      details.app-section > summary .sec-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      details.app-section > summary .sec-sub {
+        display: block;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--muted);
+        margin-top: 3px;
+      }
+      details.app-section > summary .chev {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 99px;
+        background: var(--primary-light);
+        color: var(--primary);
+        font-size: 13px;
+        transition: transform 0.2s ease;
+        flex: 0 0 auto;
+      }
+      details.app-section[open] > summary .chev {
+        transform: rotate(180deg);
+      }
+      details.app-section > summary:hover {
+        background: #fafbff;
+      }
+      details.app-section .sec-body {
+        padding: 4px 22px 22px;
+        border-top: 1px solid var(--line);
+        padding-top: 18px;
+      }
+      details.app-section[open] > summary {
+        border-bottom: 1px solid transparent;
+      }
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+      .kpis {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 18px;
+        box-shadow: var(--shadow);
+      }
+      .kpi {
+        position: relative;
+        overflow: hidden;
+      }
+      .kpi::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 4px;
+        background: var(--primary);
+        opacity: 0.7;
+      }
+      .kpi .label {
+        font-size: 12.5px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .kpi .value {
+        font-size: 22px;
+        font-weight: 800;
+        margin-top: 7px;
+        letter-spacing: -0.01em;
+      }
+      .kpi small {
+        color: var(--muted);
+      }
+      .kpi.net::before {
+        background: var(--accent);
+      }
+      .kpi.net .value.pos {
+        color: var(--good);
+      }
+      .kpi.net .value.neg {
+        color: var(--bad);
+      }
+      .kpi.asrat::before {
+        background: var(--accent);
+      }
+      .kpi.asrat .value {
+        color: var(--accent);
+      }
+      .layout {
+        grid-template-columns: 390px 1fr;
+        align-items: start;
+        margin-top: 18px;
+      }
+      label {
+        font-size: 13px;
+        font-weight: 700;
+        display: block;
+        margin: 0 0 7px;
+      }
+      select,
+      input,
+      textarea {
+        width: 100%;
+        padding: 11px 12px;
+        border: 1px solid #d7dde7;
+        border-radius: 10px;
+        background: white;
+        font: inherit;
+        color: var(--text);
+        outline: none;
+      }
+      select:focus,
+      input:focus,
+      textarea:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(51, 64, 158, 0.14);
+      }
+      .form-row {
+        margin-bottom: 13px;
+      }
+      .two {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      button {
+        border: 0;
+        border-radius: var(--radius-sm);
+        padding: 11px 16px;
+        font: inherit;
+        font-weight: 700;
+        font-size: 13.5px;
+        cursor: pointer;
+        transition:
+          transform 0.12s ease,
+          box-shadow 0.12s ease,
+          background 0.15s ease;
+      }
+      button:active {
+        transform: scale(0.97);
+      }
+      .primary {
+        background: var(--primary);
+        color: white;
+        box-shadow: 0 6px 16px rgba(51, 64, 158, 0.28);
+      }
+      .primary:hover {
+        background: var(--primary-dark);
+      }
+      .secondary {
+        background: var(--primary-light);
+        color: var(--primary-dark);
+      }
+      .secondary:hover {
+        background: #e0e4fb;
+      }
+      .danger {
+        background: var(--bad-light);
+        color: #a02b38;
+      }
+      .danger:hover {
+        background: #fadfe1;
+      }
+      .ghost {
+        background: #f2f4f8;
+        color: #3a4353;
+      }
+      .ghost:hover {
+        background: #e7eaf2;
+      }
+      .budget-box {
+        background: #f7f9fd;
+        border-radius: 12px;
+        padding: 12px;
+        margin: 12px 0;
+      }
+      .money {
+        font-weight: 800;
+      }
+      .progress {
+        height: 11px;
+        background: #e9edf4;
+        border-radius: 99px;
+        overflow: hidden;
+        margin: 9px 0;
+      }
+      .bar {
+        height: 100%;
+        width: 0;
+        background: var(--good);
+        transition: 0.35s;
+      }
+      .bar.warn {
+        background: var(--warn);
+      }
+      .bar.bad {
+        background: var(--bad);
+      }
+      .alert {
+        display: none;
+        padding: 12px 14px;
+        border-radius: 12px;
+        margin: 10px 0;
+        font-size: 13px;
+        font-weight: 600;
+        align-items: center;
+        gap: 8px;
+      }
+      .alert.show {
+        display: flex;
+        animation: alertPop 0.25s ease;
+      }
+      .alert.show:not(.bad):not(.warn) {
+        background: var(--good-light);
+        color: #0a6b4d;
+        border: 1px solid #bfe9d9;
+      }
+      .alert.bad {
+        background: var(--bad-light);
+        color: #a72c3d;
+        border: 1px solid #f7c3ca;
+      }
+      .alert.warn {
+        background: var(--warn-light);
+        color: #8b5a08;
+        border: 1px solid #f4dfa3;
+      }
+      @keyframes alertPop {
+        from {
+          opacity: 0;
+          transform: translateY(-4px) scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 14px;
+        background: #f2f4f8;
+        padding: 5px;
+        border-radius: 12px;
+      }
+      .tabs button {
+        flex: 1;
+        background: transparent;
+        color: #5d6778;
+        border-radius: 8px;
+      }
+      .tabs button.active {
+        background: var(--primary);
+        color: white;
+        box-shadow: 0 4px 10px rgba(51, 64, 158, 0.25);
+      }
+      .tabpane {
+        display: none;
+      }
+      .tabpane.active {
+        display: block;
+      }
+      .banner-wrap {
+        margin-top: 16px;
+      }
+      .banner-wrap:empty {
+        margin-top: 0;
+      }
+      .pillrow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .warnpill {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 99px;
+        font-size: 12.5px;
+        font-weight: 700;
+      }
+      .warnpill.warn {
+        background: #fff8e8;
+        color: #8b5a08;
+        border: 1px solid #f4dfa3;
+      }
+      .warnpill.bad {
+        background: #fff0f1;
+        color: #a72c3d;
+        border: 1px solid #f7c3ca;
+      }
+      .charts {
+        grid-template-columns: 1fr 1fr;
+        margin-top: 16px;
+      }
+      .chart {
+        min-height: 330px;
+      }
+      .chart h3 {
+        margin: 0 0 2px;
+      }
+      .chart p {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .legend {
+        display: flex;
+        gap: 16px;
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+      .legend span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .dotlegend {
+        width: 9px;
+        height: 9px;
+        border-radius: 99px;
+        display: inline-block;
+      }
+      svg {
+        width: 100%;
+        height: 245px;
+        overflow: visible;
+      }
+      .axis {
+        stroke: #dfe4ec;
+        stroke-width: 1;
+      }
+      .barRect {
+        fill: #315efb;
+      }
+      .axisText {
+        font-size: 11px;
+        fill: #7b8494;
+      }
+      .table-card {
+        margin-top: 16px;
+      }
+      .toolbar {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: end;
+        margin-bottom: 12px;
+      }
+      .toolbar > div {
+        min-width: 150px;
+        flex: 1;
+      }
+      .toolbar button {
+        flex: 0 0 auto;
+      }
+      .table-wrap {
+        overflow: auto;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        -webkit-overflow-scrolling: touch;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 850px;
+      }
+      th,
+      td {
+        padding: 11px 12px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        font-size: 13px;
+      }
+      th {
+        background: #f7f9fd;
+        color: #5d6778;
+        position: sticky;
+        top: 0;
+      }
+      tr:last-child td {
+        border-bottom: 0;
+      }
+      .pill {
+        padding: 4px 8px;
+        border-radius: 99px;
+        font-size: 11px;
+        font-weight: 800;
+      }
+      .ok {
+        background: #eaf9f3;
+        color: #087c56;
+      }
+      .over {
+        background: #fff0f1;
+        color: #b52f40;
+      }
+      .pill.warn {
+        background: #fff8e8;
+        color: #8b5a08;
+      }
+
+      /* Interactive Report Styling */
+      .report-btn-group {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+      .report-btn-group button {
+        background: #f2f4f8;
+        color: #4a5568;
+        border: 1px solid var(--line);
+        font-size: 12.5px;
+        padding: 8px 14px;
+      }
+      .report-btn-group button.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+        box-shadow: 0 4px 12px rgba(51, 64, 158, 0.25);
+      }
+      .report-btn-group.field-group button.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        box-shadow: 0 4px 12px rgba(184, 134, 46, 0.3);
+      }
+      .report-btn-group:empty::after {
+        content: "ምንም ንዑስ መስክ የለም";
+        color: var(--muted);
+        font-size: 12.5px;
+      }
+      .report-hint {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 6px;
+      }
+      .filter-box-panel {
+        background: #f8fafc;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 14px;
+        margin: 14px 0;
+      }
+      .filter-section-title {
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 6px;
+        display: block;
+      }
+
+      .report-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+      .report-stat {
+        background: #f7f9fd;
+        border-radius: 12px;
+        padding: 12px;
+        border: 1px solid var(--line);
+      }
+      .report-stat .label {
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+      .report-stat .value {
+        font-size: 19px;
+        font-weight: 800;
+        margin-top: 4px;
+      }
+      .section-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .hint {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      input[type="file"] {
+        display: none;
+      }
+      .balance-row {
+        grid-template-columns: 1fr 1fr;
+        margin-top: 16px;
+        align-items: stretch;
+      }
+      .balance-card {
+        background: linear-gradient(135deg, #0f3d3a, #13a673);
+        color: white;
+        border: none;
+      }
+      .balance-card .label {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 13px;
+      }
+      .balance-card .value {
+        font-size: 30px;
+        font-weight: 800;
+        margin-top: 6px;
+      }
+      .balance-card small {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .balance-breakdown {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+        font-size: 12.5px;
+      }
+      .balance-breakdown span {
+        background: rgba(255, 255, 255, 0.14);
+        padding: 6px 12px;
+        border-radius: 99px;
+      }
+      .balance-breakdown.light span {
+        background: #f2f4f8;
+        color: #3a4353;
+      }
+      .settings-panel {
+        display: none;
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px dashed rgba(255, 255, 255, 0.35);
+      }
+      .settings-panel.open {
+        display: block;
+      }
+      .settings-panel label {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .con-note {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .filter-adv {
+        display: none;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px dashed var(--line);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+      .filter-adv.open {
+        display: grid;
+      }
+      .linkbtn {
+        background: rgba(255, 255, 255, 0.16);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+      }
+      @media (max-width: 1100px) {
+        .kpis {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .layout {
+          grid-template-columns: 1fr;
+        }
+        .charts {
+          grid-template-columns: 1fr;
+        }
+        .report-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .balance-row {
+          grid-template-columns: 1fr;
+        }
+        .filter-adv {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 650px) {
+        .container {
+          width: 94vw;
+          margin: 14px auto 40px;
+        }
+        header {
+          padding: 18px 5vw 18px;
+        }
+        header .top {
+          gap: 10px;
+        }
+        #clock {
+          font-size: 11.5px;
+          padding: 5px 10px;
+        }
+        .userbar-inline {
+          width: 100%;
+          justify-content: flex-start;
+        }
+        .userbar-inline button {
+          padding: 9px 12px;
+          font-size: 12px;
+        }
+        .kpis {
+          grid-template-columns: 1fr 1fr;
+        }
+        .two {
+          grid-template-columns: 1fr;
+        }
+        .report-grid {
+          grid-template-columns: 1fr;
+        }
+        .filter-adv {
+          grid-template-columns: 1fr;
+        }
+        .bank-selector-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 6px;
+        }
+        .bank-icon {
+          font-size: 18px;
+        }
+        .bank-name {
+          font-size: 10.5px;
+        }
+        .bank-card-content {
+          padding: 8px 4px;
+        }
+        details.app-section > summary {
+          padding: 14px 16px;
+          font-size: 14.5px;
+        }
+        details.app-section .sec-body {
+          padding: 4px 14px 16px;
+        }
+        .quicknav select {
+          max-width: none;
+          flex: 1;
+        }
+        .quicknav {
+          flex-wrap: wrap;
+        }
+        .section-title {
+          align-items: flex-start;
+        }
+        .section-title > div[style*="flex"],
+        .section-title > div {
+          width: 100%;
+        }
+        button {
+          font-size: 13px;
+        }
+        .report-btn-group button {
+          flex: 1 1 auto;
+          text-align: center;
+        }
+      }
+      @media (max-width: 420px) {
+        .kpis {
+          grid-template-columns: 1fr;
+        }
+        .bank-summary-grid {
+          grid-template-columns: 1fr;
+        }
+        .report-btn-group.field-group button,
+        .report-btn-group button {
+          flex: 1 1 100%;
+        }
+        details.app-section > summary .sec-title {
+          align-items: flex-start;
+        }
+      }
+      @page {
+        size: landscape;
+        margin: 12mm 10mm;
+      }
+      @media print {
+        .no-print,
+        .settings-panel,
+        .filter-adv,
+        .report-btn-group,
+        .filter-box-panel,
+        .quicknav {
+          display: none !important;
+        }
+        details.app-section {
+          box-shadow: none;
+          border: 1px solid #ddd;
+        }
+        details.app-section > summary .chev {
+          display: none;
+        }
+        .print-report-header {
+          display: none;
+        }
+        /* Tables were getting cut off in print/PDF: .table-wrap scrolls
+           horizontally on screen (overflow:auto) and `table` had a fixed
+           850px min-width — fine in a browser tab, but a printed page
+           can't scroll, so anything past the page edge just vanished.
+           These overrides let the table shrink to fit and flow across
+           as many pages as it needs instead of being clipped. */
+        .table-wrap {
+          overflow: visible !important;
+          border: 0 !important;
+        }
+        table {
+          width: 100% !important;
+          min-width: 0 !important;
+          table-layout: auto !important;
+          font-size: 10.5px !important;
+        }
+        table th,
+        table td {
+          padding: 4px 5px !important;
+          white-space: normal !important;
+          word-break: break-word;
+        }
+        thead {
+          display: table-header-group;
+        }
+        tr {
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+      }
+        /* Isolated "print just this report" mode, turned on briefly by
+           printManagementReportOnly() — hides every other section/header
+           so the PDF only contains the report itself, not a screenshot
+           of the whole dashboard. */
+        body.printing-report-only header,
+        body.printing-report-only .container > *:not(#secReport) {
+          display: none !important;
+        }
+        body.printing-report-only #secReport {
+          border: 0 !important;
+          box-shadow: none !important;
+          margin: 0 !important;
+        }
+        body.printing-report-only #secReport > summary {
+          display: none !important;
+        }
+        body.printing-report-only #secReport .sec-body {
+          border-top: 0 !important;
+          padding: 0 !important;
+        }
+        body.printing-report-only .print-report-header {
+          display: block !important;
+          margin-bottom: 16px;
+          padding-bottom: 10px;
+          border-bottom: 2px solid #222;
+        }
+        body.printing-report-only .print-report-header h1 {
+          margin: 0 0 4px;
+          font-size: 19px;
+        }
+        body.printing-report-only .print-report-header .meta {
+          font-size: 12px;
+          color: #444;
+        }
+      }
+      .staff-only {
+        display: none;
+      }
+      .login-wrap {
+        max-width: 460px;
+        margin: 60px auto;
+        padding: 0 16px;
+      }
+      .userbar-inline {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      #whoAmI {
+        font-weight: 700;
+        background: rgba(255, 255, 255, 0.14);
+        padding: 8px 14px;
+        border-radius: 99px;
+      }
+
+      /* Interactive Bank Cards & Selection styling */
+      .bank-selector-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+        margin-top: 6px;
+      }
+      .bank-card-opt {
+        cursor: pointer;
+        user-select: none;
+      }
+      .bank-card-opt input[type="radio"] {
+        display: none;
+      }
+      .bank-card-content {
+        border: 2px solid var(--line);
+        border-radius: 12px;
+        padding: 12px 10px;
+        text-align: center;
+        background: #fff;
+        transition: all 0.25s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+      .bank-card-opt:hover .bank-card-content {
+        border-color: #b0c2fe;
+        background: #f8faff;
+      }
+      .bank-card-opt input[type="radio"]:checked + .bank-card-content {
+        border-color: var(--primary);
+        background: #eef2ff;
+        box-shadow: 0 4px 14px rgba(51, 64, 158, 0.22);
+        transform: translateY(-2px);
+      }
+      .bank-icon {
+        font-size: 22px;
+      }
+      .bank-name {
+        font-weight: 700;
+        font-size: 12.5px;
+        color: var(--text);
+      }
+
+      .bank-summary-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 14px;
+      }
+      .bank-mini-card {
+        background: rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        padding: 10px 12px;
+        border-radius: 12px;
+      }
+      .bank-mini-card.light {
+        background: #f7f9fd;
+        border-color: var(--line);
+      }
+      .bank-mini-card .b-title {
+        font-size: 11.5px;
+        opacity: 0.9;
+        font-weight: 700;
+      }
+      .bank-mini-card .b-val {
+        font-size: 16px;
+        font-weight: 800;
+        margin-top: 4px;
+      }
+
+      /* USER DATA-ENTRY MODE */
+      body.user-mode {
+        background: linear-gradient(
+          135deg,
+          #eef0fc 0%,
+          #f8f9ff 55%,
+          #fbf6ea 100%
+        );
+      }
+      body.user-mode header {
+        background: linear-gradient(150deg, #181c56 0%, #2c3690 60%, #33409e 100%);
+        padding-bottom: 24px;
+      }
+      body.user-mode .container {
+        max-width: 980px;
+        margin-top: 28px;
+      }
+      body.user-mode .user-entry-card {
+        border: 0;
+        border-radius: 22px;
+        box-shadow: 0 18px 45px rgba(30, 40, 90, 0.12);
+        padding: 26px;
+        transition: box-shadow 0.25s ease;
+      }
+      body.user-mode .user-entry-card:hover {
+        box-shadow: 0 22px 52px rgba(30, 40, 90, 0.16);
+      }
+      body.user-mode .user-entry-card h2 {
+        font-size: 24px;
+      }
+      body.user-mode .user-entry-card .form-row {
+        margin-bottom: 16px;
+      }
+      body.user-mode .user-entry-card input,
+      body.user-mode .user-entry-card select,
+      body.user-mode .user-entry-card textarea {
+        border-radius: 13px;
+        padding: 13px 14px;
+        background: #fbfdff;
+      }
+      body.user-mode .user-entry-card .primary {
+        width: 100%;
+        padding: 14px;
+        border-radius: 13px;
+        font-size: 15px;
+        box-shadow: 0 8px 18px rgba(51, 64, 158, 0.25);
+      }
+      body.user-mode .user-entry-card .two {
+        gap: 14px;
+      }
+      body.user-mode #secUserRecords {
+        box-shadow: 0 18px 45px rgba(30, 40, 90, 0.12);
+        border: 0;
+        background: white;
+        border-radius: 22px;
+        margin-top: 16px;
+        overflow: hidden;
+      }
+      body.user-mode #secUserRecords > summary {
+        display: none;
+      }
+      body.user-mode #secUserRecords .sec-body {
+        border-top: 0;
+        padding: 0;
+      }
+      body.user-mode #secUserRecords input,
+      body.user-mode #secUserRecords select,
+      body.user-mode #secUserRecords textarea {
+        border-radius: 13px;
+        padding: 13px 14px;
+      }
+      body.user-mode #secUserRecords .primary {
+        width: 100%;
+        padding: 14px;
+        border-radius: 13px;
+      }
+      .record-card-accent {
+        border: 1px solid rgba(51, 64, 158, 0.12);
+        border-radius: 18px;
+        padding: 18px;
+        background: linear-gradient(135deg, #ffffff, #f7f8ff);
+      }
+      .record-card-accent h3 {
+        margin: 0 0 5px;
+      }
+      .record-card-accent .hint {
+        margin-top: 0;
+      }
+      .split-total {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+      .split-total > span {
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: #eef0fb;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .admin-records-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .admin-records-grid .table-wrap {
+        margin-top: 10px;
+      }
+
+      body.user-mode .user-only-banner {
+        display: flex !important;
+        align-items: center;
+        gap: 14px;
+        background: linear-gradient(120deg, #ffffff, #f3f6ff);
+        border: 1px solid rgba(51, 64, 158, 0.14);
+        border-radius: 18px;
+        padding: 16px 20px;
+        margin-bottom: 16px;
+        box-shadow: 0 10px 24px rgba(30, 40, 90, 0.08);
+      }
+      .hero-avatar {
+        flex: 0 0 auto;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary), #5866c9);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        box-shadow: 0 6px 14px rgba(51, 64, 158, 0.35);
+      }
+      .hero-text b {
+        font-size: 15.5px;
+      }
+      .hero-sub {
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 12.5px;
+      }
+      body.user-mode .tabs {
+        background: #eef0fb;
+        padding: 6px;
+        border-radius: 14px;
+      }
+      body.user-mode .tabs button {
+        padding: 12px 10px;
+        font-size: 13.5px;
+        border-radius: 10px;
+        transition:
+          background 0.2s ease,
+          transform 0.15s ease;
+      }
+      body.user-mode .tabs button.active {
+        background: linear-gradient(135deg, var(--primary), #4b58b8);
+        transform: translateY(-1px);
+      }
+      body.user-mode .tabpane.active {
+        animation: paneIn 0.22s ease;
+      }
+      @keyframes paneIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      body.user-mode .bank-card-content {
+        position: relative;
+        padding: 14px 10px;
+      }
+      body.user-mode
+        .bank-card-opt
+        input[type="radio"]:checked
+        + .bank-card-content::after {
+        content: "✓";
+        position: absolute;
+        top: 6px;
+        right: 8px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: white;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+      }
+      body.user-mode .amount-preview {
+        margin-top: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--primary-dark);
+        min-height: 18px;
+      }
+      body.user-mode .amount-preview:empty {
+        margin-top: 0;
+      }
+      body.user-mode #secConstruction {
+        box-shadow: none;
+        border: 0;
+        background: transparent;
+        border-radius: 0;
+        margin-top: 16px;
+      }
+      body.user-mode #secConstruction > summary {
+        display: none;
+      }
+      body.user-mode #secConstruction .sec-body {
+        border-top: 0;
+        padding: 0;
+      }
+      body.user-mode #secEntry {
+        box-shadow: none;
+        border: 0;
+        background: transparent;
+        border-radius: 0;
+        margin-top: 0;
+      }
+      body.user-mode #secEntry > summary {
+        display: none;
+      }
+      body.user-mode #secEntry .sec-body {
+        border-top: 0;
+        padding: 0;
+      }
+      body.user-mode #constructionSection {
+        margin-top: 16px;
+        border: 0;
+        border-radius: 22px;
+        box-shadow: 0 18px 45px rgba(30, 40, 90, 0.12);
+        background: white;
+      }
+      body.user-mode #constructionSection .con-note,
+      body.user-mode #constructionSection .card.admin-only,
+      body.user-mode #constructionSection .table-wrap.admin-only {
+        display: none !important;
+      }
+      body.user-mode #constructionSection .grid.layout {
+        display: block;
+        margin-top: 0;
+      }
+      body.user-mode #constructionSection .grid.layout > .card {
+        box-shadow: none;
+        border: 0;
+        padding: 4px;
+      }
+      body.user-mode #constructionSection .tabs {
+        display: block;
+      }
+      body.user-mode #constructionSection #conTabIncome {
+        display: block !important;
+      }
+      body.user-mode #constructionSection .form-row {
+        margin-bottom: 16px;
+      }
+      body.user-mode #constructionSection input,
+      body.user-mode #constructionSection select,
+      body.user-mode #constructionSection textarea {
+        border-radius: 13px;
+        padding: 13px 14px;
+      }
+      body.user-mode #constructionSection #conTabIncome .primary {
+        width: 100%;
+        padding: 14px;
+        border-radius: 13px;
+      }
+      body.user-mode #constructionSection .section-title {
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="top">
+        <div>
+          <h1>ካራ ቆሬ ጀሞ መንገድ ሙሉ ወንጌል አማኞች አጥቢያ ቤ/ክ</h1>
+          <p>የተመደበውን በጀት ከተጠቀሙት ገንዘብ እና ገቢ ጋር በቀጥታ የሚያነፃፅር የአስተዳደር ዳሽቦርድ</p>
+        </div>
+        <div id="clock"></div>
+      </div>
+      <div
+        class="tools no-print userbar-inline"
+        id="userBar"
+        style="margin-top: 14px; display: none"
+      >
+        <span id="whoAmI"></span>
+        <span class="sync-status ok" id="syncStatus">✅ ተቀምጧል</span>
+        <details class="tools-menu admin-only admin-control">
+          <summary>⚙️ ተጨማሪ አማራጮች</summary>
+          <div class="tools-menu-panel">
+            <button onclick="printReport()">🖨️ አትም / PDF</button>
+            <button onclick="backupJSON()">💾 ምትኬ አውርድ (JSON)</button>
+            <button onclick="document.getElementById('restoreFile').click()">
+              📥 ምትኬ መልስ
+            </button>
+          </div>
+        </details>
+        <input type="file" id="restoreFile" accept="application/json" />
+        <button onclick="logout()">🚪 ውጣ</button>
+      </div>
+      <div class="quicknav admin-only" id="quickNav">
+        <label for="quickNavSelect">📂 ወደ ክፍል ዝለል</label>
+        <select id="quickNavSelect" onchange="jumpAndReset(this)">
+          <option value="" selected disabled>— ክፍል ይምረጡ —</option>
+          <option value="secOverview">📊 አጠቃላይ ሁኔታ</option>
+          <option value="secBankStatus">🏦 የባንክ ሂሳብ</option>
+          <option value="secPromisedMiddle">🤝 ቃል የተገባ ገንዘብ / መካከለኛ ሰው</option>
+          <option value="secEntry">➕ ገቢ/ወጪ መመዝገቢያ</option>
+          <option value="secCharts">📈 ግራፎች</option>
+          <option value="secConstruction">🏗️ ግንባታ ሂሳብ</option>
+          <option value="secPerf">🎯 የበጀት-አፈፃፀም</option>
+          <option value="secLedger">📋 ሙሉ ዝርዝር</option>
+          <option value="secReport">📑 ሪፖርት</option>
+        </select>
+      </div>
+    </header>
+
+    <div id="loginScreen" class="login-wrap">
+      <div class="card">
+        <h2 style="margin-top: 0">🔐 ወደ ዳሽቦርድ ይግቡ</h2>
+        <div class="tabs">
+          <button
+            id="loginTabStaffBtn"
+            class="active"
+            onclick="switchLoginTab('staff')"
+          >
+            👤 ሰራተኛ / አገልጋይ
+          </button>
+          <button id="loginTabAdminBtn" onclick="switchLoginTab('admin')">
+            🛡️ አድሚን
+          </button>
+        </div>
+        <div id="loginStaff" class="tabpane active">
+          <div class="form-row">
+            <label>የተጠቃሚ ስም</label
+            ><input id="userNameInput" value="user" readonly />
+          </div>
+          <div class="form-row">
+            <label>የUser የይለፍ ቃል</label
+            ><input
+              id="userPassInput"
+              type="password"
+              autocomplete="off"
+              placeholder="የይለፍ ቃል ያስገቡ"
+            />
+          </div>
+          <div id="loginStaffAlert" class="alert"></div>
+          <button class="primary" onclick="loginAsStaff()">ግባ</button>
+          <p class="hint">
+            User ሶስት የመረጃ መመዝገቢያ ስራዎችን ብቻ ይሰራል፦ መደበኛ ወጪ፣ መደበኛ ገቢ እና የግንባታ ገቢ።
+            በጀት፣ ቀሪ ሂሳብ፣ ስታቲስቲክስ እና ሪፖርት አያይም።
+          </p>
+        </div>
+        <div id="loginAdmin" class="tabpane">
+          <div class="form-row">
+            <label>የAdmin የይለፍ ቃል</label
+            ><input id="adminPassInput" type="password" autocomplete="off" />
+          </div>
+          <div id="loginAdminAlert" class="alert"></div>
+          <button class="primary" onclick="loginAsAdmin()">ግባ</button>
+          <p class="hint">የAdmin ገጽ በይለፍ ቃል ብቻ ይከፈታል። የይለፍ ቃሉን በማንም ሰው አይጋሩ።</p>
+        </div>
+      </div>
+    </div>
+
+    <main class="container" id="appMain" style="display: none">
+      <details class="app-section admin-only" id="secOverview">
+        <summary>
+          <span class="sec-title"
+            >📊
+            <span
+              >አጠቃላይ ሁኔታ
+              <span class="sec-sub">በጀት፣ ወጪ፣ ገቢ እና የአስራት ፈሰስ ማጠቃለያ</span></span
+            ></span
+          >
+          <span class="chev">▾</span>
+        </summary>
+        <div class="sec-body">
+          <section class="grid kpis">
+            <div class="card kpi">
+              <div class="label">ጠቅላላ በጀት</div>
+              <div class="value" id="totalBudget">0</div>
+              <small>ብር</small>
+            </div>
+            <div class="card kpi">
+              <div class="label">ጠቅላላ የተጠቀሙት</div>
+              <div class="value" id="totalSpent">0</div>
+              <small>ብር</small>
+            </div>
+            <div class="card kpi">
+              <div class="label">ቀሪ በጀት</div>
+              <div class="value" id="remaining">0</div>
+              <small>ብር</small>
+            </div>
+            <div class="card kpi">
+              <div class="label">የአጠቃቀም መጠን</div>
+              <div class="value" id="utilization">0%</div>
+              <small>ከጠቅላላ በጀት</small>
+            </div>
+            <div class="card kpi">
+              <div class="label">ጠቅላላ ገቢ</div>
+              <div class="value" id="totalIncome">0</div>
+              <small>ብር</small>
+            </div>
+            <div class="card kpi net">
+              <div class="label">ተጣራ ውጤት (ገቢ - ወጪ)</div>
+              <div class="value" id="netResult">0</div>
+              <small>ብር</small>
+            </div>
+            <div class="card kpi">
+              <div class="label">የግብይት መዝገቦች</div>
+              <div class="value" id="count">0</div>
+              <small>የተመዘገቡ ወጪዎች</small>
+            </div>
+            <div class="card kpi asrat">
+              <div class="label">ጠቅላላ አስራት</div>
+              <div class="value" id="totalAsrat">0</div>
+              <small>ብር</small>
+            </div>
+            <div class="card kpi asrat">
+              <div class="label">ፈሰስ (10%)</div>
+              <div class="value" id="asratFeses10">0</div>
+              <small>ከጠቅላላ አስራት</small>
+            </div>
+            <div class="card kpi asrat">
+              <div class="label">ፈሰስ (2%)</div>
+              <div class="value" id="asratOther2">0</div>
+              <small>ከጠቅላላ አስራት</small>
+            </div>
+          </section>
+        </div>
+      </details>
+
+      <!-- ADMIN BANK CLASSIFICATION SECTION -->
+      <details class="app-section admin-only" id="secBankStatus">
+        <summary>
+          <span class="sec-title"
+            >🏦
+            <span
+              >የባንክ ሂሳብ ሁኔታ
+              <span class="sec-sub">መደበኛ እና የግንባታ ሂሳብ በባንክ ተከፋፍሎ</span></span
+            ></span
+          >
+          <span class="chev">▾</span>
+        </summary>
+        <div class="sec-body">
+          <section class="grid balance-row">
+            <div class="card balance-card">
+              <div class="section-title">
+                <div>
+                  <div class="label">💡 የመደበኛ ሂሳብ ሁኔታ (Normal Money)</div>
+                  <div class="value" id="availableBalance">0</div>
+                  <small>ብር — መደበኛ ገቢና ወጪ፤ ከሕንፃ/መሬት ገንዘብ ውጪ</small>
+                </div>
+                <button class="linkbtn no-print" onclick="toggleSettings()">
+                  ⚙️ የመክፈቻ ሂሳብ አስተካክል
+                </button>
+              </div>
+
+              <div class="bank-summary-grid">
+                <div class="bank-mini-card">
+                  <div class="b-title">🏛️ ንግድ ባንክ (Normal)</div>
+                  <div class="b-val" id="regNigdBal">0 ብር</div>
+                </div>
+                <div class="bank-mini-card">
+                  <div class="b-title">☀️ ብርሃን ባንክ (Normal)</div>
+                  <div class="b-val" id="regBirhanBal">0 ብር</div>
+                </div>
+              </div>
+
+              <div class="balance-breakdown" style="margin-top: 12px">
+                <span>የመክፈቻ፦ <b id="bal_opening">0</b></span>
+                <span>+ ገቢ፦ <b id="bal_income">0</b></span>
+                <span>− ወጪ፦ <b id="bal_expense">0</b></span>
+              </div>
+
+              <div class="settings-panel no-print" id="settingsPanel">
+                <p class="hint" style="color: rgba(255, 255, 255, 0.85)">
+                  ካለፈው አመት የዞረውን የመደበኛ እና የሕንፃ/መሬት ሂሳብ በባንክ መጠን እዚህ ያስገቡ።
+                </p>
+                <div class="two">
+                  <div class="form-row">
+                    <label>የመደበኛ ሂሳብ - ንግድ ባንክ</label
+                    ><input
+                      id="setRegTrade"
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      placeholder="0"
+                    />
+                  </div>
+                  <div class="form-row">
+                    <label>የመደበኛ ሂሳብ - ብርሃን ባንክ</label
+                    ><input
+                      id="setRegBirhan"
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      placeholder="0"
+                    />
+                  </div>
+                </div>
+                <div class="two">
+                  <div class="form-row">
+                    <label>የሕንፃ/መሬት ሂሳብ - ንግድ ባንክ</label
+                    ><input
+                      id="setConTrade"
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      placeholder="0"
+                    />
+                  </div>
+                  <div class="form-row">
+                    <label>የሕንፃ/መሬት ሂሳብ - ብርሃን ባንክ</label
+                    ><input
+                      id="setConBirhan"
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      placeholder="0"
+                    />
+                  </div>
+                </div>
+                <button class="secondary" onclick="saveSettings()">
+                  መክፈቻ ሂሳብ አስቀምጥ
+                </button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="label" style="font-size: 13px; color: var(--muted)">
+                🏗️ የሕንፃ/መሬት ግንባታ ገንዘብ ሁኔታ (Building Money)
+              </div>
+              <div
+                style="font-size: 28px; font-weight: 800; margin-top: 8px"
+                id="conBalance"
+              >
+                0
+              </div>
+              <small class="con-note"
+                >ብር — ሙሉ ለሙሉ ተለይቶ የሚያዝ፣ ወደ መደበኛ ሂሳብ አይታሰብም</small
+              >
+
+              <div class="bank-summary-grid">
+                <div class="bank-mini-card light">
+                  <div class="b-title" style="color: #5d6778">
+                    🏛️ ንግድ ባንክ (Building)
+                  </div>
+                  <div class="b-val" id="conNigdBal" style="color: #172033">
+                    0 ብር
+                  </div>
+                </div>
+                <div class="bank-mini-card light">
+                  <div class="b-title" style="color: #5d6778">
+                    ☀️ ብርሃን ባንክ (Building)
+                  </div>
+                  <div class="b-val" id="conBirhanBal" style="color: #172033">
+                    0 ብር
+                  </div>
+                </div>
+              </div>
+
+              <div class="balance-breakdown light" style="margin-top: 12px">
+                <span>የመክፈቻ፦ <b id="con_opening">0</b></span>
+                <span>+ ገቢ፦ <b id="con_income">0</b></span>
+                <span>− ወጪ፦ <b id="con_expense">0</b></span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </details>
+
+      <details class="app-section admin-only" id="secPromisedMiddle">
+        <summary>
+          <span class="sec-title">🤝 <span>ቃል የተገባ ገንዘብ እና የመካከለኛ ሰው ገንዘብ <span class="sec-sub">ሁለቱን ሂሳቦች በተለያየ መልኩ ይመልከቱ</span></span></span>
+          <span class="chev">▾</span>
+        </summary>
+        <div class="sec-body">
+          <div class="admin-records-grid">
+            <div class="card">
+              <div class="section-title"><div><div class="label">💵 መደበኛ ቃል የተገባ ገንዘብ</div><div class="value" id="promiseNormalTotal">0 ብር</div></div></div>
+              <div class="table-wrap"><table><thead><tr><th>ቀን</th><th>ስም</th><th>ስልክ ቁጥር</th><th>ቃል የተገባ መጠን</th><th>የተከፈለ</th><th>ቀሪ</th><th>%</th><th>ቀነ-ገደብ</th><th>ሁኔታ</th><th>ማስታወሻ</th><th>የመዘገበው</th><th class="no-print">እርምጃ</th></tr></thead><tbody id="promiseNormalBody"></tbody></table></div>
+            </div>
+            <div class="card">
+              <div class="section-title"><div><div class="label">🏗️ ግንባታ እና ሕንፃ ቃል የተገባ ገንዘብ</div><div class="value" id="promiseBuildingTotal">0 ብር</div></div></div>
+              <div class="table-wrap"><table><thead><tr><th>ቀን</th><th>ስም</th><th>ስልክ ቁጥር</th><th>ቃል የተገባ መጠን</th><th>የተከፈለ</th><th>ቀሪ</th><th>%</th><th>ቀነ-ገደብ</th><th>ሁኔታ</th><th>ማስታወሻ</th><th>የመዘገበው</th><th class="no-print">እርምጃ</th></tr></thead><tbody id="promiseBuildingBody"></tbody></table></div>
+            </div>
+            <div class="card">
+              <div class="section-title"><div><div class="label">👤 መካከለኛ ሰው — ያልተቀነሰ ገንዘብ</div><div class="value" id="middleGrandTotal">0 ብር</div></div></div>
+              <div class="table-wrap"><table><thead><tr><th>ቀን</th><th>ስም</th><th>የመጀመሪያ ንግድ</th><th>የመጀመሪያ ብርሃን</th><th>ያለቀ/የተከፈለ</th><th>ቀሪ ንግድ</th><th>ቀሪ ብርሃን</th><th>ቀሪ ጠቅላላ</th><th>ማስታወሻ</th><th class="no-print">እርምጃ</th></tr></thead><tbody id="middleBody"></tbody></table></div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <section
+        class="banner-wrap no-print admin-only"
+        id="alertBanner"
+      ></section>
+
+      <section class="user-only user-only-banner" style="display: none">
+        <div class="hero-avatar">👤</div>
+        <div class="hero-text">
+          <b>እንኳን ደህና መጡ</b>
+          <div class="hero-sub">
+            ወጪ ሲያወጡ እና ገቢ ሲመዘግቡ ገንዘቡ የሚወጣበትን/ሚገባበትን ባንክ ይምረጡ፣ ከዛ ይመዝግቡ — ቀላል ነው
+            🙂
+          </div>
+        </div>
+      </section>
+
+      <details class="app-section user-only" id="secUserRecords" open style="display: none">
+        <summary>
+          <span class="sec-title">👥 <span>የተጠቃሚ መመዝገቢያ <span class="sec-sub">ቃል የተገባ ገንዘብ እና የመካከለኛ ሰው ገንዘብ</span></span></span>
+          <span class="chev">▾</span>
+        </summary>
+        <div class="sec-body">
+          <section class="grid layout user-entry-card">
+            <div class="record-card-accent">
+              <h3>💰 ቃል የተገባ ገንዘብ</h3>
+              <p class="hint">ሰውዬው ለቤተክርስቲያኑ ሊሰጥ ቃል የተገባውን ገንዘብ ይመዝግቡ።</p>
+              <div class="form-row"><label>የሰውዬው ስም</label><input id="promiseName" type="text" placeholder="ስም ያስገቡ" /></div>
+              <div class="two">
+                <div class="form-row"><label>ቃል የተገባ ገንዘብ (ብር)</label><input id="promiseAmount" type="number" min="0" step="0.01" placeholder="0" /></div>
+                <div class="form-row"><label>ቃል የተገባው አይነት</label><select id="promiseCategory"><option value="normal">💵 መደበኛ ገንዘብ</option><option value="building">🏗️ ግንባታ እና ሕንፃ ገንዘብ</option></select></div>
+              </div>
+              <div class="two">
+                <div class="form-row"><label>ስልክ ቁጥር (አማራጭ)</label><input id="promisePhone" type="tel" placeholder="09xxxxxxxx" /></div>
+                <div class="form-row"><label>የመክፈያ ቀነ-ገደብ (አማራጭ)</label><input id="promiseDeadline" type="date" /></div>
+              </div>
+              <div class="two">
+                <div class="form-row"><label>ቀን</label><input id="promiseDate" type="datetime-local" /></div>
+                <div class="form-row"><label>ማስታወሻ (አማራጭ)</label><input id="promiseNote" type="text" placeholder="ማስታወሻ" /></div>
+              </div>
+              <div id="promiseAlert" class="alert"></div>
+              <button class="primary" onclick="addPromise()">ቃል የተገባውን ገንዘብ መዝግብ</button>
+            </div>
+
+            <div class="record-card-accent">
+              <h3>👤 የመካከለኛ ሰው ገንዘብ</h3>
+              <p class="hint">ወደ መካከለኛ ሰው የተሰጠውን ገንዘብ ከእያንዳንዱ ባንክ በተለይ ይመዝግቡ። ይህ ገንዘብ ገና የወጪ ሂሳብ አይሆንም።</p>
+              <div class="form-row"><label>የመካከለኛ ሰው ስም</label><input id="middleName" type="text" placeholder="ስም ያስገቡ" /></div>
+              <div class="two">
+                <div class="form-row"><label>ከንግድ ባንክ (ብር)</label><input id="middleNigdAmount" type="number" min="0" step="0.01" placeholder="0" /></div>
+                <div class="form-row"><label>ከብርሃን ባንክ (ብር)</label><input id="middleBirhanAmount" type="number" min="0" step="0.01" placeholder="0" /></div>
+              </div>
+              <div class="two">
+                <div class="form-row"><label>ቀን</label><input id="middleDate" type="datetime-local" /></div>
+                <div class="form-row"><label>ማስታወሻ (አማራጭ)</label><input id="middleNote" type="text" placeholder="ማስታወሻ" /></div>
+              </div>
+              <div class="split-total"><span id="middlePreviewNigd">ንግድ: 0 ብር</span><span id="middlePreviewBirhan">ብርሃን: 0 ብር</span><span id="middlePreviewTotal">ጠቅላላ: 0 ብር</span></div>
+              <div id="middleAlert" class="alert"></div>
+              <button class="primary" onclick="addMiddlePerson()">የመካከለኛ ሰው ገንዘብ መዝግብ</button>
+            </div>
+          </section>
+
+          <section class="card record-card-accent" style="margin-top: 16px">
+            <h3>💳 ቃል የተገባ ገንዘብ ክፍያ መዝገብ</h3>
+            <p class="hint">ቃል የገባ ሰው ገንዘብ በከፊል ወይም ሙሉ በሙሉ ሲከፍል እዚህ ይመዝግቡ። ይህ ክፍያ ከባንክ ሂሳብ ወይም ከሚገኝ ሒሳብ ጋር አይደመርም፤ ራሱን ችሎ ብቻ ይመዘገባል።</p>
+            <div class="form-row"><label>ገንዘብ የገባው ሰው</label><select id="promisePaymentSelect"></select></div>
+            <div class="two">
+              <div class="form-row"><label>የተከፈለ መጠን (ብር)</label><input id="promisePaymentAmount" type="number" min="0" step="0.01" placeholder="0" /></div>
+              <div class="form-row"><label>ቀን</label><input id="promisePaymentDate" type="datetime-local" /></div>
+            </div>
+            <div class="form-row"><label>ማስታወሻ (አማራጭ)</label><input id="promisePaymentNote" type="text" placeholder="ማስታወሻ" /></div>
+            <div id="promisePaymentAlert" class="alert"></div>
+            <button class="primary" onclick="addPromisePayment()">ክፍያውን መዝግብ</button>
+          </section>
+        </div>
+      </details>
+
+      <details class="app-section" id="secEntry">
+        <summary>
+          <span class="sec-title"
+            >➕
+            <span
+              >ገቢ እና ወጪ መመዝገቢያ
+              <span class="sec-sub"
+                >አዲስ ወጪ ወይም ገቢ ያስገቡ፣ የበጀት አፈፃፀም ይመልከቱ</span
+              ></span
+            ></span
+          >
+          <span class="chev">▾</span>
+        </summary>
+        <div class="sec-body">
+          <section class="grid layout user-entry-card">
+            <div class="card">
+              <div class="tabs no-print">
+                <button
+                  id="tabExpenseBtn"
+                  class="active"
+                  onclick="switchTab('expense')"
+                >
+                  ➕ ወጪ መመዝገብ
+                </button>
+                <button id="tabIncomeBtn" onclick="switchTab('income')">
+                  💵 ገቢ መመዝገብ
+                </button>
+              </div>
+
+              <!-- USER EXPENSE / MONEY WITHDRAWAL FORM -->
+              <div id="tabExpense" class="tabpane active">
+                <h2 style="margin-top: 0">አዲስ ወጪ መመዝገብ</h2>
+                <div class="form-row">
+                  <label>የወጪ መስክ</label
+                  ><select id="field"></select>
+                </div>
+                <div class="form-row">
+                  <label>ንዑስ መስክ</label
+                  ><select id="subfield"></select>
+                </div>
+                <div class="budget-box admin-only">
+                  <div>
+                    የንዑስ መስኩ በጀት: <span class="money" id="subBudget">0</span> ብር
+                  </div>
+                  <div>
+                    እስካሁን የተጠቀሙት: <span class="money" id="subSpent">0</span> ብር
+                  </div>
+                  <div>
+                    ከዚህ በኋላ የሚቀረው:
+                    <span class="money" id="subRemaining">0</span> ብር
+                  </div>
+                  <div class="progress">
+                    <div class="bar" id="subBar"></div>
+                  </div>
+                </div>
+
+                <!-- BANK SELECTOR PROMPT -->
+                <div class="form-row">
+                  <label>🏦 ገንዘቡ ከየትኛው ባንክ ይወጣል? (የባንክ ምርጫ)</label>
+                  <div class="bank-selector-grid">
+                    <label class="bank-card-opt">
+                      <input
+                        type="radio"
+                        name="expBankChoice"
+                        value="ንግድ ባንክ"
+                        checked
+                      />
+                      <div class="bank-card-content">
+                        <span class="bank-icon">🏛️</span>
+                        <span class="bank-name">ንግድ ባንክ</span>
+                      </div>
+                    </label>
+                    <label class="bank-card-opt">
+                      <input
+                        type="radio"
+                        name="expBankChoice"
+                        value="ብርሃን ባንክ"
+                      />
+                      <div class="bank-card-content">
+                        <span class="bank-icon">☀️</span>
+                        <span class="bank-name">ብርሃን ባንክ</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="two">
+                  <div class="form-row">
+                    <label>የተጠቀሙት መጠን (ብር)</label
+                    ><input
+                      id="amount"
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      placeholder="ለምሳሌ 2500"
+                      oninput="
+                        previewAmount();
+                        liveAmountPreview('amount', 'amountPreview');
+                      "
+                    />
+                    <div class="amount-preview" id="amountPreview"></div>
+                  </div>
+                  <div class="form-row">
+                    <label>ቀን እና ሰዓት</label
+                    ><input id="date" type="datetime-local" />
+                  </div>
+                </div>
+                <div class="two">
+                  <div class="form-row">
+                    <label>የክፍያ ዘዴ</label
+                    ><select id="payment" onchange="toggleMiddlePayout()">
+                      <option value="ባንክ ትራንስፈር">ባንክ ትራንስፈር</option>
+                      <option value="PT Cash">PT Cash</option>
+                      <option value="ሞባይል ገንዘብ (ቴሌብር)">ሞባይል ገንዘብ (ቴሌብር)</option>
+                      <option value="ቼክ">ቼክ</option>
+                      <option value="ሌላ">ሌላ</option>
+                    </select>
+                  </div>
+                  <div class="form-row" id="middlePayoutBox" style="display:none; grid-column: 1 / -1;">
+                    <label>👤 PT Cash የሚሰጠው ከየትኛው መካከለኛ ሰው ነው?</label>
+                    <select id="middlePayoutPerson" onchange="updateMiddlePayoutLimits()"><option value="">— መካከለኛ ሰው ይምረጡ —</option></select>
+                    <div class="two" style="margin-top:10px">
+                      <div class="form-row"><label>ከንግድ ባንክ የሚቀነሰው</label><input id="middlePayoutNigd" type="number" min="0" step="0.01" placeholder="0" oninput="updateMiddlePayoutLimits()" /><small id="middlePayoutNigdAvailable" class="hint"></small></div>
+                      <div class="form-row"><label>ከብርሃን ባንክ የሚቀነሰው</label><input id="middlePayoutBirhan" type="number" min="0" step="0.01" placeholder="0" oninput="updateMiddlePayoutLimits()" /><small id="middlePayoutBirhanAvailable" class="hint"></small></div>
+                    </div>
+                    <div class="hint">PT Cash ሲመዘገብ የተከፋፈለው መጠን ከመካከለኛ ሰው ቀሪ እና ከተወካዩ ባንክ ሂሳብ ይቀነሳል።</div>
+                  </div>
+                  <div class="form-row">
+                    <label>የደረሰኝ/ማጣቀሻ ቁጥር</label
+                    ><input
+                      id="receipt"
+                      type="text"
+                      lang="am"
+                      autocomplete="off"
+                      spellcheck="false"
+                      placeholder="ለምሳሌ RCT-0231"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label>ምክንያት / የወጪ ዝርዝር</label
+                  ><textarea
+                    id="reason"
+                    rows="3"
+                    lang="am"
+                    autocomplete="off"
+                    spellcheck="false"
+                    placeholder="ገንዘቡ ለምን እንደወጣ ይግለጹ..."
+                  ></textarea>
+                </div>
+                <div id="alert" class="alert"></div>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap">
+                  <button class="primary" onclick="addExpense()">
+                    ወጪውን መዝግብ</button
+                  ><button
+                    class="secondary admin-only admin-control"
+                    onclick="loadDemo()"
+                  >
+                    የሙከራ መረጃ ጫን
+                  </button>
+                </div>
+              </div>
+
+              <!-- USER INCOME FORM -->
+              <div id="tabIncome" class="tabpane">
+                <h2 style="margin-top: 0">አዲስ ገቢ መመዝገብ</h2>
+                <div class="form-row">
+                  <label>የገቢ አይነት</label
+                  ><select id="incSource" onchange="toggleIncOther()">
+                    <option value="አስራት">አስራት</option>
+                    <option value="መባ">መባ</option>
+                    <option value="ስጦታ">ስጦታ (ስጦታ/ልገሳ)</option>
+                    <option value="ሌላ">ሌላ</option>
+                  </select>
+                </div>
+                <div class="form-row" id="incOtherRow" style="display: none">
+                  <label>የገቢውን ስም ይግለጹ</label
+                  ><input
+                    id="incOther"
+                    type="text"
+                    lang="am"
+                    autocomplete="off"
+                    spellcheck="false"
+                    placeholder="ለምሳሌ ተመላሽ ገንዘብ..."
+                  />
+                </div>
+
+                <div class="form-row">
+                  <label>🏦 ገቢው የገባበት ባንክ</label>
+                  <div class="bank-selector-grid">
+                    <label class="bank-card-opt">
+                      <input
+                        type="radio"
+                        name="incBankChoice"
+                        value="ንግድ ባንክ"
+                        checked
+                      />
+                      <div class="bank-card-content">
+                        <span class="bank-icon">🏛️</span>
+                        <span class="bank-name">ንግድ ባንክ</span>
+                      </div>
+                    </label>
+                    <label class="bank-card-opt">
+                      <input
+                        type="radio"
+                        name="incBankChoice"
+                        value="ብርሃን ባንክ"
+                      />
+                      <div class="bank-card-content">
+                        <span class="bank-icon">☀️</span>
+                        <span class="bank-name">ብርሃን ባንክ</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="two">
+                  <div class="form-row">
+                    <label>መጠን (ብር)</label
+                    ><input
+                      id="incAmount"
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      placeholder="ለምሳሌ 15000"
+                      oninput="
+                        liveAmountPreview('incAmount', 'incAmountPreview')
+                      "
+                    />
+                    <div class="amount-preview" id="incAmountPreview"></div>
+                  </div>
+                  <div class="form-row">
+                    <label>ቀን</label
+                    ><input id="incDate" type="datetime-local" />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label>የደረሰኝ/ማጣቀሻ ቁጥር (አማራጭ)</label
+                  ><input
+                    id="incReceipt"
+                    type="text"
+                    lang="am"
+                    autocomplete="off"
+                    spellcheck="false"
+                    placeholder="ለምሳሌ RCT-2031"
+                  />
+                </div>
+                <div class="form-row">
+                  <label>ማስታወሻ (አማራጭ)</label
+                  ><textarea
+                    id="incNote"
+                    rows="3"
+                    lang="am"
+                    autocomplete="off"
+                    spellcheck="false"
+                    placeholder="ተጨማሪ ዝርዝር..."
+                  ></textarea>
+                </div>
+                <div id="incAlert" class="alert"></div>
+                <div style="display: flex; gap: 8px">
+                  <button class="primary" onclick="addIncome()">
+                    ገቢውን መዝግብ
+                  </button>
+                </div>
+                <div class="table-wrap admin-only" style="margin-top: 16px">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>ቀን</th>
+                        <th>ምንጭ</th>
+                        <th>ባንክ</th>
+                        <th>መጠን</th>
+                        <th>ደረሰኝ</th>
+                        <th>ማስታወሻ</th>
+                        <th class="no-print"></th>
+                      </tr>
+                    </thead>
+                    <tbody id="incomeBody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="card admin-only" id="fieldBarsCard">
+              <h2 style="margin-top: 0">የበጀት አፈፃፀም</h2>
+              <p style="color: var(--muted); font-size: 13px">
+                የእያንዳንዱ ዋና መስክ የተመደበ በጀት እና የተጠቀሙት ገንዘብ።
+              </p>
+              <div id="fieldBars"></div>
+            </div>
+
+            <div class="card staff-only" id="myFieldCard">
+              <h2 style="margin-top: 0">📌 የኔ ንዑስ መስክ አፈፃፀም</h2>
+              <p class="hint" id="myFieldLabel"></p>
+              <div id="myChart"></div>
+              <h3 style="margin-top: 18px">የኔ የቅርብ ጊዜ ወጪዎች</h3>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>ቀን</th>
+                      <th>መጠን</th>
+                      <th>የክፍያ ዘዴ</th>
+                      <th>ምክንያት</th>
+                    </tr>
+                  </thead>
+                  <tbody id="myExpensesBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </div>
+      </details>
+
+      <details class="app-section admin-only" id="secCharts">
+        <summary>
+          <span class="sec-title"
+            >📈
+            <span
+              >ግራፎች እና ትንታኔ
+              <span class="sec-sub">የወር አዝማሚያ እና በመስክ የወጪ ክፍፍል</span></span
+            ></span
+          >
+          <span class="chev">▾</span>
+        </summary>
+        <div class="sec-body">
+          <section class="grid charts">
+            <div class="card chart">
+              <h3>📈 የወር ወጪ እና ገቢ አዝማሚያ</h3>
+              <p>በጊዜ ሂደት የተመዘገበው ወጪ እና ገቢ</p>
+              <div class="legend">
+                <span
+                  ><i class="dotlegend" style="background: #315efb"></i>ወጪ</span
+                ><span
+                  ><i class="dotlegend" style="background: #13a673"></i>ገቢ</span
+                >
+              </div>
+              <div id="lineChart"></div>
+            </div>
+            <div class="card chart">
+              <h3>📊 የወጪ ምደባ በመስክ</h3>
+              <p>የተጠቀሙት ገንዘብ በዋና መስኮች</p>
+              <div id="categoryChart"></div>
+            </div>
+          </section>
+        </div>
+      </details>
+
+      <!-- CONSTRUCTION / BUILDING MONEY SECTION -->
+      <details class="app-section" id="secConstruction">
+        <summary>
+          <span class="sec-title"
+            >🏗️
+            <span
+              >ግንባታ እና የመሬት ግዥ ሂሳብ
+              <span class="sec-sub">ሙሉ ለሙሉ ተለይቶ የሚያዝ የሕንፃ/መሬት ገንዘብ</span></span
+            ></span
+          >
+          <span class="chev">▾</span>
+        </summary>
+        <div class="sec-body">
+          <section class="card table-card" id="constructionSection">
+            <div class="section-title">
+              <h2 style="margin: 0">🏗️ ግንባታ እና የመሬት ግዥ ሂሳብ (Building Money)</h2>
+            </div>
+            <p class="hint">
+              ይህ ገንዘብ ሙሉ ለሙሉ ተለይቶ የሚያዝ ነው፤ ከላይኛው «ተጠቃሚ ሂሳብ» ጋር አይደመርም እና ወደ በጀት
+              አጠቃቀም አይታሰብም።
+            </p>
+            <div class="grid layout" style="margin-top: 14px">
+              <div
+                class="card"
+                style="box-shadow: none; border: 1px solid var(--line)"
+              >
+                <div class="tabs no-print">
+                  <button
+                    id="conTabIncomeBtn"
+                    class="active"
+                    onclick="switchConTab('income')"
+                  >
+                    💵 የግንባታ ገቢ
+                  </button>
+                  <button
+                    id="conTabExpenseBtn"
+                    onclick="switchConTab('expense')"
+                  >
+                    ➖ የግንባታ/መሬት ወጪ
+                  </button>
+                </div>
+
+                <div id="conTabIncome" class="tabpane active">
+                  <div class="form-row">
+                    <label>የገቢ አይነት</label
+                    ><select id="conIncType">
+                      <option value="ስጦታ/ልገሳ ለግንባታ">ስጦታ/ልገሳ ለግንባታ</option>
+                      <option value="ልዩ የግንባታ መዋጮ">ልዩ የግንባታ መዋጮ</option>
+                      <option value="ባንክ ወለድ">ባንክ ወለድ</option>
+                      <option value="ሌላ">ሌላ</option>
+                    </select>
+                  </div>
+
+                  <div class="form-row">
+                    <label>🏦 ገቢው የገባበት ባንክ</label>
+                    <div class="bank-selector-grid">
+                      <label class="bank-card-opt">
+                        <input
+                          type="radio"
+                          name="conIncBankChoice"
+                          value="ንግድ ባንክ"
+                          checked
+                        />
+                        <div class="bank-card-content">
+                          <span class="bank-icon">🏛️</span>
+                          <span class="bank-name">ንግድ ባንክ</span>
+                        </div>
+                      </label>
+                      <label class="bank-card-opt">
+                        <input
+                          type="radio"
+                          name="conIncBankChoice"
+                          value="ብርሃን ባንክ"
+                        />
+                        <div class="bank-card-content">
+                          <span class="bank-icon">☀️</span>
+                          <span class="bank-name">ብርሃን ባንክ</span>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="two">
+                    <div class="form-row">
+                      <label>መጠን (ብር)</label
+                      ><input
+                        id="conIncAmount"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        oninput="
+                          liveAmountPreview(
+                            'conIncAmount',
+                            'conIncAmountPreview',
+                          )
+                        "
+                      />
+                      <div
+                        class="amount-preview"
+                        id="conIncAmountPreview"
+                      ></div>
+                    </div>
+                    <div class="form-row">
+                      <label>ቀን</label
+                      ><input id="conIncDate" type="datetime-local" />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <label>የደረሰኝ/ማጣቀሻ ቁጥር (አማራጭ)</label
+                    ><input
+                      id="conIncReceipt"
+                      type="text"
+                      lang="am"
+                      autocomplete="off"
+                      spellcheck="false"
+                      placeholder="ለምሳሌ RCT-2031"
+                    />
+                  </div>
+                  <div class="form-row">
+                    <label>ማስታወሻ (አማራጭ)</label
+                    ><textarea
+                      id="conIncNote"
+                      rows="2"
+                      lang="am"
+                      autocomplete="off"
+                      spellcheck="false"
+                    ></textarea>
+                  </div>
+                  <div id="conIncAlert" class="alert"></div>
+                  <button class="primary" onclick="addConIncome()">
+                    ገቢውን መዝግብ
+                  </button>
+                  <div class="table-wrap admin-only" style="margin-top: 14px">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>ቀን</th>
+                          <th>አይነት</th>
+                          <th>ባንክ</th>
+                          <th>መጠን</th>
+                          <th>ደረሰኝ</th>
+                          <th>ማስታወሻ</th>
+                          <th class="no-print"></th>
+                        </tr>
+                      </thead>
+                      <tbody id="conIncomeBody"></tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div id="conTabExpense" class="tabpane">
+                  <div class="form-row">
+                    <label>የወጪ አይነት</label
+                    ><select id="conExpType">
+                      <option value="የመሬት ግዥ">የመሬት ግዥ</option>
+                      <option value="የግንባታ ወጪ">የግንባታ ወጪ</option>
+                      <option value="ፈቃድ/ታክስ">ፈቃድ/ታክስ</option>
+                      <option value="ሌላ">ሌላ</option>
+                    </select>
+                  </div>
+
+                  <div class="form-row">
+                    <label>🏦 ገንዘቡ ከየትኛው ባንክ ይወጣል?</label>
+                    <div class="bank-selector-grid">
+                      <label class="bank-card-opt">
+                        <input
+                          type="radio"
+                          name="conExpBankChoice"
+                          value="ንግድ ባንክ"
+                          checked
+                        />
+                        <div class="bank-card-content">
+                          <span class="bank-icon">🏛️</span>
+                          <span class="bank-name">ንግድ ባንክ</span>
+                        </div>
+                      </label>
+                      <label class="bank-card-opt">
+                        <input
+                          type="radio"
+                          name="conExpBankChoice"
+                          value="ብርሃን ባንክ"
+                        />
+                        <div class="bank-card-content">
+                          <span class="bank-icon">☀️</span>
+                          <span class="bank-name">ብርሃን ባንክ</span>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="two">
+                    <div class="form-row">
+                      <label>መጠን (ብር)</label
+                      ><input
+                        id="conExpAmount"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        oninput="
+                          liveAmountPreview(
+                            'conExpAmount',
+                            'conExpAmountPreview',
+                          )
+                        "
+                      />
+                      <div
+                        class="amount-preview"
+                        id="conExpAmountPreview"
+                      ></div>
+                    </div>
+                    <div class="form-row">
+                      <label>ቀን</label
+                      ><input id="conExpDate" type="datetime-local" />
+                    </div>
+                  </div>
+                  <div class="two">
+                    <div class="form-row">
+                      <label>የክፍያ ዘዴ</label
+                      ><select id="conExpPayment" onchange="toggleMiddlePayoutCon()">
+                        <option value="ባንክ ትራንስፈር">ባንክ ትራንስፈር</option>
+                        <option value="PT Cash">PT Cash</option>
+                        <option value="ቼክ">ቼክ</option>
+                        <option value="ሌላ">ሌላ</option>
+                      </select>
+                    </div>
+                    <div class="form-row">
+                      <label>ደረሰኝ/ማጣቀሻ</label
+                      ><input
+                        id="conExpReceipt"
+                        type="text"
+                        lang="am"
+                        autocomplete="off"
+                        spellcheck="false"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-row" id="conMiddlePayoutBox" style="display:none">
+                    <label>👤 PT Cash የሚሰጠው ከየትኛው መካከለኛ ሰው ነው?</label>
+                    <select id="conMiddlePayoutPerson" onchange="updateMiddlePayoutLimitsCon()"><option value="">— መካከለኛ ሰው ይምረጡ —</option></select>
+                    <div class="two" style="margin-top:10px">
+                      <div class="form-row"><label>ከንግድ ባንክ የሚቀነሰው</label><input id="conMiddlePayoutNigd" type="number" min="0" step="0.01" placeholder="0" oninput="updateMiddlePayoutLimitsCon()" /><small id="conMiddlePayoutNigdAvailable" class="hint"></small></div>
+                      <div class="form-row"><label>ከብርሃን ባንክ የሚቀነሰው</label><input id="conMiddlePayoutBirhan" type="number" min="0" step="0.01" placeholder="0" oninput="updateMiddlePayoutLimitsCon()" /><small id="conMiddlePayoutBirhanAvailable" class="hint"></small></div>
+                    </div>
+                    <div class="hint">PT Cash ሲመዘገብ የተከፋፈለው መጠን ከመካከለኛ ሰው ቀሪ እና ከተወካዩ ባንክ ሂሳብ ይቀነሳል።</div>
+                  </div>
+                  <div class="form-row">
+                    <label>ዝርዝር</label
+                    ><textarea
+                      id="conExpReason"
+                      rows="2"
+                      lang="am"
+                      autocomplete="off"
+                      spellcheck="false"
+                    ></textarea>
+                  </div>
+                  <div id="conExpAlert" class="alert"></div>
+                  <button class="primary" onclick="addConExpense()">
+                    ወጪውን መዝግብ
+                  </button>
+                  <div class="table-wrap" style="margin-top: 14px">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>ቀን</th>
+                          <th>አይነት</th>
+                          <th>ባንክ</th>
+                          <th>መጠን</th>
+                          <th>ክፍያ</th>
+                          <th>ደረሰኝ</th>
+                          <th>ዝርዝር</th>
+                          <th class="no-print"></th>
+                        </tr>
+                      </thead>
+                      <tbody id="conExpenseBody"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="card admin-only"
+                style="box-shadow: none; border: 1px solid var(--line)"
+              >
+                <h3 style="margin-top: 0">የግንባታ ሂሳብ ማጠቃለያ</h3>
+                <div class="budget-box">
+                  <div>
+                    የመክፈቻ ሒሳብ:
+                    <span class="money" id="conSumOpening">0</span> ብር
+                  </div>
+                  <div>
+                    ጠቅላላ ገቢ: <span class="money" id="conSumIncome">0</span> ብር
+                  </div>
+                  <div>
+                    ጠቅላላ ወጪ: <span class="money" id="conSumExpense">0</span> ብር
+                  </div>
+                  <div style="margin-top: 8px; font-size: 16px">
+                    <b
+                      >የአሁኑ ቀሪ ሂሳብ:
+                      <span class="money" id="conSumBalance">0</span> ብር</b
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </details>
+
+      <details class="app-section admin-only" id="secPerf">
+        <summary>
+          <span class="sec-title"
+            >🎯
+            <span
+              >የበጀት-አፈፃፀም ሠንጠረዥ
+              <span class="sec-sub"
+                >በእያንዳንዱ ንዑስ መስክ ደረጃ የበጀት አጠቃቀም ዝርዝር</span
+              ></span
+            ></span
+          >
+          <span class="chev">▾</span>
+        </summary>
+        <div class="sec-body">
+          <section class="card table-card">
+            <h2 style="margin-top: 0">🎯 የበጀት-አፈፃፀም ሠንጠረዥ</h2>
+            <p style="color: var(--muted); font-size: 13px; margin-top: -8px">
+              በእያንዳንዱ ንዑስ መስክ ደረጃ የበጀት አጠቃቀም ዝርዝር።
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ዋና መስክ</th>
+                    <th>ንዑስ መስክ</th>
+                    <th>በጀት</th>
+                    <th>የተጠቀሙት</th>
+                    <th>ቀሪ</th>
+                    <th>%</th>
+                    <th>ሁኔታ</th>
+                  </tr>
+                </thead>
+                <tbody id="perfBody"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </details>
+
+      <details class="app-section admin-only" id="secLedger">
+        <summary>
+          <span class="sec-title"
+            >📋
+            <span
+              >ሙሉ የግብይት ዝርዝር
+              <span class="sec-sub">ፍለጋ፣ ማጣሪያ እና ሙሉ ሠንጠረዥ</span></span
+            ></span
+          >
+          <span class="chev">▾</span>
+        </summary>
+        <div class="sec-body">
+          <section class="card table-card">
+            <div class="toolbar">
+              <div>
+                <label>መፈለጊያ</label
+                ><input
+                  id="search"
+                  lang="am"
+                  autocomplete="off"
+                  spellcheck="false"
+                  placeholder="መስክ፣ ንዑስ መስክ፣ ምክንያት፣ ደረሰኝ..."
+                />
+              </div>
+              <div>
+                <label>ዋና መስክ</label
+                ><select id="filterField">
+                  <option value="">ሁሉም</option>
+                </select>
+              </div>
+              <div>
+                <label>ወር</label><input id="filterMonth" type="month" />
+              </div>
+              <button
+                class="ghost no-print"
+                id="advFilterBtn"
+                onclick="toggleAdvFilter()"
+              >
+                🔽 ተጨማሪ ማጣሪያ
+              </button>
+              <button class="secondary no-print" onclick="exportCSV()">
+                📥 CSV አውጣ</button
+              ><button class="danger no-print" onclick="clearExpenses()">
+                🚫 ሁሉንም ወጪ አጽዳ
+              </button>
+            </div>
+            <div class="filter-adv no-print" id="advFilter">
+              <div class="form-row">
+                <label>ዝቅተኛ መጠን</label
+                ><input
+                  id="filterMin"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  placeholder="0"
+                />
+              </div>
+              <div class="form-row">
+                <label>ከፍተኛ መጠን</label
+                ><input
+                  id="filterMax"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  placeholder="ወሰን የለም"
+                />
+              </div>
+              <div class="form-row">
+                <label>የክፍያ ዘዴ</label
+                ><select id="filterPayment">
+                  <option value="">ሁሉም</option>
+                  <option value="PT Cash">PT Cash</option>
+                  <option value="ባንክ ትራንስፈር">ባንክ ትራንስፈር</option>
+                  <option value="ሞባይል ገንዘብ (ቴሌብር)">ሞባይል ገንዘብ (ቴሌብር)</option>
+                  <option value="ቼክ">ቼክ</option>
+                  <option value="ሌላ">ሌላ</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label>ሁኔታ</label
+                ><select id="filterStatus">
+                  <option value="">ሁሉም</option>
+                  <option value="ok">በጀት ውስጥ</option>
+                  <option value="over">በጀት ተሻግሯል</option>
+                </select>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ቀን/ሰዓት</th>
+                    <th>መዝጋቢ</th>
+                    <th>መስክ</th>
+                    <th>ንዑስ መስክ</th>
+                    <th>ባንክ</th>
+                    <th>መጠን</th>
+                    <th>የክፍያ ዘዴ</th>
+                    <th>ደረሰኝ</th>
+                    <th>ምክንያት</th>
+                    <th>ሁኔታ</th>
+                    <th class="no-print"></th>
+                  </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </details>
+
+      <!-- INTERACTIVE REPORT SYSTEM SECTION -->
+      <details class="app-section admin-only" id="secReport">
+        <summary>
+          <span class="sec-title"
+            >📑
+            <span
+              >የአስተዳደር ሪፖርት
+              <span class="sec-sub"
+                >በመስክ፣ በንዑስ መስክ ወይም ጠቅላላ — በአዝራር ብቻ ያጣሩ</span
+              ></span
+            ></span
+          >
+          <span class="chev">▾</span>
+        </summary>
+        <div class="sec-body">
+          <section class="card" id="managementReportSection">
+            <div class="print-report-header" id="printReportHeader"></div>
+            <div class="section-title">
+              <h2 style="margin: 0">📑 የአስተዳደር ሪፖርት እና ዝርዝር ትንታኔ</h2>
+              <div style="display: flex; gap: 8px">
+                <button
+                  class="ghost no-print"
+                  id="toggleReportViewBtn"
+                  onclick="toggleReportView()"
+                >
+                  👁️ ሪፖርቱን ደብቅ/አሳይ
+                </button>
+                <button
+                  class="primary no-print"
+                  onclick="printManagementReportOnly()"
+                >
+                  📄 የሪፖርት PDF አውጣ
+                </button>
+              </div>
+            </div>
+            <p class="hint">
+              በአዝራሮች (Buttons) በመንካት የወጪ እና የገቢ ዝርዝር ሪፖርት በተለያየ ወር፣ ቀን፣ ባንክ እና
+              ንዑስ መስክ ይመልከቱ።
+            </p>
+
+            <!-- MAIN REPORT MODULE CONTROLS -->
+            <div class="filter-box-panel no-print">
+              <span class="filter-section-title">1. የሪፖርት አይነት ይምረጡ</span>
+              <div class="report-btn-group" id="reportModeGroup">
+                <button
+                  id="btnRptExpense"
+                  class="active"
+                  onclick="setReportType('expense')"
+                >
+                  📉 የወጪ ሪፖርት (Expense)
+                </button>
+                <button id="btnRptIncome" onclick="setReportType('income')">
+                  💵 የገቢ ሪፖርት (Income)
+                </button>
+              </div>
+
+              <div style="margin-top: 14px">
+                <span class="filter-section-title"
+                  >2. የጊዜ ወሰን (Range of Days / Months / Year)</span
+                >
+                <div class="report-btn-group" id="reportTimeRangeGroup">
+                  <button
+                    id="btnTimeMonth"
+                    class="active"
+                    onclick="setReportTimeRange('month')"
+                  >
+                    📅 በዚህ ወር
+                  </button>
+                  <button id="btnTimeYear" onclick="setReportTimeRange('year')">
+                    📆 በዚህ አመት
+                  </button>
+                  <button
+                    id="btnTimeDays"
+                    onclick="setReportTimeRange('range')"
+                  >
+                    🗓️ የቀን ወሰን (Range of Days)
+                  </button>
+                  <button id="btnTimeAll" onclick="setReportTimeRange('all')">
+                    ♾️ የሁሉም ጊዜ
+                  </button>
+                </div>
+              </div>
+
+              <!-- DYNAMIC INPUTS FOR TIME -->
+              <div
+                class="two"
+                id="timeInputsArea"
+                style="margin-top: 10px; max-width: 500px"
+              >
+                <div id="monthPickerWrap">
+                  <label>ወር ይምረጡ</label>
+                  <input
+                    id="rptMonth"
+                    type="month"
+                    onchange="renderManagementReport()"
+                  />
+                </div>
+                <div id="yearPickerWrap" style="display: none">
+                  <label>አመት ይምረጡ</label>
+                  <input
+                    id="rptYear"
+                    type="number"
+                    min="2020"
+                    max="2035"
+                    placeholder="YYYY"
+                    onchange="renderManagementReport()"
+                  />
+                </div>
+                <div
+                  id="dateRangeWrap"
+                  style="display: none; grid-column: span 2"
+                >
+                  <div class="two">
+                    <div>
+                      <label>ከ ቀን</label>
+                      <input
+                        id="rptStartDate"
+                        type="date"
+                        onchange="renderManagementReport()"
+                      />
+                    </div>
+                    <div>
+                      <label>እስከ ቀን</label>
+                      <input
+                        id="rptEndDate"
+                        type="date"
+                        onchange="renderManagementReport()"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- DYNAMIC FIELD BUTTONS (expense only) -->
+              <div style="margin-top: 14px" id="fieldButtonsArea">
+                <span class="filter-section-title" id="fieldGroupTitle"
+                  >3. ዋና መስክ ይምረጡ (Field)</span
+                >
+                <div
+                  class="report-btn-group field-group"
+                  id="fieldAspectGroup"
+                ></div>
+                <div class="report-hint" id="fieldHint">
+                  "ሁሉም መስኮች" ን ይምረጡ ጠቅላላ ሪፖርት ለማየት፣ ወይም አንድ የተወሰነ መስክ ይምረጡ።
+                </div>
+              </div>
+
+              <!-- DYNAMIC SUB-ASPECT BUTTONS -->
+              <div style="margin-top: 14px" id="aspectButtonsArea">
+                <span class="filter-section-title" id="aspectGroupTitle"
+                  >4. ንዑስ መስክ ይምረጡ (Sub-field)</span
+                >
+                <div class="report-btn-group" id="subAspectGroup"></div>
+              </div>
+
+              <!-- BANK FILTER BUTTONS (FOR INCOME) -->
+              <div style="margin-top: 14px; display: none" id="bankFilterArea">
+                <span class="filter-section-title">5. የባንክ ሂሳብ filter</span>
+                <div class="report-btn-group" id="bankFilterGroup">
+                  <button class="active" onclick="setReportBank('ALL', this)">
+                    ሁሉም ባንክ
+                  </button>
+                  <button onclick="setReportBank('ንግድ ባንክ', this)">
+                    🏛️ ንግድ ባንክ
+                  </button>
+                  <button onclick="setReportBank('ብርሃን ባንክ', this)">
+                    ☀️ ብርሃን ባንክ
+                  </button>
+                  <button onclick="setReportBank('ጥሬ ገንዘብ / ሌላ', this)">
+                    💵 ጥሬ ገንዘብ/ሌላ
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- COLLAPSIBLE REPORT CONTENT CONTAINER -->
+            <div id="reportContentArea">
+              <div class="report-grid" id="reportStats"></div>
+              <div id="reportBody"></div>
+            </div>
+          </section>
+        </div>
+      </details>
+    </main>
+
+    <script>
+      const BUDGET = {
+        "የአገልግሎት ዘርፎች": {
+          "የወጣቶች አገልግሎት": 20000,
+          "የመሪዎች አገልግሎት": 10000,
+          "የዲያቆናት አገልግሎት": 9000,
+          "የናታኒም አገልግሎት": 5000,
+          "የቤት ሕብረት አገልግሎት": 6000,
+          "የወንጌል ስርጭት አገልግሎት": 11000,
+          "የአምልኮ መሪዎች አገልግሎት": 6000,
+          መዘምራን: 11000,
+          "የፀሎት አገልግሎት": 8000,
+          "የእህቶች አገልግሎት": 6000,
+          "የስነጽሁፍ አገልግሎት": 6000,
+          "የልጆች አገልግሎት": 20000,
+          "ጋብቻና ቤተሰብ ሕይወት አገልግሎት": 60000,
+          "የመሬት ግዢና ህንጻ ኮሚቴ": 6000,
+        },
+        "መንፈሳዊ እንቅስቃሴዎች": {
+          "አገልጋዮች ቀለብ": 1026924,
+          "አገልጋዮች ትራንስፖርት አበል": 66000,
+          "አገልጋዮች ጡረታ": 123230.88,
+          "አገልጋዮች ስጦታ": 45000,
+          "ለሌሎች ቤ/ክናት ስጦታ": 20000,
+          "ልዩ ልዩ መንፈሳዊ መጽሐፍትና ትራክት ግዥ": 20000,
+          "ለችግረኛ ስጦታ": 45000,
+          "ለቤ/ክ ስርዓት": 30000,
+          "ለእሁድ አምልኮና ለአርብ ትምህርት ለአገልጋይ ትራንስፖርት": 110000,
+          "10 % ቀጠና ፈሰስ": 494443.4,
+          "2 % ቀጠና ፈሰስ": 158888.68,
+          "አቅም ማሳደጊያ ስልጠና": 75000,
+          "የልዩ ፕሮግራም አገልግሎት": 70000,
+          "ጠቅላላ መሰተንግዶ": 20000,
+        },
+        "አስተዳደራዊ ወጪ": {
+          "የቅጥር ሠራተኞች ደመወዝ ወጪ": 200400,
+          "የቅጥር ሠራተኞች ትራንስፖርት አበል": 54000,
+          "የቅጥር ሠራተኞች ስጦታ": 36000,
+          "የቅጥር ሠራተኞች ፐሮቪድንት ፈንድ": 24048,
+          "የጽሕፈት መሳሪያ ቢሮ መገልገያ ወጪ": 30000,
+          "ለቤተክርስቲያን የንፅህና መጠበቂያ ወጪ": 15000,
+          "የቤት ኪራይ ወጪ": 1200000,
+          "ለሂሳብ ባለሙያና ለአጠቃላይ ሰራተኞች": 222000,
+          "የመብራትና የውሃ ወጪ": 12000,
+          "ስልክ፣ኢንተርኔት": 10000,
+          "ለጀነሬተር ቤንዚል ወጪ": 20000,
+          "የጥገና ወጪ": 400000,
+          "የትራንስፖርት ወጪ": 12000,
+          "የህክምና ወጪ": 20000,
+          "ባንክ ሰርቪስ ቻርጅ": 5000,
+          "የአከባቢ ልማትና ጥበቃ ተሳትፎ": 40000,
+          "ትርፍ ሰዓት": 0,
+          "የአገልጋዮችና ሰራተኞች ጥቅማጥቅም ወጪ": 50000,
+          ህትመት: 30000,
+          "ለጥቃቅን ወጪዎች": 10000,
+        },
+        "ለቋሚ ንብረት ግዥ": {
+          "ወንበሮች ግዥ": 45000,
+          ጠረጴዛ: 30000,
+          "ለጉባዔ የሚሆኑ 100 ወንበሮች ግዢ መፈፀም": 80000,
+          "የህጻናት ወንበር": 12500,
+          "የሰራተኞች የደንብ ልብስ": 40000,
+          "ሌላ ነገር (Other thing)": 0,
+        },
+      };
+
+      const TOTAL_BUDGET = Object.values(BUDGET)
+        .flatMap((x) => Object.values(x))
+        .reduce((a, b) => a + b, 0);
+      // Data now lives in a real database on the server (see db.js /
+      // server.js) instead of the browser's localStorage. These arrays are
+      // just the in-memory copy the UI renders from — loadState() fills
+      // them from GET /api/state after login, and save() pushes any local
+      // change back with POST /api/state.
+      let expenses = [];
+      let incomes = [];
+      let conIncomes = [];
+      let conExpenses = [];
+      let promisedMoney = [];
+      let promisePayments = [];
+      let middlePersons = [];
+      let settings = { regTrade: 0, regBirhan: 0, conTrade: 0, conBirhan: 0 };
+
+      const USER_NAME = "user";
+      let session = null; // resolved from the server session cookie on boot
+      let appStarted = false;
+
+      /* Interactive Report State Variables */
+      let reportState = {
+        type: "expense", // 'expense' or 'income'
+        timeRange: "month", // 'month', 'year', 'range', 'all'
+        field: "ALL",
+        subfield: "ALL",
+        bank: "ALL",
+        visible: true,
+      };
+
+      const money = (n) =>
+        new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(
+          n || 0,
+        ) + " ብር";
+      const el = (id) => document.getElementById(id);
+      const uid = () => Date.now() + Math.floor(Math.random() * 1000);
+      function nowLocal() {
+        const d = new Date();
+        d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+        return d.toISOString().slice(0, 16);
+      }
+      /* ---- Server sync (replaces the old localStorage save()) ----
+         Every place in this file that used to call save() to persist to
+         localStorage still calls save() — it just now pushes the current
+         in-memory arrays to the real database on the server, debounced so
+         rapid edits don't fire a request per keystroke. */
+      let saveTimer = null;
+      function setSyncStatus(state) {
+        const el2 = el("syncStatus");
+        if (!el2) return;
+        el2.className = "sync-status " + state;
+        el2.textContent =
+          state === "saving"
+            ? "💾 እያስቀመጠ..."
+            : state === "error"
+              ? "⚠️ አልተቀመጠም — ግንኙነት ያረጋግጡ"
+              : "✅ ተቀምጧል";
+      }
+      function save() {
+        clearTimeout(saveTimer);
+        setSyncStatus("saving");
+        saveTimer = setTimeout(syncStateToServer, 300);
+      }
+      async function syncStateToServer() {
+        try {
+          const res = await fetch("/api/state", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+            body: JSON.stringify({
+              expenses,
+              incomes,
+              conIncomes,
+              conExpenses,
+              promisedMoney,
+              promisePayments,
+              middlePersons,
+              settings,
+            }),
+          });
+          if (!res.ok) throw new Error("save failed");
+          setSyncStatus("ok");
+        } catch (err) {
+          console.error(err);
+          setSyncStatus("error");
+        }
+      }
+      function saveSettingsStorage() {
+        save();
+      }
+      async function loadState() {
+        const res = await fetch("/api/state", { credentials: "include" });
+        if (!res.ok) throw new Error("failed to load state");
+        const data = await res.json();
+        expenses = data.expenses || [];
+        incomes = data.incomes || [];
+        conIncomes = data.conIncomes || [];
+        conExpenses = data.conExpenses || [];
+        promisedMoney = data.promisedMoney || [];
+        promisePayments = data.promisePayments || [];
+        middlePersons = data.middlePersons || [];
+        settings = Object.assign(
+          { regTrade: 0, regBirhan: 0, conTrade: 0, conBirhan: 0 },
+          data.settings || {},
+        );
+      }
+      function openingRegular() {
+        return Number(settings.regTrade || 0) + Number(settings.regBirhan || 0);
+      }
+      function openingConstruction() {
+        return Number(settings.conTrade || 0) + Number(settings.conBirhan || 0);
+      }
+      function spentFor(field, sub) {
+        return expenses
+          .filter((e) => e.field === field && e.subfield === sub)
+          .reduce((a, e) => a + Number(e.amount), 0);
+      }
+      function fieldBudget(field) {
+        return Object.values(BUDGET[field]).reduce((a, x) => a + x, 0);
+      }
+      function fieldSpent(field) {
+        return Object.keys(BUDGET[field]).reduce(
+          (a, s) => a + spentFor(field, s),
+          0,
+        );
+      }
+      function totalIncome() {
+        return incomes.reduce((a, i) => a + Number(i.amount), 0);
+      }
+      function totalAsratIncome() {
+        return incomes
+          .filter((i) => i.source === "አስራት")
+          .reduce((a, i) => a + Number(i.amount), 0);
+      }
+      function totalConIncome() {
+        return conIncomes.reduce((a, i) => a + Number(i.amount), 0);
+      }
+      function totalConExpense() {
+        return conExpenses.reduce((a, e) => a + Number(e.amount), 0);
+      }
+      function fmtDate(x) {
+        return new Date(x).toLocaleString("am-ET", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+      }
+
+      function getRadioValue(name) {
+        const checked = document.querySelector(`input[name="${name}"]:checked`);
+        return checked ? checked.value : "ንግድ ባንክ";
+      }
+
+      /* Login & Auth */
+      function currentStaff() {
+        return session && session.role === "staff"
+          ? { id: 1, name: USER_NAME, field: "ALL", subfield: "ALL" }
+          : null;
+      }
+      function recordedBy() {
+        const st = currentStaff();
+        return st
+          ? st.name
+          : session && session.role === "admin"
+            ? "አድሚን"
+            : "ያልተመዘገበ";
+      }
+      function recordedByField(e) {
+        return e.recordedBy || e.staffName || "ያልተመዘገበ";
+      }
+      function switchLoginTab(t) {
+        const isStaff = t === "staff";
+        el("loginStaff").classList.toggle("active", isStaff);
+        el("loginAdmin").classList.toggle("active", !isStaff);
+        el("loginTabStaffBtn").classList.toggle("active", isStaff);
+        el("loginTabAdminBtn").classList.toggle("active", !isStaff);
+      }
+      async function loginAsStaff() {
+        const p = el("userPassInput").value;
+        const a = el("loginStaffAlert");
+        a.className = "alert";
+        try {
+          const res = await fetch("/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+            body: JSON.stringify({ role: "staff", password: p }),
+          });
+          const data = await res.json();
+          if (!res.ok || !data.ok) {
+            a.className = "alert show bad";
+            a.textContent = data.message || "የተሳሳተ የUser የይለፍ ቃል።";
+            return;
+          }
+          session = { role: "staff", staffId: 1 };
+          await loadState();
+          startApp();
+        } catch (err) {
+          a.className = "alert show bad";
+          a.textContent = "ግንኙነት አልተሳካም። እንደገና ይሞክሩ።";
+        }
+      }
+      async function loginAsAdmin() {
+        const p = el("adminPassInput").value;
+        const a = el("loginAdminAlert");
+        a.className = "alert";
+        try {
+          const res = await fetch("/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+            body: JSON.stringify({ role: "admin", password: p }),
+          });
+          const data = await res.json();
+          if (!res.ok || !data.ok) {
+            a.className = "alert show bad";
+            a.textContent = data.message || "የተሳሳተ የይለፍ ቃል።";
+            return;
+          }
+          session = { role: "admin" };
+          await loadState();
+          startApp();
+        } catch (err) {
+          a.className = "alert show bad";
+          a.textContent = "ግንኙነት አልተሳካም። እንደገና ይሞክሩ።";
+        }
+      }
+      async function logout() {
+        try {
+          await fetch("/api/logout", {
+            method: "POST",
+            credentials: "include",
+          });
+        } catch (err) {
+          /* ignore — clearing local UI regardless */
+        }
+        session = null;
+        el("appMain").style.display = "none";
+        el("userBar").style.display = "none";
+        el("loginScreen").style.display = "block";
+        el("adminPassInput").value = "";
+        el("userPassInput").value = "";
+        el("loginAdminAlert").className = "alert";
+        el("loginStaffAlert").className = "alert";
+      }
+      function applyRoleVisibility() {
+        const isAdmin = session && session.role === "admin";
+        document.body.classList.toggle("user-mode", !isAdmin);
+        document
+          .querySelectorAll(".admin-only")
+          .forEach((e) => (e.style.display = isAdmin ? "" : "none"));
+        document
+          .querySelectorAll(".staff-only")
+          .forEach((e) => (e.style.display = "none"));
+        document
+          .querySelectorAll(".admin-control")
+          .forEach((e) => (e.style.display = isAdmin ? "" : "none"));
+        document
+          .querySelectorAll(".user-only")
+          .forEach((e) => (e.style.display = isAdmin ? "none" : ""));
+        if (isAdmin) {
+          el("whoAmI").textContent = "🛡️ አድሚን";
+        } else {
+          el("whoAmI").textContent = "👤 user — የመረጃ መመዝገቢያ";
+        }
+        // Staff always need to see the entry & construction sections —
+        // their collapse toggle (summary) is hidden for that role — while
+        // admins land on a tidy, all-collapsed dashboard by default.
+        ["secEntry", "secConstruction"].forEach((id) => {
+          const d = el(id);
+          if (d && d.tagName === "DETAILS") d.open = !isAdmin || d.open;
+        });
+        el("field").disabled = false;
+        el("subfield").disabled = false;
+        el("field").innerHTML = Object.keys(BUDGET)
+          .map((f) => `<option>${f}</option>`)
+          .join("");
+        populateSubs();
+        const conExpTab = el("conTabExpenseBtn");
+        const conExpPane = el("conTabExpense");
+        if (conExpTab) conExpTab.style.display = isAdmin ? "" : "none";
+        if (conExpPane)
+          conExpPane.classList.toggle(
+            "active",
+            isAdmin && conExpPane.classList.contains("active"),
+          );
+        if (!isAdmin) {
+          const conIncTab = el("conTabIncomeBtn");
+          const conIncPane = el("conTabIncome");
+          if (conIncTab) conIncTab.style.display = "";
+          if (conIncPane) {
+            conIncPane.classList.add("active");
+          }
+          if (conExpPane) conExpPane.classList.remove("active");
+        }
+      }
+      function startApp() {
+        el("loginScreen").style.display = "none";
+        el("appMain").style.display = "block";
+        el("userBar").style.display = "flex";
+        if (!appStarted) {
+          initAppOnce();
+          appStarted = true;
+        }
+        applyRoleVisibility();
+        render();
+      }
+      async function boot() {
+        try {
+          const res = await fetch("/api/session", { credentials: "include" });
+          const data = await res.json();
+          if (data.role === "admin") {
+            session = { role: "admin" };
+          } else if (data.role === "staff") {
+            session = { role: "staff", staffId: 1 };
+          } else {
+            return; // not logged in — stay on the login screen
+          }
+          await loadState();
+          startApp();
+        } catch (err) {
+          console.error("Could not reach the server:", err);
+        }
+      }
+
+      function initAppOnce() {
+        el("totalBudget").textContent = money(TOTAL_BUDGET);
+        el("field").innerHTML = Object.keys(BUDGET)
+          .map((f) => `<option>${f}</option>`)
+          .join("");
+        el("filterField").innerHTML =
+          '<option value="">ሁሉም</option>' +
+          Object.keys(BUDGET)
+            .map((f) => `<option>${f}</option>`)
+            .join("");
+        el("date").value = nowLocal();
+        el("incDate").value = nowLocal();
+        el("conIncDate").value = nowLocal();
+        el("conExpDate").value = nowLocal();
+        el("promiseDate").value = nowLocal();
+        el("middleDate").value = nowLocal();
+        el("promisePaymentDate").value = nowLocal();
+        ["middleNigdAmount", "middleBirhanAmount"].forEach((id) => el(id)?.addEventListener("input", renderUserRecords));
+        el("rptMonth").value = new Date().toISOString().slice(0, 7);
+        el("rptYear").value = new Date().getFullYear();
+
+        el("field").onchange = populateSubs;
+        el("subfield").onchange = updateSub;
+        [
+          "search",
+          "filterField",
+          "filterMonth",
+          "filterMin",
+          "filterMax",
+          "filterPayment",
+          "filterStatus",
+        ].forEach((id) => el(id).addEventListener("input", render));
+        el("restoreFile").addEventListener("change", restoreJSON);
+        el("setRegTrade").value = settings.regTrade || "";
+        el("setRegBirhan").value = settings.regBirhan || "";
+        el("setConTrade").value = settings.conTrade || "";
+        el("setConBirhan").value = settings.conBirhan || "";
+        toggleIncOther();
+        populateSubs();
+        buildAspectButtons();
+        setInterval(
+          () =>
+            (el("clock").textContent = new Date().toLocaleString("am-ET", {
+              dateStyle: "medium",
+              timeStyle: "short",
+            })),
+          1000,
+        );
+        // Lightweight polling so a second admin/staff device shows up-to-date
+        // numbers without needing a manual refresh. Only touches the
+        // read-only display (render()), never form inputs, so it won't
+        // interrupt anyone mid-entry.
+        setInterval(async () => {
+          if (!session) return;
+          try {
+            await loadState();
+            render();
+          } catch (err) {
+            setSyncStatus("error");
+          }
+        }, 20000);
+      }
+
+      function switchTab(name) {
+        const isExp = name === "expense";
+        el("tabExpense").classList.toggle("active", isExp);
+        el("tabIncome").classList.toggle("active", !isExp);
+        el("tabExpenseBtn").classList.toggle("active", isExp);
+        el("tabIncomeBtn").classList.toggle("active", !isExp);
+      }
+      function switchConTab(name) {
+        const isInc = name === "income";
+        el("conTabIncome").classList.toggle("active", isInc);
+        el("conTabExpense").classList.toggle("active", !isInc);
+        el("conTabIncomeBtn").classList.toggle("active", isInc);
+        el("conTabExpenseBtn").classList.toggle("active", !isInc);
+      }
+      function gotoSection(id) {
+        const target = el(id);
+        if (!target) return;
+        if (target.tagName === "DETAILS") target.open = true;
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      function jumpAndReset(select) {
+        const id = select.value;
+        gotoSection(id);
+        select.value = "";
+      }
+      document.addEventListener("click", (e) => {
+        document.querySelectorAll("details.tools-menu[open]").forEach((d) => {
+          if (!d.contains(e.target)) d.open = false;
+        });
+      });
+      function toggleSettings() {
+        el("settingsPanel").classList.toggle("open");
+      }
+      function saveSettings() {
+        settings.regTrade = Number(el("setRegTrade").value) || 0;
+        settings.regBirhan = Number(el("setRegBirhan").value) || 0;
+        settings.conTrade = Number(el("setConTrade").value) || 0;
+        settings.conBirhan = Number(el("setConBirhan").value) || 0;
+        saveSettingsStorage();
+        render();
+        el("settingsPanel").classList.remove("open");
+      }
+      function toggleIncOther() {
+        el("incOtherRow").style.display =
+          el("incSource").value === "ሌላ" ? "block" : "none";
+      }
+      function toggleAdvFilter() {
+        const p = el("advFilter");
+        p.classList.toggle("open");
+        el("advFilterBtn").textContent = p.classList.contains("open")
+          ? "🔼 ማጣሪያ ደብቅ"
+          : "🔽 ተጨማሪ ማጣሪያ";
+      }
+      function populateSubs() {
+        el("subfield").innerHTML = Object.keys(BUDGET[el("field").value])
+          .map((s) => `<option>${s}</option>`)
+          .join("");
+        updateSub();
+      }
+      function updateSub() {
+        const f = el("field").value,
+          s = el("subfield").value,
+          b = BUDGET[f][s],
+          sp = spentFor(f, s),
+          rem = b - sp,
+          pct = b ? (sp / b) * 100 : 0;
+        el("subBudget").textContent = money(b);
+        el("subSpent").textContent = money(sp);
+        el("subRemaining").textContent = money(rem);
+        const bar = el("subBar");
+        bar.style.width = Math.min(100, Math.max(0, pct)) + "%";
+        bar.className = "bar " + (pct >= 100 ? "bad" : pct >= 80 ? "warn" : "");
+        previewAmount();
+      }
+      function liveAmountPreview(inputId, previewId) {
+        const v = Number(el(inputId).value);
+        const p = el(previewId);
+        if (!p) return;
+        p.textContent = v > 0 ? "💰 " + money(v) : "";
+      }
+      function previewAmount() {
+        if (!session || session.role !== "admin") {
+          const alert = el("alert");
+          alert.className = "alert";
+          alert.textContent = "";
+          return;
+        }
+        const f = el("field").value,
+          s = el("subfield").value,
+          b = BUDGET[f][s],
+          sp = spentFor(f, s),
+          a = Number(el("amount").value) || 0;
+        const alert = el("alert");
+        if (a <= 0) {
+          alert.className = "alert";
+          alert.textContent = "";
+          return;
+        }
+        const projected = sp + a,
+          pct = b ? (projected / b) * 100 : 0;
+        if (projected > b) {
+          alert.className = "alert show bad";
+          alert.textContent = `⚠️ ይህ ወጪ የንዑስ መስኩን ቀሪ በጀት ያልፋል። ቀሪው ${money(b - sp)} ብቻ ነው።`;
+        } else if (pct >= 100) {
+          alert.className = "alert show bad";
+          alert.textContent = `⚠️ ይህ ወጪ ንዑስ መስኩን 100% ይጨርሰዋል።`;
+        } else if (pct >= 80) {
+          alert.className = "alert show warn";
+          alert.textContent = `ማስጠንቀቂያ፦ ይህን ካስመዘገቡ የ«${s}» አጠቃቀም ${pct.toFixed(1)}% ይደርሳል (ከ80% ወሰን በላይ)።`;
+        } else {
+          alert.className = "alert";
+          alert.textContent = "";
+        }
+      }
+
+      function middleSpentForName(name, bank) {
+        const fromRegular = expenses
+          .filter((e) => e.payment === "PT Cash" && e.middlePersonName === name)
+          .reduce((a, e) => a + Number(bank === "nigd" ? (e.middleNigdAmount || 0) : (e.middleBirhanAmount || 0)), 0);
+        const fromConstruction = conExpenses
+          .filter((e) => e.payment === "PT Cash" && e.middlePersonName === name)
+          .reduce((a, e) => a + Number(bank === "nigd" ? (e.middleNigdAmount || 0) : (e.middleBirhanAmount || 0)), 0);
+        return fromRegular + fromConstruction;
+      }
+      function middleHeldForName(name, bank) {
+        return middlePersons
+          .filter((m) => m.name === name)
+          .reduce((a, m) => a + Number(bank === "nigd" ? m.nigdAmount || 0 : m.birhanAmount || 0), 0);
+      }
+      function middleRemainingForName(name, bank) {
+        return Math.max(0, middleHeldForName(name, bank) - middleSpentForName(name, bank));
+      }
+      function middlePeopleSummary() {
+        const map = new Map();
+        middlePersons.forEach((m) => {
+          if (!map.has(m.name)) map.set(m.name, { name: m.name });
+        });
+        return Array.from(map.values()).map((p) => ({
+          name: p.name,
+          nigdHeld: middleHeldForName(p.name, "nigd"),
+          birhanHeld: middleHeldForName(p.name, "birhan"),
+          nigdSpent: middleSpentForName(p.name, "nigd"),
+          birhanSpent: middleSpentForName(p.name, "birhan"),
+          nigdRemaining: middleRemainingForName(p.name, "nigd"),
+          birhanRemaining: middleRemainingForName(p.name, "birhan"),
+        }));
+      }
+      function toggleMiddlePayout() {
+        const isPT = el("payment")?.value === "PT Cash";
+        const box = el("middlePayoutBox");
+        if (!box) return;
+        box.style.display = isPT ? "block" : "none";
+        const bankBox = document.querySelector(".bank-selector-grid")?.closest(".form-row");
+        if (bankBox) bankBox.style.display = isPT ? "none" : "";
+        if (isPT) populateMiddlePayoutPeople();
+      }
+      function populateMiddlePayoutPeople() {
+        const select = el("middlePayoutPerson");
+        if (!select) return;
+        const current = select.value;
+        const people = middlePeopleSummary().filter((p) => p.nigdRemaining + p.birhanRemaining > 0);
+        select.innerHTML = `<option value="">— መካከለኛ ሰው ይምረጡ —</option>` + people.map((p) => `<option value="${escapeHtml(p.name)}">${escapeHtml(p.name)} — ቀሪ ${money(p.nigdRemaining+p.birhanRemaining)}</option>`).join("");
+        if (people.some((p) => p.name === current)) select.value = current;
+        updateMiddlePayoutLimits();
+      }
+      function updateMiddlePayoutLimits() {
+        const name = el("middlePayoutPerson")?.value || "";
+        const n = name ? middleRemainingForName(name, "nigd") : 0;
+        const b = name ? middleRemainingForName(name, "birhan") : 0;
+        if (el("middlePayoutNigdAvailable")) el("middlePayoutNigdAvailable").textContent = `ቀሪ ንግድ: ${money(n)}`;
+        if (el("middlePayoutBirhanAvailable")) el("middlePayoutBirhanAvailable").textContent = `ቀሪ ብርሃን: ${money(b)}`;
+      }
+      function toggleMiddlePayoutCon() {
+        const isPT = el("conExpPayment")?.value === "PT Cash";
+        const box = el("conMiddlePayoutBox");
+        if (!box) return;
+        box.style.display = isPT ? "block" : "none";
+        const bankBox = document.querySelector('input[name="conExpBankChoice"]')?.closest(".form-row");
+        if (bankBox) bankBox.style.display = isPT ? "none" : "";
+        if (isPT) populateMiddlePayoutPeopleCon();
+      }
+      function populateMiddlePayoutPeopleCon() {
+        const select = el("conMiddlePayoutPerson");
+        if (!select) return;
+        const current = select.value;
+        const people = middlePeopleSummary().filter((p) => p.nigdRemaining + p.birhanRemaining > 0);
+        select.innerHTML = `<option value="">— መካከለኛ ሰው ይምረጡ —</option>` + people.map((p) => `<option value="${escapeHtml(p.name)}">${escapeHtml(p.name)} — ቀሪ ${money(p.nigdRemaining+p.birhanRemaining)}</option>`).join("");
+        if (people.some((p) => p.name === current)) select.value = current;
+        updateMiddlePayoutLimitsCon();
+      }
+      function updateMiddlePayoutLimitsCon() {
+        const name = el("conMiddlePayoutPerson")?.value || "";
+        const n = name ? middleRemainingForName(name, "nigd") : 0;
+        const b = name ? middleRemainingForName(name, "birhan") : 0;
+        if (el("conMiddlePayoutNigdAvailable")) el("conMiddlePayoutNigdAvailable").textContent = `ቀሪ ንግድ: ${money(n)}`;
+        if (el("conMiddlePayoutBirhanAvailable")) el("conMiddlePayoutBirhanAvailable").textContent = `ቀሪ ብርሃን: ${money(b)}`;
+      }
+      function totalMiddleNigd() {
+        return middlePersons.reduce((a, m) => a + Number(m.nigdAmount || 0), 0);
+      }
+      function totalMiddleBirhan() {
+        return middlePersons.reduce((a, m) => a + Number(m.birhanAmount || 0), 0);
+      }
+      function addPromise() {
+        if (!session || (session.role !== "admin" && session.role !== "staff")) return;
+        const name = el("promiseName").value.trim();
+        const amount = Number(el("promiseAmount").value);
+        const category = el("promiseCategory").value;
+        const phone = el("promisePhone").value.trim();
+        const deadline = el("promiseDeadline").value || "";
+        const date = el("promiseDate").value || nowLocal();
+        const note = el("promiseNote").value.trim();
+        const alert = el("promiseAlert");
+        alert.className = "alert"; alert.textContent = "";
+        if (!name) { alert.className = "alert show bad"; alert.textContent = "የሰውዬውን ስም ያስገቡ።"; return; }
+        if (!amount || amount <= 0) { alert.className = "alert show bad"; alert.textContent = "ትክክለኛ ቃል የተገባ ገንዘብ መጠን ያስገቡ።"; return; }
+        promisedMoney.unshift({ id: uid(), name, amount, category, phone, deadline, date, note, recordedBy: recordedBy() });
+        save();
+        el("promiseName").value = ""; el("promiseAmount").value = ""; el("promisePhone").value = ""; el("promiseDeadline").value = ""; el("promiseNote").value = ""; el("promiseDate").value = nowLocal();
+        alert.className = "alert show"; alert.textContent = "✅ ቃል የተገባው ገንዘብ ተመዝግቧል።";
+        render();
+      }
+      function addPromisePayment() {
+        if (!session || (session.role !== "admin" && session.role !== "staff")) return;
+        const promiseId = el("promisePaymentSelect").value;
+        const amount = Number(el("promisePaymentAmount").value);
+        const date = el("promisePaymentDate").value || nowLocal();
+        const note = el("promisePaymentNote").value.trim();
+        const alert = el("promisePaymentAlert");
+        alert.className = "alert"; alert.textContent = "";
+        if (!promiseId) { alert.className = "alert show bad"; alert.textContent = "ገንዘብ የገባውን ሰው ይምረጡ።"; return; }
+        if (!amount || amount <= 0) { alert.className = "alert show bad"; alert.textContent = "ትክክለኛ የተከፈለ መጠን ያስገቡ።"; return; }
+        promisePayments.unshift({ id: uid(), promiseId, amount, date, note, recordedBy: recordedBy() });
+        save();
+        el("promisePaymentAmount").value = ""; el("promisePaymentNote").value = ""; el("promisePaymentDate").value = nowLocal();
+        alert.className = "alert show"; alert.textContent = "✅ ክፍያው ተመዝግቧል።";
+        render();
+      }
+      function paidForPromise(promiseId) {
+        return promisePayments
+          .filter((p) => p.promiseId === promiseId)
+          .reduce((a, p) => a + Number(p.amount || 0), 0);
+      }
+      function fillPromisePaymentSelect() {
+        const sel = el("promisePaymentSelect");
+        if (!sel) return;
+        const prev = sel.value;
+        sel.innerHTML =
+          `<option value="" selected disabled>— ሰው ይምረጡ —</option>` +
+          promisedMoney
+            .map((p) => {
+              const remaining = Number(p.amount) - paidForPromise(p.id);
+              return `<option value="${p.id}">${p.name} — ቀሪ ${money(remaining)}</option>`;
+            })
+            .join("");
+        if (prev) sel.value = prev;
+      }
+      function addMiddlePerson() {
+        if (!session || (session.role !== "admin" && session.role !== "staff")) return;
+        const name = el("middleName").value.trim();
+        const nigdAmount = Number(el("middleNigdAmount").value) || 0;
+        const birhanAmount = Number(el("middleBirhanAmount").value) || 0;
+        const date = el("middleDate").value || nowLocal();
+        const note = el("middleNote").value.trim();
+        const alert = el("middleAlert");
+        alert.className = "alert"; alert.textContent = "";
+        if (!name) { alert.className = "alert show bad"; alert.textContent = "የመካከለኛ ሰው ስም ያስገቡ።"; return; }
+        if (nigdAmount < 0 || birhanAmount < 0 || nigdAmount + birhanAmount <= 0) { alert.className = "alert show bad"; alert.textContent = "ከንግድ ባንክ ወይም ከብርሃን ባንክ አንዱን ቢያንስ መጠን ያስገቡ።"; return; }
+        middlePersons.unshift({ id: uid(), name, nigdAmount, birhanAmount, date, note, recordedBy: recordedBy() });
+        save();
+        el("middleName").value = ""; el("middleNigdAmount").value = ""; el("middleBirhanAmount").value = ""; el("middleNote").value = ""; el("middleDate").value = nowLocal();
+        alert.className = "alert show"; alert.textContent = "✅ የመካከለኛ ሰው ገንዘብ ተመዝግቧል።";
+        render();
+      }
+      function removePromise(id) {
+        if (!session || session.role !== "admin") return;
+        promisedMoney = promisedMoney.filter((p) => p.id !== id);
+        promisePayments = promisePayments.filter((p) => p.promiseId !== id);
+        save(); render();
+      }
+      function removePromisePayment(id) {
+        if (!session || session.role !== "admin") return;
+        promisePayments = promisePayments.filter((p) => p.id !== id); save(); render();
+      }
+      function removeMiddlePerson(id) {
+        if (!session || session.role !== "admin") return;
+        middlePersons = middlePersons.filter((m) => m.id !== id); save(); render();
+      }
+      function renderUserRecords() {
+        const n = Number(el("middleNigdAmount")?.value || 0), b = Number(el("middleBirhanAmount")?.value || 0);
+        if (el("middlePreviewNigd")) el("middlePreviewNigd").textContent = `ንግድ: ${money(n)}`;
+        if (el("middlePreviewBirhan")) el("middlePreviewBirhan").textContent = `ብርሃን: ${money(b)}`;
+        if (el("middlePreviewTotal")) el("middlePreviewTotal").textContent = `ጠቅላላ: ${money(n+b)}`;
+      }
+      function promiseStatus(p, paid) {
+        const total = Number(p.amount) || 0;
+        const pct = total ? (paid / total) * 100 : 0;
+        const overdue =
+          p.deadline && pct < 100 && new Date(p.deadline) < new Date(new Date().toDateString());
+        if (pct >= 100) return { label: "ተከፍሏል", cls: "ok", pct };
+        if (overdue) return { label: "ዘግይቷል", cls: "over", pct };
+        return { label: "በሂደት ላይ", cls: "warn", pct };
+      }
+      function promiseRow(p) {
+        const paid = paidForPromise(p.id);
+        const remaining = Number(p.amount) - paid;
+        const st = promiseStatus(p, paid);
+        return `<tr><td>${fmtDate(p.date)}</td><td>${escapeHtml(p.name)}</td><td>${escapeHtml(p.phone || "-")}</td><td><b>${money(p.amount)}</b></td><td>${money(paid)}</td><td>${money(remaining)}</td><td>${st.pct.toFixed(1)}%</td><td>${p.deadline ? escapeHtml(p.deadline) : "-"}</td><td><span class="pill ${st.cls}">${st.label}</span></td><td>${escapeHtml(p.note || "-")}</td><td>${escapeHtml(p.recordedBy || "-")}</td><td class="no-print"><button class="danger" onclick="removePromise(${p.id})">ሰርዝ</button></td></tr>`;
+      }
+      function renderPromisedAndMiddleAdmin() {
+        const normal = promisedMoney.filter((p) => p.category === "normal");
+        const building = promisedMoney.filter((p) => p.category === "building");
+        const normalTotal = normal.reduce((a,p) => a + Number(p.amount || 0), 0);
+        const buildingTotal = building.reduce((a,p) => a + Number(p.amount || 0), 0);
+        if (el("promiseNormalTotal")) el("promiseNormalTotal").textContent = money(normalTotal);
+        if (el("promiseBuildingTotal")) el("promiseBuildingTotal").textContent = money(buildingTotal);
+        if (el("middleGrandTotal")) el("middleGrandTotal").textContent = money(totalMiddleNigd()+totalMiddleBirhan());
+        if (el("promiseNormalBody")) el("promiseNormalBody").innerHTML = normal.length ? normal.map(promiseRow).join("") : `<tr><td colspan="12" style="text-align:center;padding:16px;color:#7b8494">ምንም መዝገብ የለም።</td></tr>`;
+        if (el("promiseBuildingBody")) el("promiseBuildingBody").innerHTML = building.length ? building.map(promiseRow).join("") : `<tr><td colspan="12" style="text-align:center;padding:16px;color:#7b8494">ምንም መዝገብ የለም።</td></tr>`;
+        fillPromisePaymentSelect();
+        if (el("middleBody")) {
+          const rows = middlePersons.map((m) => {
+            const n = Number(m.nigdAmount || 0), b = Number(m.birhanAmount || 0);
+            const sn = middleSpentForName(m.name, "nigd"), sb = middleSpentForName(m.name, "birhan");
+            const rn = middleRemainingForName(m.name, "nigd"), rb = middleRemainingForName(m.name, "birhan");
+            return `<tr><td>${fmtDate(m.date)}</td><td>${escapeHtml(m.name)}</td><td>${money(n)}</td><td>${money(b)}</td><td>${money(sn+sb)}</td><td>${money(rn)}</td><td>${money(rb)}</td><td><b>${money(rn+rb)}</b></td><td>${escapeHtml(m.note || "-")}</td><td class="no-print"><button class="danger" onclick="removeMiddlePerson(${m.id})">ሰርዝ</button></td></tr>`;
+          });
+          el("middleBody").innerHTML = rows.length ? rows.join("") : `<tr><td colspan="10" style="text-align:center;padding:16px;color:#7b8494">ምንም መዝገብ የለም።</td></tr>`;
+        }
+      }
+      function escapeHtml(v) { return String(v).replace(/[&<>'"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c])); }
+
+      /* Expense and Income Actions */
+      function addExpense() {
+        if (!session || (session.role !== "admin" && session.role !== "staff"))
+          return;
+        const f = el("field").value,
+          s = el("subfield").value,
+          a = Number(el("amount").value),
+          reason = el("reason").value.trim(),
+          payment = el("payment").value,
+          receipt = el("receipt").value.trim(),
+          date = el("date").value || nowLocal();
+        const isPTCash = payment === "PT Cash";
+        const middlePersonName = isPTCash ? el("middlePayoutPerson").value.trim() : "";
+        const middleNigdAmount = isPTCash ? Number(el("middlePayoutNigd").value) || 0 : 0;
+        const middleBirhanAmount = isPTCash ? Number(el("middlePayoutBirhan").value) || 0 : 0;
+        const bankName = isPTCash ? "መካከለኛ ሰው" : getRadioValue("expBankChoice");
+        const alert = el("alert");
+        alert.className = "alert";
+        alert.textContent = "";
+        if (!a || a < 0) {
+          alert.className = "alert show bad";
+          alert.textContent = "እባክዎ ትክክለኛ የገንዘብ መጠን ያስገቡ።";
+          return;
+        }
+        if (!reason) {
+          alert.className = "alert show bad";
+          alert.textContent = "የወጪውን ምክንያት ያስገቡ።";
+          return;
+        }
+        if (isPTCash) {
+          if (!middlePersonName) {
+            alert.className = "alert show bad";
+            alert.textContent = "PT Cash ለማስመዝገብ መካከለኛ ሰው ይምረጡ።";
+            return;
+          }
+          if (middleNigdAmount < 0 || middleBirhanAmount < 0 || Math.abs((middleNigdAmount + middleBirhanAmount) - a) > 0.005) {
+            alert.className = "alert show bad";
+            alert.textContent = `የPT Cash የባንክ ክፍፍል ከወጪው ${money(a)} ጋር መመጣጠን አለበት።`;
+            return;
+          }
+          if (middleNigdAmount > middleRemainingForName(middlePersonName, "nigd") + 0.005 || middleBirhanAmount > middleRemainingForName(middlePersonName, "birhan") + 0.005) {
+            alert.className = "alert show bad";
+            alert.textContent = "PT Cash ከመካከለኛ ሰው ባለው ቀሪ ገንዘብ በላይ ነው።";
+            return;
+          }
+        }
+        if (session.role === "admin") {
+          const rem = BUDGET[f][s] - spentFor(f, s);
+          if (a > rem) {
+            alert.className = "alert show bad";
+            alert.textContent = `ይህ ወጪ የንዑስ መስኩን ቀሪ በጀት ያልፋል። ቀሪው ${money(rem)} ብቻ ነው።`;
+            return;
+          }
+        }
+        expenses.unshift({
+          id: uid(),
+          field: f,
+          subfield: s,
+          amount: a,
+          reason,
+          payment,
+          bankName,
+          receipt,
+          middlePersonName,
+          middleNigdAmount,
+          middleBirhanAmount,
+          date,
+          recordedBy: recordedBy(),
+          staffId: session && session.role === "staff" ? session.staffId : null,
+        });
+        save();
+        el("amount").value = "";
+        el("reason").value = "";
+        el("receipt").value = "";
+        el("middlePayoutNigd").value = "";
+        el("middlePayoutBirhan").value = "";
+        el("middlePayoutPerson").value = "";
+        el("date").value = nowLocal();
+        if (el("amountPreview")) el("amountPreview").textContent = "";
+        alert.className = "alert show";
+        alert.textContent = "✅ ወጪው በትክክል ተመዝግቧል።";
+        updateSub();
+        render();
+      }
+
+      function addIncome() {
+        if (!session || (session.role !== "admin" && session.role !== "staff"))
+          return;
+        const sel = el("incSource").value,
+          source = sel === "ሌላ" ? el("incOther").value.trim() || "ሌላ" : sel,
+          a = Number(el("incAmount").value),
+          note = el("incNote").value.trim(),
+          receipt = el("incReceipt").value.trim(),
+          date = el("incDate").value || nowLocal();
+        const bankName = getRadioValue("incBankChoice");
+        const alert = el("incAlert");
+        alert.className = "alert";
+        alert.textContent = "";
+        if (sel === "ሌላ" && !el("incOther").value.trim()) {
+          alert.className = "alert show bad";
+          alert.textContent = "እባክዎ የገቢውን ስም ይግለጹ።";
+          return;
+        }
+        if (!a || a < 0) {
+          alert.className = "alert show bad";
+          alert.textContent = "እባክዎ ትክክለኛ የገንዘብ መጠን ያስገቡ።";
+          return;
+        }
+        incomes.unshift({
+          id: uid(),
+          source,
+          bankName,
+          amount: a,
+          note,
+          receipt,
+          date,
+          recordedBy: recordedBy(),
+        });
+        save();
+        el("incAmount").value = "";
+        el("incNote").value = "";
+        el("incOther").value = "";
+        el("incReceipt").value = "";
+        el("incDate").value = nowLocal();
+        if (el("incAmountPreview")) el("incAmountPreview").textContent = "";
+        alert.className = "alert show";
+        alert.textContent = "✅ ገቢው በትክክል ተመዝግቧል።";
+        render();
+      }
+
+      function removeIncome(id) {
+        incomes = incomes.filter((i) => i.id !== id);
+        save();
+        render();
+      }
+
+      function addConIncome() {
+        if (!session || (session.role !== "admin" && session.role !== "staff"))
+          return;
+        const type = el("conIncType").value,
+          a = Number(el("conIncAmount").value),
+          note = el("conIncNote").value.trim(),
+          receipt = el("conIncReceipt").value.trim(),
+          date = el("conIncDate").value || nowLocal();
+        const bankName = getRadioValue("conIncBankChoice");
+        const alert = el("conIncAlert");
+        alert.className = "alert";
+        alert.textContent = "";
+        if (!a || a < 0) {
+          alert.className = "alert show bad";
+          alert.textContent = "እባክዎ ትክክለኛ የገንዘብ መጠን ያስገቡ።";
+          return;
+        }
+        conIncomes.unshift({
+          id: uid(),
+          type,
+          bankName,
+          amount: a,
+          note,
+          receipt,
+          date,
+          recordedBy: recordedBy(),
+        });
+        save();
+        el("conIncAmount").value = "";
+        el("conIncNote").value = "";
+        el("conIncReceipt").value = "";
+        el("conIncDate").value = nowLocal();
+        if (el("conIncAmountPreview"))
+          el("conIncAmountPreview").textContent = "";
+        alert.className = "alert show";
+        alert.textContent = "✅ ገቢው ተመዝግቧል።";
+        render();
+      }
+
+      function addConExpense() {
+        if (!session || (session.role !== "admin" && session.role !== "staff"))
+          return;
+        if (session.role !== "admin") {
+          alert("የግንባታ/መሬት ወጪ መመዝገብ የAdmin ብቻ ፈቃድ ነው።");
+          return;
+        }
+        const type = el("conExpType").value,
+          a = Number(el("conExpAmount").value),
+          reason = el("conExpReason").value.trim(),
+          payment = el("conExpPayment").value,
+          receipt = el("conExpReceipt").value.trim(),
+          date = el("conExpDate").value || nowLocal();
+        const isPTCash = payment === "PT Cash";
+        const middlePersonName = isPTCash ? el("conMiddlePayoutPerson").value.trim() : "";
+        const middleNigdAmount = isPTCash ? Number(el("conMiddlePayoutNigd").value) || 0 : 0;
+        const middleBirhanAmount = isPTCash ? Number(el("conMiddlePayoutBirhan").value) || 0 : 0;
+        const bankName = isPTCash ? "መካከለኛ ሰው" : getRadioValue("conExpBankChoice");
+        const alert = el("conExpAlert");
+        alert.className = "alert";
+        alert.textContent = "";
+        if (!a || a < 0) {
+          alert.className = "alert show bad";
+          alert.textContent = "እባክዎ ትክክለኛ የገንዘብ መጠን ያስገቡ።";
+          return;
+        }
+        if (isPTCash) {
+          if (!middlePersonName) {
+            alert.className = "alert show bad";
+            alert.textContent = "PT Cash ለማስመዝገብ መካከለኛ ሰው ይምረጡ።";
+            return;
+          }
+          if (middleNigdAmount < 0 || middleBirhanAmount < 0 || Math.abs((middleNigdAmount + middleBirhanAmount) - a) > 0.005) {
+            alert.className = "alert show bad";
+            alert.textContent = `የPT Cash የባንክ ክፍፍል ከወጪው ${money(a)} ጋር መመጣጠን አለበት።`;
+            return;
+          }
+          if (middleNigdAmount > middleRemainingForName(middlePersonName, "nigd") + 0.005 || middleBirhanAmount > middleRemainingForName(middlePersonName, "birhan") + 0.005) {
+            alert.className = "alert show bad";
+            alert.textContent = "PT Cash ከመካከለኛ ሰው ባለው ቀሪ ገንዘብ በላይ ነው።";
+            return;
+          }
+        }
+        conExpenses.unshift({
+          id: uid(),
+          type,
+          bankName,
+          amount: a,
+          reason,
+          payment,
+          receipt,
+          middlePersonName,
+          middleNigdAmount,
+          middleBirhanAmount,
+          date,
+          recordedBy: recordedBy(),
+          staffId: session && session.role === "staff" ? session.staffId : null,
+        });
+        save();
+        el("conExpAmount").value = "";
+        el("conExpReason").value = "";
+        el("conExpReceipt").value = "";
+        if (el("conMiddlePayoutNigd")) el("conMiddlePayoutNigd").value = "";
+        if (el("conMiddlePayoutBirhan")) el("conMiddlePayoutBirhan").value = "";
+        if (el("conMiddlePayoutPerson")) el("conMiddlePayoutPerson").value = "";
+        el("conExpDate").value = nowLocal();
+        if (el("conExpAmountPreview"))
+          el("conExpAmountPreview").textContent = "";
+        alert.className = "alert show";
+        alert.textContent = "✅ ወጪው ተመዝግቧል።";
+        render();
+      }
+
+      function removeConIncome(id) {
+        conIncomes = conIncomes.filter((i) => i.id !== id);
+        save();
+        render();
+      }
+
+      function removeConExpense(id) {
+        conExpenses = conExpenses.filter((e) => e.id !== id);
+        save();
+        render();
+      }
+
+      /* Render Functions & Calculations */
+      function render() {
+        const total = expenses.reduce((a, e) => a + Number(e.amount), 0),
+          rem = TOTAL_BUDGET - total,
+          pct = TOTAL_BUDGET ? (total / TOTAL_BUDGET) * 100 : 0,
+          inc = totalIncome(),
+          net = inc - total;
+        el("totalSpent").textContent = money(total);
+        el("remaining").textContent = money(rem);
+        el("utilization").textContent = pct.toFixed(1) + "%";
+        el("count").textContent = expenses.length;
+        el("totalIncome").textContent = money(inc);
+        const totalAsrat = totalAsratIncome();
+        el("totalAsrat").textContent = money(totalAsrat);
+        el("asratFeses10").textContent = money(totalAsrat * 0.1);
+        el("asratOther2").textContent = money(totalAsrat * 0.02);
+        const netEl = el("netResult");
+        netEl.textContent = money(net);
+        netEl.className = "value " + (net >= 0 ? "pos" : "neg");
+        renderAvailableBalance();
+        renderConstructionSummary();
+        renderConIncomeTable();
+        renderConExpenseTable();
+        renderFieldBars();
+        renderCharts();
+        renderTable();
+        renderIncomeTable();
+        renderPerfTable();
+        renderAlertBanner();
+        renderManagementReport();
+        renderUserRecords();
+        renderPromisedAndMiddleAdmin();
+        toggleMiddlePayout();
+        toggleMiddlePayoutCon();
+        updateSub();
+      }
+
+      function renderAvailableBalance() {
+        const opening = openingRegular(),
+          inc = totalIncome(),
+          exp = expenses.reduce((a, e) => a + Number(e.amount), 0),
+          avail = opening + inc - exp;
+        el("availableBalance").textContent = money(avail);
+        el("bal_opening").textContent = money(opening);
+        el("bal_income").textContent = money(inc);
+        el("bal_expense").textContent = money(exp);
+
+        const regNigdInc = incomes
+          .filter((i) => (i.bankName || "ንግድ ባንክ") === "ንግድ ባንክ")
+          .reduce((a, i) => a + Number(i.amount), 0);
+        const regNigdExp = expenses
+          .reduce((a, e) => a + (e.payment === "PT Cash" ? Number(e.middleNigdAmount || 0) : ((e.bankName || "ንግድ ባንክ") === "ንግድ ባንክ" ? Number(e.amount) : 0)), 0);
+        const regNigdTot =
+          Number(settings.regTrade || 0) + regNigdInc - regNigdExp;
+
+        const regBirhanInc = incomes
+          .filter((i) => i.bankName === "ብርሃን ባንክ")
+          .reduce((a, i) => a + Number(i.amount), 0);
+        const regBirhanExp = expenses
+          .reduce((a, e) => a + (e.payment === "PT Cash" ? Number(e.middleBirhanAmount || 0) : (e.bankName === "ብርሃን ባንክ" ? Number(e.amount) : 0)), 0);
+        const regBirhanTot =
+          Number(settings.regBirhan || 0) + regBirhanInc - regBirhanExp;
+
+        el("regNigdBal").textContent = money(regNigdTot);
+        el("regBirhanBal").textContent = money(regBirhanTot);
+      }
+
+      function renderConstructionSummary() {
+        const opening = openingConstruction(),
+          inc = totalConIncome(),
+          exp = totalConExpense(),
+          bal = opening + inc - exp;
+        el("conBalance").textContent = money(bal);
+        el("con_opening").textContent = money(opening);
+        el("con_income").textContent = money(inc);
+        el("con_expense").textContent = money(exp);
+        el("conSumOpening").textContent = money(opening);
+        el("conSumIncome").textContent = money(inc);
+        el("conSumExpense").textContent = money(exp);
+        el("conSumBalance").textContent = money(bal);
+
+        const conNigdInc = conIncomes
+          .filter((i) => (i.bankName || "ንግድ ባንክ") === "ንግድ ባንክ")
+          .reduce((a, i) => a + Number(i.amount), 0);
+        const conNigdExp = conExpenses
+          .reduce((a, e) => a + (e.payment === "PT Cash" ? Number(e.middleNigdAmount || 0) : ((e.bankName || "ንግድ ባንክ") === "ንግድ ባንክ" ? Number(e.amount) : 0)), 0);
+        const conNigdTot =
+          Number(settings.conTrade || 0) + conNigdInc - conNigdExp;
+
+        const conBirhanInc = conIncomes
+          .filter((i) => i.bankName === "ብርሃን ባንክ")
+          .reduce((a, i) => a + Number(i.amount), 0);
+        const conBirhanExp = conExpenses
+          .reduce((a, e) => a + (e.payment === "PT Cash" ? Number(e.middleBirhanAmount || 0) : (e.bankName === "ብርሃን ባንክ" ? Number(e.amount) : 0)), 0);
+        const conBirhanTot =
+          Number(settings.conBirhan || 0) + conBirhanInc - conBirhanExp;
+
+        el("conNigdBal").textContent = money(conNigdTot);
+        el("conBirhanBal").textContent = money(conBirhanTot);
+      }
+
+      function renderConIncomeTable() {
+        el("conIncomeBody").innerHTML = conIncomes.length
+          ? conIncomes
+              .map(
+                (i) =>
+                  `<tr><td>${fmtDate(i.date)}</td><td>${i.type}</td><td><b>${i.bankName || "ንግድ ባንክ"}</b></td><td><b>${money(i.amount)}</b></td><td>${i.receipt || "-"}</td><td>${i.note || "-"}</td><td class="no-print"><button class="danger" onclick="removeConIncome(${i.id})">ሰርዝ</button></td></tr>`,
+              )
+              .join("")
+          : `<tr><td colspan="7" style="text-align:center;padding:16px;color:#7b8494">ምንም የተመዘገበ ገቢ የለም።</td></tr>`;
+      }
+
+      function renderConExpenseTable() {
+        el("conExpenseBody").innerHTML = conExpenses.length
+          ? conExpenses
+              .map(
+                (e) =>
+                  `<tr><td>${fmtDate(e.date)}</td><td>${e.type}</td><td><b>${e.bankName || "ንግድ ባንክ"}</b></td><td><b>${money(e.amount)}</b></td><td>${e.payment || "-"}</td><td>${e.receipt || "-"}</td><td>${e.reason || "-"}</td><td class="no-print"><button class="danger" onclick="removeConExpense(${e.id})">ሰርዝ</button></td></tr>`,
+              )
+              .join("")
+          : `<tr><td colspan="8" style="text-align:center;padding:16px;color:#7b8494">ምንም የተመዘገበ ወጪ የለም።</td></tr>`;
+      }
+
+      function renderFieldBars() {
+        el("fieldBars").innerHTML = Object.keys(BUDGET)
+          .map((f) => {
+            const b = fieldBudget(f),
+              s = fieldSpent(f),
+              p = b ? (s / b) * 100 : 0;
+            return `<div style="margin:16px 0"><div style="display:flex;justify-content:space-between;gap:10px;font-size:13px"><b>${f}</b><span>${money(s)} / ${money(b)} (${p.toFixed(1)}%)</span></div><div class="progress"><div class="bar ${p >= 100 ? "bad" : p >= 80 ? "warn" : ""}" style="width:${Math.min(100, p)}%"></div></div></div>`;
+          })
+          .join("");
+      }
+
+      function renderPerfTable() {
+        let rows = "";
+        Object.keys(BUDGET).forEach((f) => {
+          Object.keys(BUDGET[f]).forEach((s) => {
+            const b = BUDGET[f][s],
+              sp = spentFor(f, s),
+              rmn = b - sp,
+              p = b ? (sp / b) * 100 : 0;
+            const status =
+              p >= 100
+                ? `<span class="pill over">በጀት ተሻግሯል</span>`
+                : p >= 80
+                  ? `<span class="pill warn">ማስጠንቀቂያ</span>`
+                  : `<span class="pill ok">ደህና</span>`;
+            rows += `<tr><td>${f}</td><td>${s}</td><td>${money(b)}</td><td>${money(sp)}</td><td>${money(rmn)}</td><td>${p.toFixed(1)}%</td><td>${status}</td></tr>`;
+          });
+        });
+        el("perfBody").innerHTML = rows;
+      }
+
+      function renderAlertBanner() {
+        const items = [];
+        Object.keys(BUDGET).forEach((f) => {
+          Object.keys(BUDGET[f]).forEach((s) => {
+            const b = BUDGET[f][s],
+              sp = spentFor(f, s),
+              p = b ? (sp / b) * 100 : 0;
+            if (p >= 80)
+              items.push({ label: `${f} › ${s}`, pct: p, bad: p >= 100 });
+          });
+        });
+        if (!items.length) {
+          el("alertBanner").innerHTML = "";
+          return;
+        }
+        items.sort((a, b) => b.pct - a.pct);
+        el("alertBanner").innerHTML =
+          `<div class="pillrow">${items.map((i) => `<span class="warnpill ${i.bad ? "bad" : "warn"}">${i.bad ? "🚫" : "⚠️"} ${i.label} — ${i.pct.toFixed(0)}%</span>`).join("")}</div>`;
+      }
+
+      function filtered() {
+        const q = el("search").value.toLowerCase(),
+          f = el("filterField").value,
+          m = el("filterMonth").value;
+        const min = Number(el("filterMin").value) || 0,
+          max = el("filterMax").value
+            ? Number(el("filterMax").value)
+            : Infinity;
+        const pay = el("filterPayment").value,
+          stat = el("filterStatus").value;
+        return expenses.filter((e) => {
+          const over =
+            spentFor(e.field, e.subfield) > BUDGET[e.field][e.subfield];
+          return (
+            (!q ||
+              [e.field, e.subfield, e.reason, e.payment, e.receipt, e.bankName]
+                .join(" ")
+                .toLowerCase()
+                .includes(q)) &&
+            (!f || e.field === f) &&
+            (!m || e.date.startsWith(m)) &&
+            Number(e.amount) >= min &&
+            Number(e.amount) <= max &&
+            (!pay || e.payment === pay) &&
+            (!stat || (stat === "over" ? over : !over))
+          );
+        });
+      }
+
+      function renderTable() {
+        const rows = filtered();
+        el("tbody").innerHTML = rows.length
+          ? rows
+              .map((e) => {
+                const b = BUDGET[e.field][e.subfield],
+                  used = spentFor(e.field, e.subfield),
+                  over = used > b;
+                return `<tr><td>${fmtDate(e.date)}</td><td>${recordedByField(e)}</td><td>${e.field}</td><td>${e.subfield}</td><td><b>${e.bankName || "ንግድ ባንክ"}</b></td><td><b>${money(e.amount)}</b></td><td>${e.payment || "-"}</td><td>${e.receipt || "-"}</td><td>${e.reason}</td><td><span class="pill ${over ? "over" : "ok"}">${over ? "በጀት ተሻግሯል" : "በጀት ውስጥ"}</span></td><td class="no-print"><button class="danger" onclick="removeExpense(${e.id})">ሰርዝ</button></td></tr>`;
+              })
+              .join("")
+          : `<tr><td colspan="11" style="text-align:center;padding:30px;color:#7b8494">ምንም የተመዘገበ ወጪ የለም።</td></tr>`;
+      }
+
+      function renderIncomeTable() {
+        el("incomeBody").innerHTML = incomes.length
+          ? incomes
+              .map(
+                (i) =>
+                  `<tr><td>${fmtDate(i.date)}</td><td>${i.source}</td><td><b>${i.bankName || "ንግድ ባንክ"}</b></td><td><b>${money(i.amount)}</b></td><td>${i.receipt || "-"}</td><td>${i.note || "-"}</td><td class="no-print"><button class="danger" onclick="removeIncome(${i.id})">ሰርዝ</button></td></tr>`,
+              )
+              .join("")
+          : `<tr><td colspan="7" style="text-align:center;padding:20px;color:#7b8494">ምንም የተመዘገበ ገቢ የለም።</td></tr>`;
+      }
+
+      function removeExpense(id) {
+        expenses = expenses.filter((e) => e.id !== id);
+        save();
+        render();
+      }
+
+      function clearExpenses() {
+        if (confirm("ሁሉንም የተመዘገቡ ወጪዎች ማጥፋት ይፈልጋሉ?")) {
+          expenses = [];
+          save();
+          render();
+        }
+      }
+
+      function loadDemo() {
+        const subs = Object.keys(BUDGET);
+        const demo = [
+          {
+            field: subs[0],
+            subfield: Object.keys(BUDGET[subs[0]])[0],
+            amount: 4500,
+            reason: "የወጣቶች ፕሮግራም ወጪ",
+            payment: "ባንክ ትራንስፈር",
+            bankName: "ንግድ ባንክ",
+            receipt: "RCT-1001",
+            date: new Date().toISOString(),
+          },
+          {
+            field: subs[1],
+            subfield: Object.keys(BUDGET[subs[1]])[0],
+            amount: 85000,
+            reason: "የአገልጋዮች ቀለብ",
+            payment: "ባንክ ትራንስፈር",
+            bankName: "ብርሃን ባንክ",
+            receipt: "RCT-1002",
+            date: new Date(Date.now() - 86400000 * 12).toISOString(),
+          },
+        ].map((d) => ({ id: uid(), ...d }));
+        expenses = [...demo, ...expenses];
+
+        const demoIncome = [
+          {
+            id: uid(),
+            source: "አስራት",
+            bankName: "ንግድ ባንክ",
+            amount: 120000,
+            note: "የወር አስራት ስብስብ",
+            date: new Date(Date.now() - 86400000 * 5).toISOString(),
+          },
+          {
+            id: uid(),
+            source: "መባ",
+            bankName: "ብርሃን ባንክ",
+            amount: 35000,
+            note: "የሰንበት መባ",
+            date: new Date(Date.now() - 86400000 * 2).toISOString(),
+          },
+          {
+            id: uid(),
+            source: "ስጦታ",
+            bankName: "ብርሃን ባንክ",
+            amount: 50000,
+            note: "ልገሳ",
+            date: new Date(Date.now() - 86400000 * 20).toISOString(),
+          },
+        ];
+        incomes = [...demoIncome, ...incomes];
+        save();
+        render();
+      }
+
+      function exportCSV() {
+        const rows = filtered(),
+          head = [
+            "Date/Time",
+            "Recorded By",
+            "Field",
+            "Subfield",
+            "Bank",
+            "Amount",
+            "Payment",
+            "Receipt",
+            "Reason",
+          ];
+        const csv = [
+          head,
+          ...rows.map((e) => [
+            e.date,
+            recordedByField(e),
+            e.field,
+            e.subfield,
+            e.bankName || "ንግድ ባንክ",
+            e.amount,
+            e.payment || "",
+            e.receipt || "",
+            e.reason,
+          ]),
+        ]
+          .map((r) =>
+            r.map((v) => `"${String(v).replaceAll('"', '""')}"`).join(","),
+          )
+          .join("\n");
+        const blob = new Blob(["\ufeff" + csv], {
+            type: "text/csv;charset=utf-8",
+          }),
+          a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = `budget_usage_${new Date().toISOString().slice(0, 10)}.csv`;
+        a.click();
+        URL.revokeObjectURL(a.href);
+      }
+
+      function backupJSON() {
+        const data = {
+          expenses,
+          incomes,
+          conIncomes,
+          conExpenses,
+          promisedMoney,
+          promisePayments,
+          middlePersons,
+          settings,
+          exportedAt: new Date().toISOString(),
+        };
+        const blob = new Blob([JSON.stringify(data, null, 2)], {
+            type: "application/json;charset=utf-8",
+          }),
+          a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = `budget_backup_${new Date().toISOString().slice(0, 10)}.json`;
+        a.click();
+        URL.revokeObjectURL(a.href);
+      }
+
+      function restoreJSON(evt) {
+        const file = evt.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const data = JSON.parse(reader.result);
+            if (!Array.isArray(data.expenses) && !Array.isArray(data.incomes))
+              throw new Error("invalid");
+            if (!confirm("ይህ አሁን ያለውን ሁሉንም መረጃ ሙሉ በሙሉ ይተካዋል። መቀጠል ይፈልጋሉ?"))
+              return;
+            expenses = Array.isArray(data.expenses) ? data.expenses : [];
+            incomes = Array.isArray(data.incomes) ? data.incomes : [];
+            conIncomes = Array.isArray(data.conIncomes) ? data.conIncomes : [];
+            conExpenses = Array.isArray(data.conExpenses)
+              ? data.conExpenses
+              : [];
+            promisedMoney = Array.isArray(data.promisedMoney)
+              ? data.promisedMoney
+              : [];
+            promisePayments = Array.isArray(data.promisePayments)
+              ? data.promisePayments
+              : [];
+            middlePersons = Array.isArray(data.middlePersons)
+              ? data.middlePersons
+              : [];
+            if (data.settings)
+              settings = Object.assign(
+                { regTrade: 0, regBirhan: 0, conTrade: 0, conBirhan: 0 },
+                data.settings,
+              );
+            saveSettingsStorage();
+            save();
+            el("setRegTrade").value = settings.regTrade || "";
+            el("setRegBirhan").value = settings.regBirhan || "";
+            el("setConTrade").value = settings.conTrade || "";
+            el("setConBirhan").value = settings.conBirhan || "";
+            render();
+            alert("ምትኬው በትክክል ተመልሷል።");
+          } catch (err) {
+            alert("ፋይሉ ትክክለኛ የምትኬ ፋይል አይደለም።");
+          }
+          evt.target.value = "";
+        };
+        reader.readAsText(file);
+      }
+
+      function printManagementReportOnly() {
+        const d = el("secReport");
+        if (d && d.tagName === "DETAILS") d.open = true;
+        const isExp = reportState.type === "expense";
+        const now = new Date().toLocaleString("am-ET", {
+          dateStyle: "long",
+          timeStyle: "short",
+        });
+        el("printReportHeader").innerHTML = `
+          <h1>📑 የአስተዳደር ሪፖርት እና ዝርዝር ትንታኔ</h1>
+          <div class="meta">
+            የሪፖርት አይነት: ${isExp ? "ወጪ" : "ገቢ"} &nbsp;•&nbsp;
+            ወሰን (Scope): ${reportScopeLabel(isExp)} &nbsp;•&nbsp;
+            የተዘጋጀበት ጊዜ: ${now}
+          </div>
+        `;
+        document.body.classList.add("printing-report-only");
+        window.print();
+      }
+      window.addEventListener("afterprint", () => {
+        document.body.classList.remove("printing-report-only");
+      });
+      function printReport() {
+        window.print();
+      }
+
+      function renderCharts() {
+        renderLine();
+        renderCategory();
+      }
+      function svgWrap(inner) {
+        return `<svg viewBox="0 0 720 245" role="img">${inner}</svg>`;
+      }
+      function renderCategory() {
+        const data = Object.keys(BUDGET).map((f) => ({
+          label: f,
+          val: fieldSpent(f),
+        }));
+        const max = Math.max(1, ...data.map((d) => d.val)),
+          W = 650,
+          H = 190,
+          base = 205,
+          bw = 100,
+          gap = 45;
+        let s = `<line x1="10" y1="${base}" x2="${W}" y2="${base}" class="axis"/>`;
+        data.forEach((d, i) => {
+          const x = 35 + i * (bw + gap),
+            h = (d.val / max) * 160,
+            y = base - h;
+          s += `<rect x="${x}" y="${y}" width="${bw}" height="${h}" rx="8" class="barRect" opacity=".88"/><text x="${x + bw / 2}" y="${base + 18}" text-anchor="middle" class="axisText">${d.label.length > 14 ? d.label.slice(0, 14) + "…" : d.label}</text><text x="${x + bw / 2}" y="${y - 7}" text-anchor="middle" class="axisText">${Math.round(d.val).toLocaleString()}</text>`;
+        });
+        el("categoryChart").innerHTML = svgWrap(s);
+      }
+
+      function renderLine() {
+        const byMonthExp = {},
+          byMonthInc = {};
+        expenses.forEach((e) => {
+          const k = e.date.slice(0, 7);
+          byMonthExp[k] = (byMonthExp[k] || 0) + Number(e.amount);
+        });
+        incomes.forEach((i) => {
+          const k = i.date.slice(0, 7);
+          byMonthInc[k] = (byMonthInc[k] || 0) + Number(i.amount);
+        });
+        const keys = Array.from(
+          new Set([...Object.keys(byMonthExp), ...Object.keys(byMonthInc)]),
+        ).sort();
+        if (!keys.length) {
+          el("lineChart").innerHTML =
+            '<div style="padding:70px 20px;text-align:center;color:#7b8494">የተመዘገበ የወር መረጃ ሲኖር የአዝማሚያ ግራፉ ይታያል።</div>';
+          return;
+        }
+        const maxVal = Math.max(
+          1,
+          ...keys.map((k) => Math.max(byMonthExp[k] || 0, byMonthInc[k] || 0)),
+        );
+        const W = 680,
+          H = 180,
+          base = 200,
+          step = keys.length > 1 ? W / (keys.length - 1) : W;
+
+        let expPts = [],
+          incPts = [];
+        keys.forEach((k, i) => {
+          const x = 20 + i * (keys.length === 1 ? 0 : step * 0.9);
+          const yE = base - ((byMonthExp[k] || 0) / maxVal) * H;
+          const yI = base - ((byMonthInc[k] || 0) / maxVal) * H;
+          expPts.push(`${x},${yE}`);
+          incPts.push(`${x},${yI}`);
+        });
+
+        let svg = `<line x1="10" y1="${base}" x2="700" y2="${base}" class="axis"/>`;
+        if (expPts.length > 1)
+          svg += `<polyline points="${expPts.join(" ")}" class="linePath"/>`;
+        if (incPts.length > 1)
+          svg += `<polyline points="${incPts.join(" ")}" class="linePath2"/>`;
+
+        keys.forEach((k, i) => {
+          const x = 20 + i * (keys.length === 1 ? 0 : step * 0.9);
+          const yE = base - ((byMonthExp[k] || 0) / maxVal) * H;
+          const yI = base - ((byMonthInc[k] || 0) / maxVal) * H;
+          svg += `<circle cx="${x}" cy="${yE}" r="5" class="dot"/><circle cx="${x}" cy="${yI}" r="5" class="dot2"/>`;
+          svg += `<text x="${x}" y="${base + 18}" text-anchor="middle" class="axisText">${k}</text>`;
+        });
+        el("lineChart").innerHTML = svgWrap(svg);
+      }
+
+      /* ----------------------------------------------------
+         NEW INTERACTIVE REPORT SYSTEM LOGIC & CONTROLS
+      ---------------------------------------------------- */
+      function toggleReportView() {
+        reportState.visible = !reportState.visible;
+        el("reportContentArea").style.display = reportState.visible
+          ? "block"
+          : "none";
+        el("toggleReportViewBtn").textContent = reportState.visible
+          ? "👁️ ሪፖርቱን ደብቅ"
+          : "👁️ ሪፖርቱን አሳይ";
+      }
+
+      function setReportType(type) {
+        reportState.type = type;
+        el("btnRptExpense").classList.toggle("active", type === "expense");
+        el("btnRptIncome").classList.toggle("active", type === "income");
+        el("bankFilterArea").style.display =
+          type === "income" ? "block" : "none";
+        reportState.subfield = "ALL";
+        reportState.field = "ALL";
+        buildAspectButtons();
+        renderManagementReport();
+      }
+
+      function setReportTimeRange(range) {
+        reportState.timeRange = range;
+        ["Month", "Year", "Days", "All"].forEach((r) => {
+          const btn = el("btnTime" + r);
+          if (btn) btn.classList.remove("active");
+        });
+
+        if (range === "month") el("btnTimeMonth").classList.add("active");
+        if (range === "year") el("btnTimeYear").classList.add("active");
+        if (range === "range") el("btnTimeDays").classList.add("active");
+        if (range === "all") el("btnTimeAll").classList.add("active");
+
+        el("monthPickerWrap").style.display =
+          range === "month" ? "block" : "none";
+        el("yearPickerWrap").style.display =
+          range === "year" ? "block" : "none";
+        el("dateRangeWrap").style.display =
+          range === "range" ? "block" : "none";
+
+        renderManagementReport();
+      }
+
+      function setReportBank(bank, btn) {
+        reportState.bank = bank;
+        const buttons = el("bankFilterGroup").querySelectorAll("button");
+        buttons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderManagementReport();
+      }
+
+      function buildAspectButtons() {
+        const fieldArea = el("fieldButtonsArea");
+        const fieldContainer = el("fieldAspectGroup");
+        const fieldHint = el("fieldHint");
+
+        if (reportState.type === "expense") {
+          // Step 3: choose a main field (or "ALL" for a whole-report view)
+          fieldArea.style.display = "";
+          el("fieldGroupTitle").textContent = "3. ዋና መስክ ይምረጡ (Field)";
+          let fHtml = `<button class="${reportState.field === "ALL" ? "active" : ""}" onclick="selectField('ALL', this)">📊 ሁሉም መስኮች (ጠቅላላ ሪፖርት)</button>`;
+          Object.keys(BUDGET).forEach((f) => {
+            const active = reportState.field === f ? "active" : "";
+            fHtml += `<button class="${active}" onclick="selectField('${f}', this)">${f}</button>`;
+          });
+          fieldContainer.innerHTML = fHtml;
+          fieldHint.style.display = reportState.field === "ALL" ? "" : "none";
+          buildSubfieldButtons();
+        } else {
+          // Income has no field/sub-field hierarchy — just categories
+          fieldArea.style.display = "none";
+          el("aspectGroupTitle").textContent =
+            "3. በገቢ አይነት filter ያድርጉ (Categories)";
+          const container = el("subAspectGroup");
+          const categories = ["ALL", "አስራት", "መባ", "ስጦታ", "ሌላ"];
+          let html = "";
+          categories.forEach((cat) => {
+            const label = cat === "ALL" ? "ሁሉም ገቢዎች" : cat;
+            const active = reportState.subfield === cat ? "active" : "";
+            html += `<button class="${active}" onclick="selectSubfield('${cat}', this)">${label}</button>`;
+          });
+          container.innerHTML = html;
+          el("aspectButtonsArea").style.display = "";
+        }
+      }
+
+      function buildSubfieldButtons() {
+        const container = el("subAspectGroup");
+        const area = el("aspectButtonsArea");
+        // Whole-report mode: hide the sub-field row entirely to keep the
+        // panel uncluttered — pick a field above to drill down.
+        if (reportState.field === "ALL") {
+          area.style.display = "none";
+          container.innerHTML = "";
+          return;
+        }
+        area.style.display = "";
+        el("aspectGroupTitle").textContent =
+          `4. ንዑስ መስክ ይምረጡ — «${reportState.field}»`;
+        const subs = Object.keys(BUDGET[reportState.field] || {});
+        let html = `<button class="${reportState.subfield === "ALL" ? "active" : ""}" onclick="selectSubfield('ALL', this)">ሁሉም ንዑስ መስኮች በዚህ መስክ</button>`;
+        subs.forEach((s) => {
+          const active = reportState.subfield === s ? "active" : "";
+          html += `<button class="${active}" onclick="selectSubfield('${s}', this)">${s}</button>`;
+        });
+        container.innerHTML = html;
+      }
+
+      function selectField(val, btn) {
+        reportState.field = val;
+        reportState.subfield = "ALL";
+        const buttons = el("fieldAspectGroup").querySelectorAll("button");
+        buttons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        el("fieldHint").style.display = val === "ALL" ? "" : "none";
+        buildSubfieldButtons();
+        renderManagementReport();
+      }
+
+      function selectSubfield(val, btn) {
+        reportState.subfield = val;
+        const buttons = el("subAspectGroup").querySelectorAll("button");
+        buttons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderManagementReport();
+      }
+
+      function reportScopeLabel(isExp) {
+        if (isExp && reportState.field !== "ALL") {
+          return reportState.subfield !== "ALL"
+            ? `📁 ${reportState.field} ▸ ${reportState.subfield}`
+            : `📁 ${reportState.field} (ሁሉም ንዑስ መስክ)`;
+        }
+        if (!isExp && reportState.subfield !== "ALL") {
+          return `📁 ${reportState.subfield}`;
+        }
+        return "🌐 ጠቅላላ (ሁሉም መስኮች)";
+      }
+      function renderManagementReport() {
+        if (!session || session.role !== "admin") return;
+
+        const isExp = reportState.type === "expense";
+        let list = isExp ? [...expenses] : [...incomes];
+
+        // 1. Time Filtering
+        if (reportState.timeRange === "month") {
+          const m = el("rptMonth").value;
+          if (m) list = list.filter((item) => item.date.startsWith(m));
+        } else if (reportState.timeRange === "year") {
+          const y = el("rptYear").value;
+          if (y)
+            list = list.filter((item) => item.date.startsWith(y.toString()));
+        } else if (reportState.timeRange === "range") {
+          const start = el("rptStartDate").value;
+          const end = el("rptEndDate").value;
+          if (start) list = list.filter((item) => item.date >= start);
+          if (end) list = list.filter((item) => item.date <= end + "T23:59:59");
+        }
+
+        // 2. Field / Sub-field / Category Filtering
+        if (isExp) {
+          if (reportState.field !== "ALL") {
+            list = list.filter((e) => e.field === reportState.field);
+          }
+          if (reportState.subfield !== "ALL") {
+            list = list.filter((e) => e.subfield === reportState.subfield);
+          }
+        } else if (reportState.subfield !== "ALL") {
+          list = list.filter((i) => i.source === reportState.subfield);
+        }
+
+        // 3. Bank Filtering (for Income or Expenses)
+        if (!isExp && reportState.bank !== "ALL") {
+          list = list.filter(
+            (i) => (i.bankName || "ንግድ ባንክ") === reportState.bank,
+          );
+        }
+
+        // Generate Stats Summary Cards
+        const totalSum = list.reduce((a, b) => a + Number(b.amount), 0);
+        const count = list.length;
+        const avg = count ? totalSum / count : 0;
+
+        let scopeLabel = reportScopeLabel(isExp);
+
+        let statsHTML = `
+          <div class="report-stat">
+            <div class="label">ጠቅላላ የተመረጠ ${isExp ? "ወጪ" : "ገቢ"}</div>
+            <div class="value">${money(totalSum)}</div>
+          </div>
+          <div class="report-stat">
+            <div class="label">የግብይቶች ብዛት</div>
+            <div class="value">${count}</div>
+          </div>
+          <div class="report-stat">
+            <div class="label">አማካኝ በየግብይቱ</div>
+            <div class="value">${money(avg)}</div>
+          </div>
+          <div class="report-stat">
+            <div class="label">የተመረጠ ወሰን (Scope)</div>
+            <div class="value" style="font-size:14px; margin-top:8px;">${scopeLabel}</div>
+          </div>
+        `;
+        el("reportStats").innerHTML = statsHTML;
+
+        // Render Report Table
+        if (isExp) {
+          let tableHTML = `
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ቀን/ሰዓት (When)</th>
+                    <th>መዝጋቢ</th>
+                    <th>ዋና መስክ</th>
+                    <th>ንዑስ መስክ (Category)</th>
+                    <th>ወጣበት ባንክ (Bank)</th>
+                    <th>መጠን</th>
+                    <th>የክፍያ ዘዴ</th>
+                    <th>ደረሰኝ</th>
+                    <th>ምክንያት</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${
+                    list.length
+                      ? list
+                          .map(
+                            (e) => `
+                        <tr>
+                          <td><b>${fmtDate(e.date)}</b></td>
+                          <td>${recordedByField(e)}</td>
+                          <td>${e.field}</td>
+                          <td><b>${e.subfield}</b></td>
+                          <td>${e.bankName || "ንግድ ባንክ"}</td>
+                          <td><b style="color:var(--bad)">${money(e.amount)}</b></td>
+                          <td>${e.payment || "-"}</td>
+                          <td>${e.receipt || "-"}</td>
+                          <td>${e.reason}</td>
+                        </tr>
+                      `,
+                          )
+                          .join("")
+                      : `<tr><td colspan="9" style="text-align:center;padding:24px;color:var(--muted)">በተመረጠው መስፈርት የተገኘ የወጪ መረጃ የለም።</td></tr>`
+                  }
+                </tbody>
+              </table>
+            </div>
+          `;
+          el("reportBody").innerHTML = tableHTML;
+        } else {
+          // INCOME REPORT TABLE WITH "WHEN, BY WHAT BANK AND CATEGORY"
+          let tableHTML = `
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ቀን እና ሰዓት (When)</th>
+                    <th>የገቢ አይነት (Category: Asrat/Meba)</th>
+                    <th>የገባበት ባንክ (By What Bank)</th>
+                    <th>የገቢ መጠን</th>
+                    <th>መዝጋቢ</th>
+                    <th>ማስታወሻ / ዝርዝር</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${
+                    list.length
+                      ? list
+                          .map(
+                            (i) => `
+                        <tr>
+                          <td><b>${fmtDate(i.date)}</b></td>
+                          <td><span class="pill ok">${i.source}</span></td>
+                          <td><b>🏛️ ${i.bankName || "ንግድ ባንክ"}</b></td>
+                          <td><b style="color:var(--good)">${money(i.amount)}</b></td>
+                          <td>${i.recordedBy || "አድሚን"}</td>
+                          <td>${i.note || "-"}</td>
+                        </tr>
+                      `,
+                          )
+                          .join("")
+                      : `<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--muted)">በተመረጠው መስፈርት የተገኘ የገቢ መረጃ የለም።</td></tr>`
+                  }
+                </tbody>
+              </table>
+            </div>
+          `;
+          el("reportBody").innerHTML = tableHTML;
+        }
+      }
+
+      boot();
+    </script>
+  </body>
+</html>
