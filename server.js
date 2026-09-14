@@ -5,6 +5,7 @@ const session = require("express-session");
 const { getState, setState } = require("./db");
 
 const app = express();
+app.set("trust proxy", 1);
 const PORT = process.env.PORT || 3000;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
 const USER_PASSWORD = process.env.USER_PASSWORD || "user123";
@@ -28,10 +29,10 @@ app.use(
     cookie: {
       httpOnly: true,
       sameSite: "lax",
-      // secure:true requires HTTPS — most hosts (Render, a VPS behind a
-      // reverse proxy, etc.) terminate TLS in front of Node, so this is
-      // usually safe to enable once you're serving over https://
-      secure: process.env.COOKIE_SECURE === "true",
+      // "auto" checks the real connection (via the trust proxy setting
+      // above) instead of blindly forcing Secure, which is what breaks
+      // logins behind a reverse proxy like most hosting platforms use.
+      secure: process.env.COOKIE_SECURE === "true" ? "auto" : false,
       maxAge: 1000 * 60 * 60 * 24 * 14, // 2 weeks
     },
   }),
