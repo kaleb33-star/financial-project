@@ -1407,12 +1407,17 @@
       >
         <span id="whoAmI"></span>
         <span class="sync-status ok" id="syncStatus">✅ ተቀምጧል</span>
-        <details class="tools-menu admin-only admin-control">
+        <details class="tools-menu">
           <summary>⚙️ ተጨማሪ አማራጮች</summary>
           <div class="tools-menu-panel">
-            <button onclick="printReport()">🖨️ አትም / PDF</button>
+            <button class="admin-only" onclick="printReport()">
+              🖨️ አትም / PDF
+            </button>
             <button onclick="backupJSON()">💾 ምትኬ አውርድ (JSON)</button>
-            <button onclick="document.getElementById('restoreFile').click()">
+            <button
+              class="admin-only"
+              onclick="document.getElementById('restoreFile').click()"
+            >
               📥 ምትኬ መልስ
             </button>
           </div>
@@ -3254,14 +3259,27 @@
       function totalConExpense() {
         return conExpenses.reduce((a, e) => a + Number(e.amount), 0);
       }
+      // Display stored Gregorian timestamps in the Ethiopian calendar.
+      // The database keeps the original ISO/Gregorian value so sorting,
+      // comparisons, and existing records remain safe.
       function fmtDate(x) {
-        return new Date(x).toLocaleString("am-ET", {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
-        });
+        if (!x) return "-";
+
+        const d = new Date(x);
+        if (isNaN(d.getTime())) return String(x);
+
+        try {
+          return new Intl.DateTimeFormat("am-ET-u-ca-ethiopic", {
+            dateStyle: "medium",
+            timeStyle: "short",
+          }).format(d);
+        } catch (err) {
+          console.error("Ethiopian date formatting failed:", err);
+          return new Intl.DateTimeFormat("am-ET", {
+            dateStyle: "medium",
+            timeStyle: "short",
+          }).format(d);
+        }
       }
 
       function getRadioValue(name) {
@@ -3913,20 +3931,49 @@
       }
       function removePromise(id) {
         if (!session || session.role !== "admin") return;
-        promisedMoney = promisedMoney.filter((p) => p.id !== id);
-        promisePayments = promisePayments.filter((p) => p.promiseId !== id);
+
+        id = String(id);
+
+        if (!confirm("ይህን የተስፋ ገንዘብ መዝገብ እና የተያያዙ ክፍያዎችን መሰረዝ ይፈልጋሉ?")) {
+          return;
+        }
+
+        promisedMoney = promisedMoney.filter((p) => String(p.id) !== id);
+
+        promisePayments = promisePayments.filter(
+          (p) => String(p.promiseId) !== id,
+        );
+
         save();
         render();
       }
+
       function removePromisePayment(id) {
         if (!session || session.role !== "admin") return;
-        promisePayments = promisePayments.filter((p) => p.id !== id);
+
+        id = String(id);
+
+        if (!confirm("ይህን የተከፈለ ገንዘብ መዝገብ መሰረዝ ይፈልጋሉ?")) {
+          return;
+        }
+
+        promisePayments = promisePayments.filter((p) => String(p.id) !== id);
+
         save();
         render();
       }
+
       function removeMiddlePerson(id) {
         if (!session || session.role !== "admin") return;
-        middlePersons = middlePersons.filter((m) => m.id !== id);
+
+        id = String(id);
+
+        if (!confirm("ይህን የመካከለኛ ሰው መዝገብ መሰረዝ ይፈልጋሉ?")) {
+          return;
+        }
+
+        middlePersons = middlePersons.filter((m) => String(m.id) !== id);
+
         save();
         render();
       }
@@ -3955,7 +4002,7 @@
         const paid = paidForPromise(p.id);
         const remaining = Number(p.amount) - paid;
         const st = promiseStatus(p, paid);
-        return `<tr><td>${fmtDate(p.date)}</td><td>${escapeHtml(p.name)}</td><td>${escapeHtml(p.phone || "-")}</td><td><b>${money(p.amount)}</b></td><td>${money(paid)}</td><td>${money(remaining)}</td><td>${st.pct.toFixed(1)}%</td><td>${p.deadline ? escapeHtml(p.deadline) : "-"}</td><td><span class="pill ${st.cls}">${st.label}</span></td><td>${escapeHtml(p.note || "-")}</td><td>${escapeHtml(p.recordedBy || "-")}</td><td class="no-print"><button class="danger" onclick="removePromise(${p.id})">ሰርዝ</button></td></tr>`;
+        return `<tr><td>${fmtDate(p.date)}</td><td>${escapeHtml(p.name)}</td><td>${escapeHtml(p.phone || "-")}</td><td><b>${money(p.amount)}</b></td><td>${money(paid)}</td><td>${money(remaining)}</td><td>${st.pct.toFixed(1)}%</td><td>${p.deadline ? escapeHtml(p.deadline) : "-"}</td><td><span class="pill ${st.cls}">${st.label}</span></td><td>${escapeHtml(p.note || "-")}</td><td>${escapeHtml(p.recordedBy || "-")}</td><td class="no-print"><button class="danger" onclick='removePromise(${JSON.stringify(String(p.id))})'>ሰርዝ</button></td></tr>`;
       }
       function renderPromisedAndMiddleAdmin() {
         const normal = promisedMoney.filter((p) => p.category === "normal");
@@ -3993,7 +4040,7 @@
               sb = middleSpentForName(m.name, "birhan");
             const rn = middleRemainingForName(m.name, "nigd"),
               rb = middleRemainingForName(m.name, "birhan");
-            return `<tr><td>${fmtDate(m.date)}</td><td>${escapeHtml(m.name)}</td><td>${money(n)}</td><td>${money(b)}</td><td>${money(sn + sb)}</td><td>${money(rn)}</td><td>${money(rb)}</td><td><b>${money(rn + rb)}</b></td><td>${escapeHtml(m.note || "-")}</td><td class="no-print"><button class="danger" onclick="removeMiddlePerson(${m.id})">ሰርዝ</button></td></tr>`;
+            return `<tr><td>${fmtDate(m.date)}</td><td>${escapeHtml(m.name)}</td><td>${money(n)}</td><td>${money(b)}</td><td>${money(sn + sb)}</td><td>${money(rn)}</td><td>${money(rb)}</td><td><b>${money(rn + rb)}</b></td><td>${escapeHtml(m.note || "-")}</td><td class="no-print"><button class="danger" onclick='removeMiddlePerson(${JSON.stringify(String(m.id))})'>ሰርዝ</button></td></tr>`;
           });
           el("middleBody").innerHTML = rows.length
             ? rows.join("")
@@ -4160,11 +4207,24 @@
       }
 
       function removeIncome(id) {
-        incomes = incomes.filter((i) => i.id !== id);
+        if (
+          !session ||
+          (session.role !== "admin" && session.role !== "staff")
+        ) {
+          return;
+        }
+
+        id = String(id);
+
+        if (!confirm("ይህን የገቢ መዝገብ መሰረዝ ይፈልጋሉ?")) {
+          return;
+        }
+
+        incomes = incomes.filter((i) => String(i.id) !== id);
+
         save();
         render();
       }
-
       function addConIncome() {
         if (!session || (session.role !== "admin" && session.role !== "staff"))
           return;
@@ -4295,13 +4355,38 @@
       }
 
       function removeConIncome(id) {
-        conIncomes = conIncomes.filter((i) => i.id !== id);
+        if (
+          !session ||
+          (session.role !== "admin" && session.role !== "staff")
+        ) {
+          return;
+        }
+
+        id = String(id);
+
+        if (!confirm("ይህን የግንባታ ገቢ መዝገብ መሰረዝ ይፈልጋሉ?")) {
+          return;
+        }
+
+        conIncomes = conIncomes.filter((i) => String(i.id) !== id);
+
         save();
         render();
       }
 
       function removeConExpense(id) {
-        conExpenses = conExpenses.filter((e) => e.id !== id);
+        if (!session || session.role !== "admin") {
+          return;
+        }
+
+        id = String(id);
+
+        if (!confirm("ይህን የግንባታ ወጪ መዝገብ መሰረዝ ይፈልጋሉ?")) {
+          return;
+        }
+
+        conExpenses = conExpenses.filter((e) => String(e.id) !== id);
+
         save();
         render();
       }
@@ -4444,7 +4529,7 @@
           ? conIncomes
               .map(
                 (i) =>
-                  `<tr><td>${fmtDate(i.date)}</td><td>${i.type}</td><td><b>${i.bankName || "ንግድ ባንክ"}</b></td><td><b>${money(i.amount)}</b></td><td>${i.receipt || "-"}</td><td>${i.note || "-"}</td><td class="no-print"><button class="danger" onclick="removeConIncome(${i.id})">ሰርዝ</button></td></tr>`,
+                  `<tr><td>${fmtDate(i.date)}</td><td>${i.type}</td><td><b>${i.bankName || "ንግድ ባንክ"}</b></td><td><b>${money(i.amount)}</b></td><td>${i.receipt || "-"}</td><td>${i.note || "-"}</td><td class="no-print"><button class="danger" onclick='removeConIncome(${JSON.stringify(String(i.id))})'>ሰርዝ</button></td></tr>`,
               )
               .join("")
           : `<tr><td colspan="7" style="text-align:center;padding:16px;color:#7b8494">ምንም የተመዘገበ ገቢ የለም።</td></tr>`;
@@ -4455,7 +4540,7 @@
           ? conExpenses
               .map(
                 (e) =>
-                  `<tr><td>${fmtDate(e.date)}</td><td>${e.type}</td><td><b>${e.bankName || "ንግድ ባንክ"}</b></td><td><b>${money(e.amount)}</b></td><td>${e.payment || "-"}</td><td>${e.receipt || "-"}</td><td>${e.reason || "-"}</td><td class="no-print"><button class="danger" onclick="removeConExpense(${e.id})">ሰርዝ</button></td></tr>`,
+                  `<tr><td>${fmtDate(e.date)}</td><td>${e.type}</td><td><b>${e.bankName || "ንግድ ባንክ"}</b></td><td><b>${money(e.amount)}</b></td><td>${e.payment || "-"}</td><td>${e.receipt || "-"}</td><td>${e.reason || "-"}</td><td class="no-print"><button class="danger" onclick='removeConExpense(${JSON.stringify(String(e.id))})'>ሰርዝ</button></td></tr>`,
               )
               .join("")
           : `<tr><td colspan="8" style="text-align:center;padding:16px;color:#7b8494">ምንም የተመዘገበ ወጪ የለም።</td></tr>`;
@@ -4549,7 +4634,7 @@
                 const b = BUDGET[e.field][e.subfield],
                   used = spentFor(e.field, e.subfield),
                   over = used > b;
-                return `<tr><td>${fmtDate(e.date)}</td><td>${recordedByField(e)}</td><td>${e.field}</td><td>${e.subfield}</td><td><b>${e.bankName || "ንግድ ባንክ"}</b></td><td><b>${money(e.amount)}</b></td><td>${e.payment || "-"}</td><td>${e.receipt || "-"}</td><td>${e.reason}</td><td><span class="pill ${over ? "over" : "ok"}">${over ? "በጀት ተሻግሯል" : "በጀት ውስጥ"}</span></td><td class="no-print"><button class="danger" onclick="removeExpense(${e.id})">ሰርዝ</button></td></tr>`;
+                return `<tr><td>${fmtDate(e.date)}</td><td>${recordedByField(e)}</td><td>${e.field}</td><td>${e.subfield}</td><td><b>${e.bankName || "ንግድ ባንክ"}</b></td><td><b>${money(e.amount)}</b></td><td>${e.payment || "-"}</td><td>${e.receipt || "-"}</td><td>${e.reason}</td><td><span class="pill ${over ? "over" : "ok"}">${over ? "በጀት ተሻግሯል" : "በጀት ውስጥ"}</span></td><td class="no-print"><button class="danger" onclick='removeExpense(${JSON.stringify(String(e.id))})'>ሰርዝ</button></td></tr>`;
               })
               .join("")
           : `<tr><td colspan="11" style="text-align:center;padding:30px;color:#7b8494">ምንም የተመዘገበ ወጪ የለም።</td></tr>`;
@@ -4560,14 +4645,28 @@
           ? incomes
               .map(
                 (i) =>
-                  `<tr><td>${fmtDate(i.date)}</td><td>${i.source}</td><td><b>${i.bankName || "ንግድ ባንክ"}</b></td><td><b>${money(i.amount)}</b></td><td>${i.receipt || "-"}</td><td>${i.note || "-"}</td><td class="no-print"><button class="danger" onclick="removeIncome(${i.id})">ሰርዝ</button></td></tr>`,
+                  `<tr><td>${fmtDate(i.date)}</td><td>${i.source}</td><td><b>${i.bankName || "ንግድ ባንክ"}</b></td><td><b>${money(i.amount)}</b></td><td>${i.receipt || "-"}</td><td>${i.note || "-"}</td><td class="no-print"><button class="danger" onclick='removeIncome(${JSON.stringify(String(i.id))})'>ሰርዝ</button></td></tr>`,
               )
               .join("")
           : `<tr><td colspan="7" style="text-align:center;padding:20px;color:#7b8494">ምንም የተመዘገበ ገቢ የለም።</td></tr>`;
       }
 
       function removeExpense(id) {
-        expenses = expenses.filter((e) => e.id !== id);
+        if (
+          !session ||
+          (session.role !== "admin" && session.role !== "staff")
+        ) {
+          return;
+        }
+
+        id = String(id);
+
+        if (!confirm("ይህን የወጪ መዝገብ መሰረዝ ይፈልጋሉ?")) {
+          return;
+        }
+
+        expenses = expenses.filter((e) => String(e.id) !== id);
+
         save();
         render();
       }
