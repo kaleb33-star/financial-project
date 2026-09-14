@@ -3268,18 +3268,13 @@
         const d = new Date(x);
         if (isNaN(d.getTime())) return String(x);
 
-        try {
-          return new Intl.DateTimeFormat("am-ET-u-ca-ethiopic", {
-            dateStyle: "medium",
-            timeStyle: "short",
-          }).format(d);
-        } catch (err) {
-          console.error("Ethiopian date formatting failed:", err);
-          return new Intl.DateTimeFormat("am-ET", {
-            dateStyle: "medium",
-            timeStyle: "short",
-          }).format(d);
-        }
+        return new Intl.DateTimeFormat("am-ET", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        }).format(d);
       }
 
       function getRadioValue(name) {
